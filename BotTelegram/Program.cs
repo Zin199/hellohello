@@ -22,6 +22,7 @@ namespace BotTelegram
         private static TopupTransactionRepository _topupTransactionRepository = new TopupTransactionRepository();
 
         private static ChargingTopupTransactionRepository _chargingTopupTransactionRepository = new ChargingTopupTransactionRepository();
+       
 
         private static PartnerRepository _partnerRepository = new PartnerRepository();
 
@@ -68,9 +69,9 @@ namespace BotTelegram
                 var partner = _partnerRepository.GetPartnerByTelegramGroupId(e.Message.Chat.Id.ToString());
 
 
-                if (partner != null && e.Message.Text.StartsWith("/check "))
+                if (partner != null && e.Message.Text.StartsWith("/VT "))
                 {
-                    var serial = e.Message.Text.Replace("/check", "").Trim();
+                    var serial = e.Message.Text.Replace("/VT", "").Trim();
 
                     var chargingTran = _chargingTransactionRepository.GetTransactionBySerialPartnerCode(serial, partner.Code);
 
@@ -86,29 +87,31 @@ namespace BotTelegram
                         }
                         else if (chargingTran.Status == 100)
                         {
-                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Không sử dụng bên mình.");
+                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Không sử dụng bên em.");
                         }
                         else
                         {
-                            var addCard = _checkCardTransactionRepository.InsertCheckCard(serial, (byte)chargingTran.CardType);
+
                             var checkCard = new CheckCardTransaction();
                             var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
                             var a = 0;
-                            do
-                            {
-                                checkCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
-                                if (checkCard != null || a > 3)
+                          
+                                var addCard = _checkCardTransactionRepository.InsertCheckCard(serial, (byte)chargingTran.CardType);
+                                do
                                 {
-                                    break;
-                                }
-                                else
-                                {
-                                    Thread.Sleep(5000);
-                                }
-                                a++;
-                            }
-                            while (a <= 3);
 
+                                    checkCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
+                                    if (checkCard != null || a > 3)
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Thread.Sleep(5000);
+                                    }
+                                    a++;
+                                }
+                                while (a <= 3);
                             if (checkCard != null)
                             {
                                 if (checkCard.Status == 1 && checkCard.CardStatus == 0)
@@ -121,7 +124,7 @@ namespace BotTelegram
                                 }
                                 else if (checkCard.Status == 1 && chargingTran.Status == 2 && checkCard.Isdn.Substring(0, 5) != checkMobile.Mobile.Substring(1, 5))
                                 {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount}, sđt {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| sđt nạp k phải bên mình.");
+                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount}, sđt {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| sđt nạp k phải bên em.");
                                 }
 
                             }
@@ -137,70 +140,64 @@ namespace BotTelegram
                     }
 
                 }
-                //if (e.Message.Text.StartsWith("/serialsai"))
-                //{
-                //    List<string> listSeri = e.Message.Text.Split(' ').ToList();
-                //    foreach (var a in listSeri)
-                //    {
-                //        Console.WriteLine(a);
-                //    }
-                //    Console.WriteLine("/serialsai: " + listSeri[0]);
-                //    Console.WriteLine("seri1: " + listSeri[1]);
-                //    Console.WriteLine("/serialdung: " + listSeri[2]);
-                //    Console.WriteLine("seri2: " + listSeri[3]);
+                if (e.Message.Text.StartsWith("/VTsai"));
+                {
+                    List<string> list = e.Message.Text.Split(' ').ToList();
+                    foreach (var a in list)
+                    {
+                        Console.WriteLine(a);
+                    }
+                    if (list[0] == "/VTsai" && list[2] == "/VTdung")
+                    {
 
-                //    var serialsai = "";
-                //    var serialdung = "";
+                        var chargingTran = _chargingTransactionRepository.GetTransactionBySerialFalsePartnerCode(list[1], partner.Code);
 
-                //    // /serialsai 4390328402 /serialdung alsdkjfsld
+                        var addCard = _checkCardTransactionRepository.InsertCheckCard(list[3], (byte)chargingTran.CardType);
+                       
+                        var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
+                        /*
+                          * 1. Khach gui serial sai.
+                          * 2. Kiem tra serial sai và trả lời kèm cú pháp hướng dẫn sai đúng.
+                          * 3. Lấy serial đúng check serial, đợi khoảng 1-30s, có kết quả thì sửa luôn trạng thái thẻ và bot trả lời luôn
+                          Logic đợi.
+                         1. Insert vào bảng checkcard.
+                         2.Cho vào vòng lặp check xem cái serial vừa insert có kết quả chưa, nếu chưa thì sleep 5000.
+                          */
+                        var a = 0;
+                        var checkCardTran = new CheckCardTransaction();
+                        do
+                        {
 
-                //    if (listSeri[0] == "/serialsai" && listSeri[2] == "/serialdung")
-                //    {
+                            addCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
+                            if (addCard != null || a > 3)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Thread.Sleep(5000);
+                            }
+                            a++;
+                        }
+                        while (a <= 3);
 
-                //        var chargingTran = _chargingTransactionRepository.GetTransactionBySerialFalsePartnerCode(serialsai, partner.Code);
+                        if (checkCardTran.Status == 1 && checkCardTran.Isdn.Substring(0, 5) == checkMobile.Mobile.Substring(1, 5))
+                        {
+                            //var update = _chargingTransactionRepository.UpdateSerialFalse(list[2], 1);
+                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial sai {list[1]}, serial đúng {list[3]} thành công {checkCardTran.CardAmount} đã callback lại.");
+                        }
+                        else if
+                            (checkCardTran.Status == 13)
+                        {
+                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã tiếp nhận thông tin serial sai và serial đúng. A/c chờ chút bên em kiểm tra ạ @mrtelesupport");
+                        }
 
-                //        var insertedCheckSerial = _checkCardTransactionRepository.InsertCheckCard(serialdung, (byte)chargingTran.CardType);
-
-                //        var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
-                //        /*
-                //          * 1. Khach gui serial sai.
-                //          * 2. Kiem tra serial sai và trả lời kèm cú pháp hướng dẫn sai đúng.
-                //          * 3. Lấy serial đúng check serial, đợi khoảng 1-30s, có kết quả thì sửa luôn trạng thái thẻ và bot trả lời luôn
-                //          Logic đợi.
-                //         1. Insert vào bảng checkcard.
-                //         2.Cho vào vòng lặp check xem cái serial vừa insert có kết quả chưa, nếu chưa thì sleep 5000.
-                //          */
-                //        var dem = 0;
-                //        var checkCardTran = new CheckCardTransaction();
-                //        do
-                //        {
-                //            checkCardTran = _checkCardTransactionRepository.GetCheckCard(serialdung);
-                //            Thread.Sleep(5000);
-                //            dem++;
-                //            if (dem < 5)
-                //            {
-                //                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã tiếp nhận thông tin serial sai và serial đúng. A/c chờ chút bên em kiểm tra ạ @mrtelesupport ");
-                //                break;
-                //            }
-                //        } while (checkCardTran.Status == 1);
-
-                //        if (checkCardTran.Status == 1 && checkCardTran.Isdn.Substring(0, 5) == checkMobile.Mobile.Substring(1, 5))
-                //        {
-                //            //_checkCardTransactionRepository.UpdateSerialSai(serialsai, checkCardTran.CardAmount);
-                //            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" serialsai {listSeri[1]} serialdung {listSeri[2]} thành công {checkCardTran.CardAmount} đã callback lại.");
-                //        }
-                //        else if
-                //            (checkCardTran.Status == 13)
-                //        {
-                //            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã tiếp nhận thông tin serial sai và serial đúng. A/c chờ chút bên em kiểm tra ạ @mrtelesupport");
-                //        }
-
-                //    }
-                //    else
-                //    {
-                //        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Sai cú pháp kiểm tra.");
-                //    }
-                //}
+                    }
+                    else
+                    {
+                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Sai cú pháp kiểm tra.");
+                    }
+                }
             }
 
 

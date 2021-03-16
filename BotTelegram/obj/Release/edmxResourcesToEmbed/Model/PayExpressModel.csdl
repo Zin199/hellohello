@@ -1,0 +1,2756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DevPayExpressModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C__EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpAuditLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrowserInfo" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ClientIpAddress" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ClientName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CustomData" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="ExecutionDuration" Type="Int32" Nullable="false" />
+    <Property Name="ExecutionTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ImpersonatorTenantId" Type="Int32" />
+    <Property Name="ImpersonatorUserId" Type="Int64" />
+    <Property Name="MethodName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Parameters" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="ReturnValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AbpBackgroundJob">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="IsAbandoned" Type="Boolean" Nullable="false" />
+    <Property Name="JobArgs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobType" Type="String" MaxLength="512" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastTryTime" Type="DateTime" Precision="7" />
+    <Property Name="NextTryTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Priority" Type="Byte" Nullable="false" />
+    <Property Name="TryCount" Type="Int16" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpEdition">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="DisplayName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Discriminator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnnualPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ExpiringEditionId" Type="Int32" />
+    <Property Name="MonthlyPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="TrialDayCount" Type="Int32" />
+    <Property Name="WaitingDayAfterExpire" Type="Int32" />
+    <Property Name="DailyPrice" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="WeeklyPrice" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="AbpFeatures" Relationship="Self.FK_AbpFeatures_AbpEditions_EditionId" FromRole="AbpEditions" ToRole="AbpFeatures" />
+    <NavigationProperty Name="AbpTenants" Relationship="Self.FK_AbpTenants_AbpEditions_EditionId" FromRole="AbpEditions" ToRole="AbpTenants" />
+    <NavigationProperty Name="AppSubscriptionPayments" Relationship="Self.FK_AppSubscriptionPayments_AbpEditions_EditionId" FromRole="AbpEditions" ToRole="AppSubscriptionPayments" />
+  </EntityType>
+  <EntityType Name="AbpEntityChanx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChangeTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ChangeType" Type="Byte" Nullable="false" />
+    <Property Name="EntityChangeSetId" Type="Int64" Nullable="false" />
+    <Property Name="EntityId" Type="String" MaxLength="48" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeFullName" Type="String" MaxLength="192" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpEntityChangeSet" Relationship="Self.FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId" FromRole="AbpEntityChanges" ToRole="AbpEntityChangeSets" />
+    <NavigationProperty Name="AbpEntityPropertyChanges" Relationship="Self.FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId" FromRole="AbpEntityChanges" ToRole="AbpEntityPropertyChanges" />
+  </EntityType>
+  <EntityType Name="AbpEntityChangeSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrowserInfo" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ClientIpAddress" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ClientName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="ExtensionData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImpersonatorTenantId" Type="Int32" />
+    <Property Name="ImpersonatorUserId" Type="Int64" />
+    <Property Name="Reason" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" />
+    <NavigationProperty Name="AbpEntityChanges" Relationship="Self.FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId" FromRole="AbpEntityChangeSets" ToRole="AbpEntityChanges" />
+  </EntityType>
+  <EntityType Name="AbpEntityPropertyChanx">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EntityChangeId" Type="Int64" Nullable="false" />
+    <Property Name="NewValue" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="OriginalValue" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="PropertyName" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+    <Property Name="PropertyTypeFullName" Type="String" MaxLength="192" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpEntityChanx" Relationship="Self.FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId" FromRole="AbpEntityPropertyChanges" ToRole="AbpEntityChanges" />
+  </EntityType>
+  <EntityType Name="AbpFeature">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="Discriminator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EditionId" Type="Int32" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpEdition" Relationship="Self.FK_AbpFeatures_AbpEditions_EditionId" FromRole="AbpFeatures" ToRole="AbpEditions" />
+  </EntityType>
+  <EntityType Name="AbpLanguage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="DisplayName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Icon" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="IsDisabled" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpLanguageText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="Key" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LanguageName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Source" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DataTypeName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="EntityId" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeAssemblyQualifiedName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ExcludedUserIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationName" Type="String" MaxLength="96" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Severity" Type="Byte" Nullable="false" />
+    <Property Name="TenantIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AbpNotificationSubscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="EntityId" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeAssemblyQualifiedName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationName" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpOrganizationUnitRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="OrganizationUnitId" Type="Int64" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpOrganizationUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="95" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="DisplayName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="ParentId" Type="Int64" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpOrganizationUnits1" Relationship="Self.FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId" FromRole="AbpOrganizationUnits" ToRole="AbpOrganizationUnits1" />
+    <NavigationProperty Name="AbpOrganizationUnit1" Relationship="Self.FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId" FromRole="AbpOrganizationUnits1" ToRole="AbpOrganizationUnits" />
+  </EntityType>
+  <EntityType Name="AbpPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="Discriminator" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsGranted" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" />
+    <NavigationProperty Name="AbpRole" Relationship="Self.FK_AbpPermissions_AbpRoles_RoleId" FromRole="AbpPermissions" ToRole="AbpRoles" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpPermissions_AbpUsers_UserId" FromRole="AbpPermissions" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpPersistedGrant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClientId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Expiration" Type="DateTime" Precision="7" />
+    <Property Name="SubjectId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpRoleClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpRole" Relationship="Self.FK_AbpRoleClaims_AbpRoles_RoleId" FromRole="AbpRoleClaims" ToRole="AbpRoles" />
+  </EntityType>
+  <EntityType Name="AbpRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConcurrencyStamp" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="DisplayName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsStatic" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NormalizedName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpPermissions" Relationship="Self.FK_AbpPermissions_AbpRoles_RoleId" FromRole="AbpRoles" ToRole="AbpPermissions" />
+    <NavigationProperty Name="AbpRoleClaims" Relationship="Self.FK_AbpRoleClaims_AbpRoles_RoleId" FromRole="AbpRoles" ToRole="AbpRoleClaims" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpRoles_AbpUsers_CreatorUserId" FromRole="AbpRoles" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUser1" Relationship="Self.FK_AbpRoles_AbpUsers_DeleterUserId" FromRole="AbpRoles" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUser2" Relationship="Self.FK_AbpRoles_AbpUsers_LastModifierUserId" FromRole="AbpRoles" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpSettings_AbpUsers_UserId" FromRole="AbpSettings" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpTenantNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DataTypeName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="EntityId" Type="String" MaxLength="96" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeAssemblyQualifiedName" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="EntityTypeName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NotificationName" Type="String" MaxLength="96" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Severity" Type="Byte" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AbpTenant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConnectionString" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="CustomCssId" Type="Guid" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="EditionId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="LogoFileType" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="LogoId" Type="Guid" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenancyName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsInTrialPeriod" Type="Boolean" Nullable="false" />
+    <Property Name="SubscriptionEndDateUtc" Type="DateTime" Precision="7" />
+    <Property Name="SubscriptionPaymentType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AbpEdition" Relationship="Self.FK_AbpTenants_AbpEditions_EditionId" FromRole="AbpTenants" ToRole="AbpEditions" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpTenants_AbpUsers_CreatorUserId" FromRole="AbpTenants" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUser1" Relationship="Self.FK_AbpTenants_AbpUsers_DeleterUserId" FromRole="AbpTenants" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUser2" Relationship="Self.FK_AbpTenants_AbpUsers_LastModifierUserId" FromRole="AbpTenants" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpUserAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="UserLinkId" Type="Int64" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AbpUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClaimType" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpUserClaims_AbpUsers_UserId" FromRole="AbpUserClaims" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpUserLoginAttempt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrowserInfo" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ClientIpAddress" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ClientName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Result" Type="Byte" Nullable="false" />
+    <Property Name="TenancyName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="UserNameOrEmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AbpUserLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpUserLogins_AbpUsers_UserId" FromRole="AbpUserLogins" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpUserNotification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="TenantNotificationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUserOrganizationUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="OrganizationUnitId" Type="Int64" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpUserOrganizationUnits_AbpUsers_UserId" FromRole="AbpUserOrganizationUnits" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpUserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpUserRoles_AbpUsers_UserId" FromRole="AbpUserRoles" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="AuthenticationSource" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="ConcurrencyStamp" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="EmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailConfirmationCode" Type="String" MaxLength="328" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsEmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsPhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="IsTwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="7" />
+    <Property Name="UserType" Type="Byte" />
+    <Property Name="ParentUserId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NormalizedEmailAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NormalizedUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PasswordResetCode" Type="String" MaxLength="328" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePictureId" Type="Guid" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="ShouldChangePasswordOnNextLogin" Type="Boolean" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SignInToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SignInTokenExpireTimeUtc" Type="DateTime" Precision="7" />
+    <Property Name="GoogleAuthenticatorKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TopupPriority" Type="Int32" />
+    <Property Name="DebitLimit" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CardImages" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="OtherImages" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AbpPermissions" Relationship="Self.FK_AbpPermissions_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpPermissions" />
+    <NavigationProperty Name="AbpRoles" Relationship="Self.FK_AbpRoles_AbpUsers_CreatorUserId" FromRole="AbpUsers" ToRole="AbpRoles" />
+    <NavigationProperty Name="AbpRoles1" Relationship="Self.FK_AbpRoles_AbpUsers_DeleterUserId" FromRole="AbpUsers" ToRole="AbpRoles" />
+    <NavigationProperty Name="AbpRoles2" Relationship="Self.FK_AbpRoles_AbpUsers_LastModifierUserId" FromRole="AbpUsers" ToRole="AbpRoles" />
+    <NavigationProperty Name="AbpSettings" Relationship="Self.FK_AbpSettings_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpSettings" />
+    <NavigationProperty Name="AbpTenants" Relationship="Self.FK_AbpTenants_AbpUsers_CreatorUserId" FromRole="AbpUsers" ToRole="AbpTenants" />
+    <NavigationProperty Name="AbpTenants1" Relationship="Self.FK_AbpTenants_AbpUsers_DeleterUserId" FromRole="AbpUsers" ToRole="AbpTenants" />
+    <NavigationProperty Name="AbpTenants2" Relationship="Self.FK_AbpTenants_AbpUsers_LastModifierUserId" FromRole="AbpUsers" ToRole="AbpTenants" />
+    <NavigationProperty Name="AbpUserClaims" Relationship="Self.FK_AbpUserClaims_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpUserClaims" />
+    <NavigationProperty Name="AbpUserLogins" Relationship="Self.FK_AbpUserLogins_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpUserLogins" />
+    <NavigationProperty Name="AbpUserOrganizationUnits" Relationship="Self.FK_AbpUserOrganizationUnits_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpUserOrganizationUnits" />
+    <NavigationProperty Name="AbpUserRoles" Relationship="Self.FK_AbpUserRoles_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpUserRoles" />
+    <NavigationProperty Name="AbpUsers1" Relationship="Self.FK_AbpUsers_AbpUsers_CreatorUserId" FromRole="AbpUsers" ToRole="AbpUsers1" />
+    <NavigationProperty Name="AbpUser1" Relationship="Self.FK_AbpUsers_AbpUsers_CreatorUserId" FromRole="AbpUsers1" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUsers11" Relationship="Self.FK_AbpUsers_AbpUsers_DeleterUserId" FromRole="AbpUsers" ToRole="AbpUsers1" />
+    <NavigationProperty Name="AbpUser2" Relationship="Self.FK_AbpUsers_AbpUsers_DeleterUserId" FromRole="AbpUsers1" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUsers12" Relationship="Self.FK_AbpUsers_AbpUsers_LastModifierUserId" FromRole="AbpUsers" ToRole="AbpUsers1" />
+    <NavigationProperty Name="AbpUser3" Relationship="Self.FK_AbpUsers_AbpUsers_LastModifierUserId" FromRole="AbpUsers1" ToRole="AbpUsers" />
+    <NavigationProperty Name="AbpUserTokens" Relationship="Self.FK_AbpUserTokens_AbpUsers_UserId" FromRole="AbpUsers" ToRole="AbpUserTokens" />
+  </EntityType>
+  <EntityType Name="AbpUserToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="ExpireDate" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="AbpUser" Relationship="Self.FK_AbpUserTokens_AbpUsers_UserId" FromRole="AbpUserTokens" ToRole="AbpUsers" />
+  </EntityType>
+  <EntityType Name="AbpWebhookEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="WebhookName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <NavigationProperty Name="AbpWebhookSendAttempts" Relationship="Self.FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId" FromRole="AbpWebhookEvents" ToRole="AbpWebhookSendAttempts" />
+  </EntityType>
+  <EntityType Name="AbpWebhookSendAttempt">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="WebhookEventId" Type="Guid" Nullable="false" />
+    <Property Name="WebhookSubscriptionId" Type="Guid" Nullable="false" />
+    <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResponseStatusCode" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="TenantId" Type="Int32" />
+    <NavigationProperty Name="AbpWebhookEvent" Relationship="Self.FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId" FromRole="AbpWebhookSendAttempts" ToRole="AbpWebhookEvents" />
+  </EntityType>
+  <EntityType Name="AbpWebhookSubscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="WebhookUri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Secret" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Webhooks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Headers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AlarmHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransCode" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="TelegramGroupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AppBinaryObject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Bytes" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="AppChatMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReadState" Type="Int32" Nullable="false" />
+    <Property Name="Side" Type="Int32" Nullable="false" />
+    <Property Name="TargetTenantId" Type="Int32" />
+    <Property Name="TargetUserId" Type="Int64" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="SharedMessageId" Type="Guid" />
+    <Property Name="ReceiverReadState" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppFriendship">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="FriendProfilePictureId" Type="Guid" />
+    <Property Name="FriendTenancyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FriendTenantId" Type="Int32" />
+    <Property Name="FriendUserId" Type="Int64" Nullable="false" />
+    <Property Name="FriendUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="State" Type="Int32" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenantAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenantLegalName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TenantTaxNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="AppModemConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceIp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DeviceUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DevicePassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Port" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PortStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SimNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="LastChargedTime" Type="DateTime" Precision="3" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="AppName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="AppSubscriptionPayment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="DayCount" Type="Int32" Nullable="false" />
+    <Property Name="DeleterUserId" Type="Int64" />
+    <Property Name="DeletionTime" Type="DateTime" Precision="7" />
+    <Property Name="EditionId" Type="Int32" Nullable="false" />
+    <Property Name="Gateway" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="SuccessUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentPeriodType" Type="Int32" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" Nullable="false" />
+    <Property Name="InvoiceNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExternalPaymentId" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="IsRecurring" Type="Boolean" Nullable="false" />
+    <Property Name="EditionPaymentType" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AbpEdition" Relationship="Self.FK_AppSubscriptionPayments_AbpEditions_EditionId" FromRole="AppSubscriptionPayments" ToRole="AbpEditions" />
+  </EntityType>
+  <EntityType Name="AppSubscriptionPaymentsExtensionData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubscriptionPaymentId" Type="Int64" Nullable="false" />
+    <Property Name="Key" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BankName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="BuyCardPriorityConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TelcoId" Type="Int32" Nullable="false" />
+    <Property Name="CardAmount" Type="Int32" Nullable="false" />
+    <Property Name="ProviderCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Priority" Type="Byte" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuyPincodeTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InvoiceType" Type="Byte" />
+    <Property Name="TransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="CardAmount" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="RequestIpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PartnerDiscountPolicyId" Type="Int32" />
+    <Property Name="PartnerDiscountPolicyDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="PartnerSaleAmount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderDiscountPolicyId" Type="Int32" />
+    <Property Name="ProviderDiscountPolicyDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="ProviderPartnerSaleAmount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="ProviderRequestTransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseTransCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderResponseMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TrippdesKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="SaleInvoiceId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="BuyPincodeTransactionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BuyPincodeTransactionId" Type="Int64" Nullable="false" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="CardSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="ExpiredTime" Type="DateTime" Precision="3" />
+    <Property Name="ExportedTime" Type="DateTime" Precision="3" />
+    <Property Name="IsEncrypted" Type="Boolean" />
+    <Property Name="TrippdesKey" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PinCodeStockId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="CaptchaFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CaptchaName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CaptchaText" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ChargingPartnerProviderConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsEnable" Type="Boolean" />
+    <Property Name="IsEnablePayExpress" Type="Boolean" />
+    <Property Name="WaitPayExpressTime" Type="Int32" />
+    <Property Name="IsEnablePartnerChargingTopup" Type="Boolean" />
+    <Property Name="PartnerChargingTopupWaitTimeInSecond" Type="Int32" />
+    <Property Name="IsEnableSaleInvoiceSlowTopup" Type="Boolean" />
+    <Property Name="SaleInvoiceSlowTopupWaitTimeInSecond" Type="Int32" />
+    <Property Name="IsEnableSaleInvoiceModemCharge" Type="Boolean" />
+    <Property Name="SaleInvoiceModemChargeWaitTimeInSecond" Type="Int32" />
+    <Property Name="LoadingCapacity" Type="Int32" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="IsEnableSpecialPrioritySaleInvoiceSlowTopup" Type="Boolean" />
+    <Property Name="FromCardAmount" Type="Int32" />
+    <Property Name="ToCardAmount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ChargingTopupTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleInvoiceId" Type="Int64" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="PartnerChargingTransactionId" Type="Int64" />
+    <Property Name="PartnerChargingTranscode" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="StartProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="EndProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="RequestCardAmount" Type="Int32" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsReCalculate" Type="Boolean" />
+    <Property Name="IsForceReCalculate" Type="Boolean" />
+    <Property Name="BeforeBalance" Type="Int32" />
+    <Property Name="AfterBalance" Type="Int32" />
+    <Property Name="BeforeDebt" Type="Int32" />
+    <Property Name="AfterDebt" Type="Int32" />
+    <Property Name="WorkerId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="SimId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SimNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RetryCount" Type="Byte" Nullable="false" />
+    <Property Name="Fee" Type="Int32" />
+    <Property Name="SourceInvoiceType" Type="Byte" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PublicDiscount" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="DecreaseDiscount" Type="Int32" />
+    <Property Name="TransactionExpiredInSec" Type="Int32" />
+    <Property Name="RefundDiscount" Type="Boolean" />
+    <Property Name="RefundMoney" Type="Int32" />
+    <Property Name="RefundTransactionId" Type="Int64" />
+    <Property Name="WorkerChannel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TopupPartnerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SaleInvoiceCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BeforeTotalchargeAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="ParentRefundMoney" Type="Int32" />
+    <Property Name="ParentRefundTransactionId" Type="Int64" />
+    <Property Name="SaleDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="SubAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReCalcuateStatus" Type="Byte" />
+  </EntityType>
+  <EntityType Name="ChargingTopupTransactionHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleInvoiceId" Type="Int64" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="PartnerChargingTransactionId" Type="Int64" />
+    <Property Name="PartnerChargingTranscode" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="StartProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="EndProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="RequestCardAmount" Type="Int32" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsReCalculate" Type="Boolean" />
+    <Property Name="BeforeBalance" Type="Int32" />
+    <Property Name="AfterBalance" Type="Int32" />
+    <Property Name="BeforeDebt" Type="Int32" />
+    <Property Name="AfterDebt" Type="Int32" />
+    <Property Name="WorkerId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="SimId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SimNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="RetryCount" Type="Byte" />
+    <Property Name="Fee" Type="Int32" />
+    <Property Name="SourceInvoiceType" Type="Byte" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ChargingTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransCode" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="CardSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="RequestAmount" Type="Int32" />
+    <Property Name="RequestIpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsCallbackPartner" Type="Boolean" />
+    <Property Name="IsForceCallback" Type="Boolean" />
+    <Property Name="CallbackTime" Type="DateTime" Precision="3" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderRequestTransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseTransCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderCallbackTime" Type="DateTime" Precision="3" />
+    <Property Name="IsCanRetry" Type="Boolean" />
+    <Property Name="RealCardAmount" Type="Int32" Nullable="false" />
+    <Property Name="IsFixedProviderCode" Type="Boolean" />
+    <Property Name="InternalErrorCode" Type="Int16" />
+    <Property Name="InternalErrorMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PartnerDiscountPolicyId" Type="Int32" />
+    <Property Name="PartnerDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="PartnerCostAmount" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="ServiceProviderDiscountPolicyId" Type="Int32" />
+    <Property Name="ServiceProviderDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="ServiceProviderSaleAmount" Type="Decimal" Precision="9" Scale="2" />
+    <Property Name="ExceptProviderCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ChargingTransactionCallbackPartnerHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="TransCode" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="CardSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardValue" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DepositInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepositUserId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="Int64" Nullable="false" />
+    <Property Name="MoneyAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="RefSourceMoneyInvoice" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RefSourceCustomerAccountNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RefSourceCustomerAccountName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SourceMoneyId" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FeeAmount" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DepositPartnerInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PartnerId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="Int64" Nullable="false" />
+    <Property Name="MoneyAmount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="RefSourceMoneyInvoice" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RefSourceCustomerAccountNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="RefSourceCustomerAccountName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SourceMoneyId" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DiscountPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="UserGroupId" Type="Int32" />
+    <Property Name="UserType" Type="Int32" />
+    <Property Name="ProductCategoryId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="FromAmount" Type="Int32" Nullable="false" />
+    <Property Name="ToAmount" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FromTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ToTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="PublicDiscount" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="GenChargingInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="GenInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GroupPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="PermissionId" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="InvoiceDiscountHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="InvoiceId" Type="Int64" Nullable="false" />
+    <Property Name="Discount" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="InvoiceTypeTelcoChargingConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceTypeCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="FromAmount" Type="Int32" />
+    <Property Name="ToAmount" Type="Int32" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrderProcessing" Type="Int32" />
+    <Property Name="Code" Type="Byte" />
+  </EntityType>
+  <EntityType Name="MaintainSM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SimNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiverNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SmsContent" Type="String" MaxLength="160" FixedLength="false" Unicode="false" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="SentStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="MaintenanceSm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SimNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="ReceiverNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SmsContent" Type="String" MaxLength="160" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="IsSentSuccess" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="MerchantUserDepositTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="ProviderTransactionId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderTransactionTime" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="TransactionMessage" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MerchantId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Checksum" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="SourceMoney" Type="Byte" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsCallbackPartner" Type="Boolean" />
+    <Property Name="CallbackTime" Type="DateTime" Precision="3" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MobiFoneToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Msisdn" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Otp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Token" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="RefreshKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="MobiFoneUserId" Type="Int32" />
+    <Property Name="NextProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="TryCount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ModemChargingActiveSimHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="Balance" Type="Int32" />
+    <Property Name="LastUpdateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="NotificationText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AllowIps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="IsEnableCallback" Type="Boolean" Nullable="false" />
+    <Property Name="Webhook" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsEnableTelegramNoti" Type="Boolean" Nullable="false" />
+    <Property Name="TelegramSuportGroupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TopupPriority" Type="Int32" Nullable="false" />
+    <Property Name="DeltaSecCheckProcessingTransaction" Type="Int32" />
+    <Property Name="LastTimeChecked" Type="DateTime" Precision="3" />
+    <Property Name="IsAlwayReturnRealCardAmount" Type="Boolean" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="ProviderMerchantId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="Logo" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DepositUrlCallback" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsPartnerDecideCancelTopupTransaction" Type="Boolean" />
+    <Property Name="IsFixTopupTransactionExpireTime" Type="Boolean" />
+    <Property Name="TopupTransactionExpireTimeInSec" Type="Int32" />
+    <Property Name="WebhookFastChargingTopup" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PartnerBalance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerId" Type="Int64" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="BalanceType" Type="Byte" />
+    <Property Name="InvoiceType" Type="Byte" />
+  </EntityType>
+  <EntityType Name="PartnerBalanceHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerId" Type="Int64" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="BalanceType" Type="Byte" />
+    <Property Name="InvoiceType" Type="Byte" />
+  </EntityType>
+  <EntityType Name="PartnerChargingPartnerTopupConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChargingPartnerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="TopupPartnerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="FromCardAmount" Type="Int32" />
+    <Property Name="ToCardAmount" Type="Int32" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PartnerDiscountPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerId" Type="Int32" />
+    <Property Name="ProductCategoryId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="FromAmount" Type="Int32" Nullable="false" />
+    <Property Name="ToAmount" Type="Int32" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FromTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ToTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="ProviderId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PartnerServiceConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="PartnerCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="ServiceCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PartnerId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <Property Name="PaidType" Type="Int32" Nullable="false" />
+    <Property Name="TelcoId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PartnerServiceWorkerChannelConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="PartnerCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FromAmount" Type="Int32" />
+    <Property Name="ToAmount" Type="Int32" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="WorkerChannelCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DelayTimeInSec" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartnerTopupTransactionConfigMaxWaiting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Priority" Type="Byte" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="FromAmount" Type="Int32" />
+    <Property Name="ToAmount" Type="Int32" />
+    <Property Name="MaxWaitingTopupTransaction" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="PayExpressWaitTime" Type="Int32" />
+    <Property Name="CancelTimeInSecond" Type="Int32" />
+    <Property Name="IsEnablePrepaid" Type="Boolean" Nullable="false" />
+    <Property Name="IsEnablePostpaid" Type="Boolean" Nullable="false" />
+    <Property Name="IsAlowExtend" Type="Boolean" Nullable="false" />
+    <Property Name="ExtendTimeInSec" Type="Int32" />
+    <Property Name="MinCardValue" Type="Int32" />
+    <Property Name="IsEnableChangeProvider" Type="Boolean" Nullable="false" />
+    <Property Name="ChangeToProvider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChangeProviderTimeInSecond" Type="Int32" Nullable="false" />
+    <Property Name="IsSplitAmount" Type="Boolean" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="PaidType" Type="Byte" Nullable="false" />
+    <Property Name="IsDefault" Type="Boolean" />
+    <Property Name="MaxWaitingByDefault" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PartnerTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourcePartneId" Type="Int64" Nullable="false" />
+    <Property Name="DesUserId" Type="Int64" Nullable="false" />
+    <Property Name="MoneyAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="SourcePartnerAfterBalance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InvoiceType" Type="Byte" />
+  </EntityType>
+  <EntityType Name="PartnerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="PartnerId" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="PartnerUserPartner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerUserId" Type="Int32" />
+    <Property Name="PartnerId" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="PartnerUserProvider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PartnerUserId" Type="Int32" />
+    <Property Name="ProviderId" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Controller" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="PinCodeStock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="CardSerial" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="ExpiredTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="ExportedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="IsEncrypted" Type="Boolean" />
+    <Property Name="TransRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImportRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ImportProvider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserUpdate" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="InvoiceId" Type="Int64" />
+    <Property Name="ImportDiscount" Type="Double" />
+    <Property Name="ExportDiscount" Type="Double" />
+    <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="TelcoId" Type="Int32" />
+    <Property Name="CategoryId" Type="Int32" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="ShowOnWeb" Type="Boolean" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Rpt_BusinessReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PartnerCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProviderCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CostAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SaleAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TempProfitAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalTran" Type="Int32" />
+    <Property Name="CardType" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerBalanceByDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TotalOpeningBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalClosingBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalIncreasedBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalDecreasedBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedDeposit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefundDiscount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefund" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedTransfer" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreasedCustomerPaid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseCashout" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseTransferMoney" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerBalanceDetailByDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="TotalOpeningBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalClosingBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalIncreasedBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalDecreasedBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedDeposit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefundDiscount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefund" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedTransfer" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreasedCustomerPaid" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseCashout" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseTransferMoney" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="BalanceType" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerDebit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="OpeningAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ClosingAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalSuccessAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalCancelAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPaidAmount" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Rpt_SystemMoneyByDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SystemAccountId" Type="Int64" Nullable="false" />
+    <Property Name="BeforeBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AfterBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreaseBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="ProductId" Type="Int32" Nullable="false" />
+    <Property Name="ProductPrice" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="SalePrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DiscountPolicyId" Type="Int32" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="RealTotalAmount" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="ReceiveAccount" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="PendingAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TotalChargedAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="MinCardAmount" Type="Int32" Nullable="false" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="DecreaseDiscount" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="AlowCardAmount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ChannelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartTopupDate" Type="DateTime" Precision="3" />
+    <Property Name="ParentDiscountPolicyId" Type="Int32" />
+    <Property Name="ParentUserId" Type="Int64" />
+    <Property Name="ParentDiscountPercentage" Type="Double" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="SubAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SubMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UseFastTopup" Type="Boolean" />
+    <Property Name="RefundAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ParentRefundAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Transref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastChargingTranId" Type="Int64" />
+    <Property Name="ContinueTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleInvoiceBuyPincodeDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CardSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="ProductPrice" Type="Int32" />
+    <Property Name="SaleInvoiceId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="SaleInvoiceCalculationHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleInvoiceId" Type="Int64" Nullable="false" />
+    <Property Name="ChargingTopupTransactionId" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SaleInvoiceTopupDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SaleInvoiceId" Type="Int64" Nullable="false" />
+    <Property Name="TelcoId" Type="Byte" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PaidType" Type="Int16" Nullable="false" />
+    <Property Name="Transcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Transref" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="StartProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="EndProcessTime" Type="DateTime" Precision="3" />
+    <Property Name="RequestInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ResponseInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="RefundAmount" Type="Int32" />
+    <Property Name="RefundTransactionId" Type="Int64" />
+    <Property Name="IsRefund" Type="Boolean" />
+    <Property Name="ProviderDiscount" Type="Double" />
+  </EntityType>
+  <EntityType Name="ServiceProvider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int16" />
+    <Property Name="ClientTokenApi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClientSignature" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClientCodeRequest" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ApiUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IsEnableChargingTopup" Type="Boolean" Nullable="false" />
+    <Property Name="IsEnableCharging" Type="Boolean" Nullable="false" />
+    <Property Name="ChargingTopupPriority" Type="Int32" Nullable="false" />
+    <Property Name="ChargingPriority" Type="Int32" Nullable="false" />
+    <Property Name="ViettelPrepaidServiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ViettelPostpaidServiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ChargingTelegramSupportGroupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TopupTelegramSupportGroupId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ServiceProviderConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="ServiceCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="ServiceId" Type="Int32" Nullable="false" />
+    <Property Name="ServiceProviderId" Type="Int32" Nullable="false" />
+    <Property Name="PaidType" Type="Int32" Nullable="false" />
+    <Property Name="TelcoId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ServiceProviderDiscountPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProviderId" Type="Int32" />
+    <Property Name="ProductCategoryId" Type="Int32" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="FromAmount" Type="Int32" Nullable="false" />
+    <Property Name="ToAmount" Type="Int32" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="Decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FromTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ToTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="ServiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ServiceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IMSI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SimNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="SimID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SimRole" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BCCSPassword" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="BankPlusPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="LastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="BCCSBalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="BCCSBalanceUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="MBBalance" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="MBBalanceUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="RunningWorker" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="IsWaitingOtp" Type="Boolean" />
+    <Property Name="LastTopupTime" Type="DateTime" Precision="3" />
+    <Property Name="GSMServer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GSMUpdate" Type="DateTime" Precision="3" />
+    <Property Name="ChargingStatus" Type="Int16" />
+    <Property Name="IsLimitedDayVT136" Type="Boolean" />
+    <Property Name="IsLimitedDayVT199" Type="Boolean" />
+    <Property Name="TimeLimitedDayVT136" Type="DateTime" Precision="3" />
+    <Property Name="TimeLimitedDayVT199" Type="DateTime" Precision="3" />
+    <Property Name="AvaiableInDayVT136" Type="Int32" />
+    <Property Name="AvaiableInDayVT119" Type="Int32" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="MyViettelLastUpdate" Type="DateTime" Precision="3" />
+    <Property Name="IsLimitedDayMyViettel" Type="Boolean" />
+    <Property Name="TimeLimitedDayMyViettel" Type="DateTime" Precision="3" />
+    <Property Name="IsEnableMyViettel" Type="Boolean" />
+    <Property Name="CanUseUssd136" Type="Boolean" />
+    <Property Name="MyViettelChargedInDay" Type="Int32" />
+    <Property Name="MyViettelCheckCardInDay" Type="Int32" />
+    <Property Name="MyViettelWorkerServer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="IsEnableMyViettelChargeCard" Type="Boolean" />
+    <Property Name="IsEnableMyViettelCheckCard" Type="Boolean" />
+    <Property Name="IsLimitMyViettelChargeCardInDay" Type="Boolean" />
+    <Property Name="TimeLimitMyViettelChargeCardInDay" Type="DateTime" Precision="3" />
+    <Property Name="IsLimitMyViettelCheckCardInday" Type="Boolean" />
+    <Property Name="TimeLimitMyViettelCheckCardInday" Type="DateTime" Precision="3" />
+    <Property Name="IsForceLoginMyViettel" Type="Boolean" />
+    <Property Name="MyViettelMaxCountChargeInDay" Type="Int32" />
+    <Property Name="MyViettelIsGetAccInfo" Type="Boolean" />
+    <Property Name="NextLoginTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SimAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SimId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SimNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Account" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="SimAccountInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SimNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="cuoc_phat_sinh" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="da_thanh_toan" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="no_con_lai" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="no_cuoc_cuoi_ky" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="Info" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="tai_khoan_chinh" Type="Decimal" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="SMSList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreateTime" Type="DateTime" Precision="3" />
+    <Property Name="SmsIndex" Type="Int32" />
+    <Property Name="Sender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SentTime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MessageContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Alphabet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Receiver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProcessStatus" Type="Byte" />
+    <Property Name="SentDatetime" Type="DateTime" Precision="3" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="SourceMoney">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceMoneyName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="SystemAccountId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubscriberChannelAuthentication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChannelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Subscriber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="WorkerServer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkerId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="AuthenticationData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="RetryCount" Type="Int32" />
+    <Property Name="NextProcessTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SystemAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SystemAccountId" Type="Int32" />
+    <Property Name="SystemAccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SystemAccountCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConfigKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfigValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="IsEnable" Type="Boolean" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Telco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CardSerialRegex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardCodeRegex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="PhoneRegex" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TelcoServicePaidType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="Temp_SimZP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SimNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SimId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TransType" Type="Int32" />
+    <Property Name="TransCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="TicketTypeId" Type="Int32" />
+    <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TicketType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TopupDepositOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SourceMoneyId" Type="Int32" />
+    <Property Name="DepositAccountId" Type="Int32" />
+    <Property Name="RefAccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RefAccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RefTransferCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrderCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TransNote" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModifiedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TopupOrderId" Type="Int64" />
+    <Property Name="TransactionTime" Type="DateTime" Precision="3" />
+    <Property Name="TransactionId" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TransCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ServiceCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="TopupOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="SessionId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Telco" Type="Int32" Nullable="false" />
+    <Property Name="PaidType" Type="Byte" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <Property Name="ChargedAmount" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="SaleAmount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TopupDepositId" Type="Int64" />
+    <Property Name="MyPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SaleInvoiceId" Type="Int64" />
+    <Property Name="SourceId" Type="Int32" />
+    <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VoucherId" Type="Int64" />
+    <Property Name="VoucherAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="VoucherCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ClientIP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TopupOrderDepositAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceMoneyId" Type="Int32" Nullable="false" />
+    <Property Name="AccountNo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="AccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TopupPartnerProviderConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromAmount" Type="Int32" />
+    <Property Name="ToAmount" Type="Int32" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsEnable" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TopupPriorityConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TelcoId" Type="Int32" Nullable="false" />
+    <Property Name="FromAmount" Type="Int32" Nullable="false" />
+    <Property Name="ToAmount" Type="Int32" Nullable="false" />
+    <Property Name="PaidType" Type="Byte" Nullable="false" />
+    <Property Name="ProviderCode" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Priority" Type="Byte" Nullable="false" />
+    <Property Name="Discount" Type="Double" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TopupTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InvoiceType" Type="Byte" />
+    <Property Name="TransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="Mobile" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ProductId" Type="Int32" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="Amount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="ServiceType" Type="Byte" />
+    <Property Name="IsSplitAmount" Type="Boolean" />
+    <Property Name="RequestIpAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="PartnerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PartnerDiscountPolicyId" Type="Int32" />
+    <Property Name="PartnerDiscountPolicyDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="PartnerSaleAmount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="IsCallbackPartner" Type="Boolean" />
+    <Property Name="CallbackTime" Type="DateTime" Precision="3" />
+    <Property Name="ProviderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderDiscountPolicyId" Type="Int32" />
+    <Property Name="ProviderDiscountPolicyDiscountPercentage" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="ProviderPartnerSaleAmount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="ProviderRequestTransCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseTransCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ProviderResponseCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderResponseMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderCallbackTime" Type="DateTime" Precision="3" />
+    <Property Name="ProviderResponseChargedAmount" Type="Decimal" Precision="12" Scale="2" />
+    <Property Name="IsReCalculate" Type="Boolean" />
+    <Property Name="CancelTransactionInSecond" Type="Int32" />
+    <Property Name="IsAlowExtend" Type="Boolean" />
+    <Property Name="ExtendTimeInSec" Type="Int32" />
+    <Property Name="MinCardValue" Type="Int32" />
+    <Property Name="IsExcuteExtend" Type="Boolean" />
+    <Property Name="IsEnableChangeProvider" Type="Boolean" Nullable="false" />
+    <Property Name="ChangeToProvider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ChangeProviderTimeInSecond" Type="Int32" Nullable="false" />
+    <Property Name="IsExcuteChangeProvider" Type="Boolean" Nullable="false" />
+    <Property Name="Priority" Type="Int32" Nullable="false" />
+    <Property Name="PartnerLastCheckTime" Type="DateTime" Precision="3" />
+    <Property Name="PartnerLastCheckResponse" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="LastChargingTranId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceUserId" Type="Int64" Nullable="false" />
+    <Property Name="DesUserId" Type="Int64" Nullable="false" />
+    <Property Name="MoneyAmount" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="Type" Type="Byte" Nullable="false" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="SourceUserAfterBalance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="WalletType" Type="Byte" />
+  </EntityType>
+  <EntityType Name="TransferMoney">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="DesUserId" Type="Int64" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Byte" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TransferCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Byte" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="Token" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UserBalance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedTime" Type="DateTime" Precision="3" />
+    <Property Name="BalanceType" Type="Byte" />
+    <Property Name="TenantId" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="UserBalanceHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Balance" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="BalanceType" Type="Byte" />
+    <Property Name="Side" Type="Byte" />
+    <Property Name="TransAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Note" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TransactionId" Type="Int64" />
+    <Property Name="TransactionType" Type="Byte" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="UserId1" Type="Int64" />
+  </EntityType>
+  <EntityType Name="UserPartner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="7" />
+    <Property Name="CreatorUserId" Type="Int64" />
+    <Property Name="LastModificationTime" Type="DateTime" Precision="7" />
+    <Property Name="LastModifierUserId" Type="Int64" />
+    <Property Name="PartnerId" Type="Int32" />
+    <Property Name="UserId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="WorkerChannelTelcoPaidTypeConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerChannelCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="TelcoId" Type="Byte" />
+    <Property Name="PaidType" Type="Byte" />
+    <Property Name="Status" Type="Byte" />
+  </EntityType>
+  <EntityType Name="WorkerServerConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WorkerChannelCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="WorkerServer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdateTime" Type="DateTime" Precision="3" />
+    <Property Name="NordVPNGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsGetCaptchaFisrt" Type="Boolean" />
+    <Property Name="DelayTimeInSec" Type="Int32" />
+    <Property Name="CaptchaProvider" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CheckCardTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="CardSerial" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CardCode" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="CardType" Type="Byte" />
+    <Property Name="Status" Type="Byte" />
+    <Property Name="CardStatus" Type="Byte" />
+    <Property Name="UseTime" Type="DateTime" Precision="3" />
+    <Property Name="ExpiredTime" Type="DateTime" Precision="3" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Account" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="AppInfo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CardAmount" Type="Int32" />
+    <Property Name="Isdn" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="WorkerChannel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CheckCount" Type="Int32" />
+    <Property Name="IsProcessed" Type="Boolean" />
+    <Property Name="UniqueCardSerial" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="JobSchedule">
+    <Key>
+      <PropertyRef Name="LastRun" />
+    </Key>
+    <Property Name="JobName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastTime" Type="DateTime" Precision="3" />
+    <Property Name="LastId" Type="Int64" />
+    <Property Name="LastRun" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerDebitHistoryByDay">
+    <Key>
+      <PropertyRef Name="User_" />
+      <PropertyRef Name="OpeningDebit" />
+      <PropertyRef Name="OpeningBalance" />
+      <PropertyRef Name="CreatedTime" />
+    </Key>
+    <Property Name="ReportDate" Type="DateTime" Precision="0" />
+    <Property Name="User_" Type="String" MaxLength="515" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParentUser_" Type="String" MaxLength="515" FixedLength="false" Unicode="true" />
+    <Property Name="OpeningDebit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="OpeningBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="UnprocessAmount" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="Diff" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerDebitHistoryByDay_v2">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="User_" />
+      <PropertyRef Name="OpeningDebit" />
+      <PropertyRef Name="OpeningBalance" />
+      <PropertyRef Name="TotalInvoiceUnprocess" />
+      <PropertyRef Name="TotalSuccess" />
+      <PropertyRef Name="TotalRefund" />
+      <PropertyRef Name="CreatedTime" />
+    </Key>
+    <Property Name="ReportDate" Type="DateTime" Precision="0" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="User_" Type="String" MaxLength="515" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParentUser_" Type="String" MaxLength="515" FixedLength="false" Unicode="true" />
+    <Property Name="OpeningDebit" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="OpeningBalance" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalInvoiceUnprocess" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="TotalSuccess" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="TotalRefund" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="UnprocessAmount" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="Diff" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="FK_AbpFeatures_AbpEditions_EditionId">
+    <End Role="AbpEditions" Type="Self.AbpEdition" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpFeatures" Type="Self.AbpFeature" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpFeatures">
+        <PropertyRef Name="EditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpEditions_EditionId">
+    <End Role="AbpEditions" Type="Self.AbpEdition" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="EditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppSubscriptionPayments_AbpEditions_EditionId">
+    <End Role="AbpEditions" Type="Self.AbpEdition" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppSubscriptionPayments" Type="Self.AppSubscriptionPayment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppSubscriptionPayments">
+        <PropertyRef Name="EditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId">
+    <End Role="AbpEntityChangeSets" Type="Self.AbpEntityChangeSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpEntityChanges" Type="Self.AbpEntityChanx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEntityChangeSets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpEntityChanges">
+        <PropertyRef Name="EntityChangeSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId">
+    <End Role="AbpEntityChanges" Type="Self.AbpEntityChanx" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpEntityPropertyChanges" Type="Self.AbpEntityPropertyChanx" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEntityChanges">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpEntityPropertyChanges">
+        <PropertyRef Name="EntityChangeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId">
+    <End Role="AbpOrganizationUnits" Type="Self.AbpOrganizationUnit" Multiplicity="0..1" />
+    <End Role="AbpOrganizationUnits1" Type="Self.AbpOrganizationUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpOrganizationUnits">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpOrganizationUnits1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpPermissions_AbpRoles_RoleId">
+    <End Role="AbpRoles" Type="Self.AbpRole" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpPermissions" Type="Self.AbpPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpPermissions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpPermissions_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpPermissions" Type="Self.AbpPermission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpPermissions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoleClaims_AbpRoles_RoleId">
+    <End Role="AbpRoles" Type="Self.AbpRole" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpRoleClaims" Type="Self.AbpRoleClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoleClaims">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoles_AbpUsers_CreatorUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpRoles" Type="Self.AbpRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoles">
+        <PropertyRef Name="CreatorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoles_AbpUsers_DeleterUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpRoles" Type="Self.AbpRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoles">
+        <PropertyRef Name="DeleterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoles_AbpUsers_LastModifierUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpRoles" Type="Self.AbpRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoles">
+        <PropertyRef Name="LastModifierUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpSettings_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpSettings" Type="Self.AbpSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpSettings">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpUsers_CreatorUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="CreatorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpUsers_DeleterUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="DeleterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpUsers_LastModifierUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="LastModifierUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserClaims_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserClaims" Type="Self.AbpUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserLogins_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserLogins" Type="Self.AbpUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserOrganizationUnits_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserOrganizationUnits" Type="Self.AbpUserOrganizationUnit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserOrganizationUnits">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserRoles_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserRoles" Type="Self.AbpUserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUsers_AbpUsers_CreatorUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpUsers1" Type="Self.AbpUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUsers1">
+        <PropertyRef Name="CreatorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUsers_AbpUsers_DeleterUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpUsers1" Type="Self.AbpUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUsers1">
+        <PropertyRef Name="DeleterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUsers_AbpUsers_LastModifierUserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="0..1" />
+    <End Role="AbpUsers1" Type="Self.AbpUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUsers1">
+        <PropertyRef Name="LastModifierUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserTokens_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserTokens" Type="Self.AbpUserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserTokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId">
+    <End Role="AbpWebhookEvents" Type="Self.AbpWebhookEvent" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpWebhookSendAttempts" Type="Self.AbpWebhookSendAttempt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpWebhookEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpWebhookSendAttempts">
+        <PropertyRef Name="WebhookEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DevPayExpressEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__EFMigrationsHistory" EntityType="Self.C__EFMigrationsHistory" />
+    <EntitySet Name="AbpAuditLogs" EntityType="Self.AbpAuditLog" />
+    <EntitySet Name="AbpBackgroundJobs" EntityType="Self.AbpBackgroundJob" />
+    <EntitySet Name="AbpEditions" EntityType="Self.AbpEdition" />
+    <EntitySet Name="AbpEntityChanges" EntityType="Self.AbpEntityChanx" />
+    <EntitySet Name="AbpEntityChangeSets" EntityType="Self.AbpEntityChangeSet" />
+    <EntitySet Name="AbpEntityPropertyChanges" EntityType="Self.AbpEntityPropertyChanx" />
+    <EntitySet Name="AbpFeatures" EntityType="Self.AbpFeature" />
+    <EntitySet Name="AbpLanguages" EntityType="Self.AbpLanguage" />
+    <EntitySet Name="AbpLanguageTexts" EntityType="Self.AbpLanguageText" />
+    <EntitySet Name="AbpNotifications" EntityType="Self.AbpNotification" />
+    <EntitySet Name="AbpNotificationSubscriptions" EntityType="Self.AbpNotificationSubscription" />
+    <EntitySet Name="AbpOrganizationUnitRoles" EntityType="Self.AbpOrganizationUnitRole" />
+    <EntitySet Name="AbpOrganizationUnits" EntityType="Self.AbpOrganizationUnit" />
+    <EntitySet Name="AbpPermissions" EntityType="Self.AbpPermission" />
+    <EntitySet Name="AbpPersistedGrants" EntityType="Self.AbpPersistedGrant" />
+    <EntitySet Name="AbpRoleClaims" EntityType="Self.AbpRoleClaim" />
+    <EntitySet Name="AbpRoles" EntityType="Self.AbpRole" />
+    <EntitySet Name="AbpSettings" EntityType="Self.AbpSetting" />
+    <EntitySet Name="AbpTenantNotifications" EntityType="Self.AbpTenantNotification" />
+    <EntitySet Name="AbpTenants" EntityType="Self.AbpTenant" />
+    <EntitySet Name="AbpUserAccounts" EntityType="Self.AbpUserAccount" />
+    <EntitySet Name="AbpUserClaims" EntityType="Self.AbpUserClaim" />
+    <EntitySet Name="AbpUserLoginAttempts" EntityType="Self.AbpUserLoginAttempt" />
+    <EntitySet Name="AbpUserLogins" EntityType="Self.AbpUserLogin" />
+    <EntitySet Name="AbpUserNotifications" EntityType="Self.AbpUserNotification" />
+    <EntitySet Name="AbpUserOrganizationUnits" EntityType="Self.AbpUserOrganizationUnit" />
+    <EntitySet Name="AbpUserRoles" EntityType="Self.AbpUserRole" />
+    <EntitySet Name="AbpUsers" EntityType="Self.AbpUser" />
+    <EntitySet Name="AbpUserTokens" EntityType="Self.AbpUserToken" />
+    <EntitySet Name="AbpWebhookEvents" EntityType="Self.AbpWebhookEvent" />
+    <EntitySet Name="AbpWebhookSendAttempts" EntityType="Self.AbpWebhookSendAttempt" />
+    <EntitySet Name="AbpWebhookSubscriptions" EntityType="Self.AbpWebhookSubscription" />
+    <EntitySet Name="AlarmHistories" EntityType="Self.AlarmHistory" />
+    <EntitySet Name="AppBinaryObjects" EntityType="Self.AppBinaryObject" />
+    <EntitySet Name="AppChatMessages" EntityType="Self.AppChatMessage" />
+    <EntitySet Name="AppFriendships" EntityType="Self.AppFriendship" />
+    <EntitySet Name="AppInvoices" EntityType="Self.AppInvoice" />
+    <EntitySet Name="AppModemConfigs" EntityType="Self.AppModemConfig" />
+    <EntitySet Name="AppSubscriptionPayments" EntityType="Self.AppSubscriptionPayment" />
+    <EntitySet Name="AppSubscriptionPaymentsExtensionDatas" EntityType="Self.AppSubscriptionPaymentsExtensionData" />
+    <EntitySet Name="Banks" EntityType="Self.Bank" />
+    <EntitySet Name="BuyCardPriorityConfigs" EntityType="Self.BuyCardPriorityConfig" />
+    <EntitySet Name="BuyPincodeTransactions" EntityType="Self.BuyPincodeTransaction" />
+    <EntitySet Name="BuyPincodeTransactionDetails" EntityType="Self.BuyPincodeTransactionDetail" />
+    <EntitySet Name="CaptchaFiles" EntityType="Self.CaptchaFile" />
+    <EntitySet Name="ChargingPartnerProviderConfigs" EntityType="Self.ChargingPartnerProviderConfig" />
+    <EntitySet Name="ChargingTopupTransactions" EntityType="Self.ChargingTopupTransaction" />
+    <EntitySet Name="ChargingTopupTransactionHistories" EntityType="Self.ChargingTopupTransactionHistory" />
+    <EntitySet Name="ChargingTransactions" EntityType="Self.ChargingTransaction" />
+    <EntitySet Name="ChargingTransactionCallbackPartnerHistories" EntityType="Self.ChargingTransactionCallbackPartnerHistory" />
+    <EntitySet Name="DepositInvoices" EntityType="Self.DepositInvoice" />
+    <EntitySet Name="DepositPartnerInvoices" EntityType="Self.DepositPartnerInvoice" />
+    <EntitySet Name="DiscountPolicies" EntityType="Self.DiscountPolicy" />
+    <EntitySet Name="GenChargingInvoices" EntityType="Self.GenChargingInvoice" />
+    <EntitySet Name="GenInvoices" EntityType="Self.GenInvoice" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="GroupPermissions" EntityType="Self.GroupPermission" />
+    <EntitySet Name="InvoiceDiscountHistories" EntityType="Self.InvoiceDiscountHistory" />
+    <EntitySet Name="InvoiceTypeTelcoChargingConfigs" EntityType="Self.InvoiceTypeTelcoChargingConfig" />
+    <EntitySet Name="MaintainSMS" EntityType="Self.MaintainSM" />
+    <EntitySet Name="MaintenanceSms" EntityType="Self.MaintenanceSm" />
+    <EntitySet Name="MerchantUserDepositTransactions" EntityType="Self.MerchantUserDepositTransaction" />
+    <EntitySet Name="MobiFoneTokens" EntityType="Self.MobiFoneToken" />
+    <EntitySet Name="ModemChargingActiveSimHistories" EntityType="Self.ModemChargingActiveSimHistory" />
+    <EntitySet Name="NotificationTexts" EntityType="Self.NotificationText" />
+    <EntitySet Name="Partners" EntityType="Self.Partner" />
+    <EntitySet Name="PartnerBalances" EntityType="Self.PartnerBalance" />
+    <EntitySet Name="PartnerBalanceHistories" EntityType="Self.PartnerBalanceHistory" />
+    <EntitySet Name="PartnerChargingPartnerTopupConfigs" EntityType="Self.PartnerChargingPartnerTopupConfig" />
+    <EntitySet Name="PartnerDiscountPolicies" EntityType="Self.PartnerDiscountPolicy" />
+    <EntitySet Name="PartnerServiceConfigs" EntityType="Self.PartnerServiceConfig" />
+    <EntitySet Name="PartnerServiceWorkerChannelConfigs" EntityType="Self.PartnerServiceWorkerChannelConfig" />
+    <EntitySet Name="PartnerTopupTransactionConfigMaxWaitings" EntityType="Self.PartnerTopupTransactionConfigMaxWaiting" />
+    <EntitySet Name="PartnerTransactions" EntityType="Self.PartnerTransaction" />
+    <EntitySet Name="PartnerUsers" EntityType="Self.PartnerUser" />
+    <EntitySet Name="PartnerUserPartners" EntityType="Self.PartnerUserPartner" />
+    <EntitySet Name="PartnerUserProviders" EntityType="Self.PartnerUserProvider" />
+    <EntitySet Name="Permissions" EntityType="Self.Permission" />
+    <EntitySet Name="PinCodeStocks" EntityType="Self.PinCodeStock" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Rpt_BusinessReport" EntityType="Self.Rpt_BusinessReport" />
+    <EntitySet Name="Rpt_CustomerBalanceByDate" EntityType="Self.Rpt_CustomerBalanceByDate" />
+    <EntitySet Name="Rpt_CustomerBalanceDetailByDate" EntityType="Self.Rpt_CustomerBalanceDetailByDate" />
+    <EntitySet Name="Rpt_CustomerDebit" EntityType="Self.Rpt_CustomerDebit" />
+    <EntitySet Name="Rpt_SystemMoneyByDay" EntityType="Self.Rpt_SystemMoneyByDay" />
+    <EntitySet Name="SaleInvoices" EntityType="Self.SaleInvoice" />
+    <EntitySet Name="SaleInvoiceBuyPincodeDetails" EntityType="Self.SaleInvoiceBuyPincodeDetail" />
+    <EntitySet Name="SaleInvoiceCalculationHistories" EntityType="Self.SaleInvoiceCalculationHistory" />
+    <EntitySet Name="SaleInvoiceTopupDetails" EntityType="Self.SaleInvoiceTopupDetail" />
+    <EntitySet Name="ServiceProviders" EntityType="Self.ServiceProvider" />
+    <EntitySet Name="ServiceProviderConfigs" EntityType="Self.ServiceProviderConfig" />
+    <EntitySet Name="ServiceProviderDiscountPolicies" EntityType="Self.ServiceProviderDiscountPolicy" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="SIMs" EntityType="Self.SIM" />
+    <EntitySet Name="SimAccounts" EntityType="Self.SimAccount" />
+    <EntitySet Name="SimAccountInfoes" EntityType="Self.SimAccountInfo" />
+    <EntitySet Name="SMSLists" EntityType="Self.SMSList" />
+    <EntitySet Name="SourceMoneys" EntityType="Self.SourceMoney" />
+    <EntitySet Name="SubscriberChannelAuthentications" EntityType="Self.SubscriberChannelAuthentication" />
+    <EntitySet Name="SystemAccounts" EntityType="Self.SystemAccount" />
+    <EntitySet Name="SystemSettings" EntityType="Self.SystemSetting" />
+    <EntitySet Name="Telcoes" EntityType="Self.Telco" />
+    <EntitySet Name="TelcoServicePaidTypes" EntityType="Self.TelcoServicePaidType" />
+    <EntitySet Name="Temp_SimZP" EntityType="Self.Temp_SimZP" />
+    <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+    <EntitySet Name="TicketTypes" EntityType="Self.TicketType" />
+    <EntitySet Name="TopupDepositOrders" EntityType="Self.TopupDepositOrder" />
+    <EntitySet Name="TopupOrders" EntityType="Self.TopupOrder" />
+    <EntitySet Name="TopupOrderDepositAccounts" EntityType="Self.TopupOrderDepositAccount" />
+    <EntitySet Name="TopupPartnerProviderConfigs" EntityType="Self.TopupPartnerProviderConfig" />
+    <EntitySet Name="TopupPriorityConfigs" EntityType="Self.TopupPriorityConfig" />
+    <EntitySet Name="TopupTransactions" EntityType="Self.TopupTransaction" />
+    <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+    <EntitySet Name="TransferMoneys" EntityType="Self.TransferMoney" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserBalances" EntityType="Self.UserBalance" />
+    <EntitySet Name="UserBalanceHistories" EntityType="Self.UserBalanceHistory" />
+    <EntitySet Name="UserGroups" EntityType="Self.UserGroup" />
+    <EntitySet Name="UserPartners" EntityType="Self.UserPartner" />
+    <EntitySet Name="WorkerChannelTelcoPaidTypeConfigs" EntityType="Self.WorkerChannelTelcoPaidTypeConfig" />
+    <EntitySet Name="WorkerServerConfigs" EntityType="Self.WorkerServerConfig" />
+    <EntitySet Name="CheckCardTransactions" EntityType="Self.CheckCardTransaction" />
+    <EntitySet Name="JobSchedules" EntityType="Self.JobSchedule" />
+    <EntitySet Name="Rpt_CustomerDebitHistoryByDay" EntityType="Self.Rpt_CustomerDebitHistoryByDay" />
+    <EntitySet Name="Rpt_CustomerDebitHistoryByDay_v2" EntityType="Self.Rpt_CustomerDebitHistoryByDay_v2" />
+    <AssociationSet Name="FK_AbpFeatures_AbpEditions_EditionId" Association="Self.FK_AbpFeatures_AbpEditions_EditionId">
+      <End Role="AbpEditions" EntitySet="AbpEditions" />
+      <End Role="AbpFeatures" EntitySet="AbpFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpEditions_EditionId" Association="Self.FK_AbpTenants_AbpEditions_EditionId">
+      <End Role="AbpEditions" EntitySet="AbpEditions" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppSubscriptionPayments_AbpEditions_EditionId" Association="Self.FK_AppSubscriptionPayments_AbpEditions_EditionId">
+      <End Role="AbpEditions" EntitySet="AbpEditions" />
+      <End Role="AppSubscriptionPayments" EntitySet="AppSubscriptionPayments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId" Association="Self.FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId">
+      <End Role="AbpEntityChangeSets" EntitySet="AbpEntityChangeSets" />
+      <End Role="AbpEntityChanges" EntitySet="AbpEntityChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId" Association="Self.FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId">
+      <End Role="AbpEntityChanges" EntitySet="AbpEntityChanges" />
+      <End Role="AbpEntityPropertyChanges" EntitySet="AbpEntityPropertyChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId" Association="Self.FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId">
+      <End Role="AbpOrganizationUnits" EntitySet="AbpOrganizationUnits" />
+      <End Role="AbpOrganizationUnits1" EntitySet="AbpOrganizationUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpPermissions_AbpRoles_RoleId" Association="Self.FK_AbpPermissions_AbpRoles_RoleId">
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+      <End Role="AbpPermissions" EntitySet="AbpPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpPermissions_AbpUsers_UserId" Association="Self.FK_AbpPermissions_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpPermissions" EntitySet="AbpPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoleClaims_AbpRoles_RoleId" Association="Self.FK_AbpRoleClaims_AbpRoles_RoleId">
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+      <End Role="AbpRoleClaims" EntitySet="AbpRoleClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoles_AbpUsers_CreatorUserId" Association="Self.FK_AbpRoles_AbpUsers_CreatorUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoles_AbpUsers_DeleterUserId" Association="Self.FK_AbpRoles_AbpUsers_DeleterUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoles_AbpUsers_LastModifierUserId" Association="Self.FK_AbpRoles_AbpUsers_LastModifierUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpSettings_AbpUsers_UserId" Association="Self.FK_AbpSettings_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpSettings" EntitySet="AbpSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpUsers_CreatorUserId" Association="Self.FK_AbpTenants_AbpUsers_CreatorUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpUsers_DeleterUserId" Association="Self.FK_AbpTenants_AbpUsers_DeleterUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpUsers_LastModifierUserId" Association="Self.FK_AbpTenants_AbpUsers_LastModifierUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserClaims_AbpUsers_UserId" Association="Self.FK_AbpUserClaims_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserClaims" EntitySet="AbpUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserLogins_AbpUsers_UserId" Association="Self.FK_AbpUserLogins_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserLogins" EntitySet="AbpUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserOrganizationUnits_AbpUsers_UserId" Association="Self.FK_AbpUserOrganizationUnits_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserOrganizationUnits" EntitySet="AbpUserOrganizationUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserRoles_AbpUsers_UserId" Association="Self.FK_AbpUserRoles_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserRoles" EntitySet="AbpUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUsers_AbpUsers_CreatorUserId" Association="Self.FK_AbpUsers_AbpUsers_CreatorUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUsers1" EntitySet="AbpUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUsers_AbpUsers_DeleterUserId" Association="Self.FK_AbpUsers_AbpUsers_DeleterUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUsers1" EntitySet="AbpUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUsers_AbpUsers_LastModifierUserId" Association="Self.FK_AbpUsers_AbpUsers_LastModifierUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUsers1" EntitySet="AbpUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserTokens_AbpUsers_UserId" Association="Self.FK_AbpUserTokens_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserTokens" EntitySet="AbpUserTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId" Association="Self.FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId">
+      <End Role="AbpWebhookEvents" EntitySet="AbpWebhookEvents" />
+      <End Role="AbpWebhookSendAttempts" EntitySet="AbpWebhookSendAttempts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

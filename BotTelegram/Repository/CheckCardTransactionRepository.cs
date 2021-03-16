@@ -78,21 +78,7 @@ namespace BotTelegram.Repository
                 return item;
             }
         }
-        public void UpdateSerialSai(string serial, int? cardamount)
-        {
-            using(var db = new DevPayExpressEntities())
-            {
-                var item = db.ChargingTransactions.SingleOrDefault(c => c.CardSerial == serial );
-                if(item != null)
-                {
-                    item.Status = 1;
-                    item.CardAmount = cardamount;
-                    item.IsCallbackPartner = false;
-                    db.SaveChanges();
-                    
-                }
-            }
-        }
+       
     }
 
     }
