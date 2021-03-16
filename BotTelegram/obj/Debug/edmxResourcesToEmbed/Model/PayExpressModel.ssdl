@@ -1,0 +1,2745 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DevPayExpressModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__EFMigrationsHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpAuditLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrowserInfo" Type="nvarchar" MaxLength="512" />
+    <Property Name="ClientIpAddress" Type="nvarchar" MaxLength="64" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="128" />
+    <Property Name="CustomData" Type="nvarchar" MaxLength="2000" />
+    <Property Name="Exception" Type="nvarchar" MaxLength="2000" />
+    <Property Name="ExecutionDuration" Type="int" Nullable="false" />
+    <Property Name="ExecutionTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ImpersonatorTenantId" Type="int" />
+    <Property Name="ImpersonatorUserId" Type="bigint" />
+    <Property Name="MethodName" Type="nvarchar" MaxLength="256" />
+    <Property Name="Parameters" Type="nvarchar" MaxLength="1024" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="256" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="ReturnValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AbpBackgroundJobs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="IsAbandoned" Type="bit" Nullable="false" />
+    <Property Name="JobArgs" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JobType" Type="nvarchar" MaxLength="512" Nullable="false" />
+    <Property Name="LastTryTime" Type="datetime2" Precision="7" />
+    <Property Name="NextTryTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Priority" Type="tinyint" Nullable="false" />
+    <Property Name="TryCount" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpEditions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Discriminator" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AnnualPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ExpiringEditionId" Type="int" />
+    <Property Name="MonthlyPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TrialDayCount" Type="int" />
+    <Property Name="WaitingDayAfterExpire" Type="int" />
+    <Property Name="DailyPrice" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WeeklyPrice" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="AbpEntityChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChangeTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ChangeType" Type="tinyint" Nullable="false" />
+    <Property Name="EntityChangeSetId" Type="bigint" Nullable="false" />
+    <Property Name="EntityId" Type="nvarchar" MaxLength="48" />
+    <Property Name="EntityTypeFullName" Type="nvarchar" MaxLength="192" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpEntityChangeSets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrowserInfo" Type="nvarchar" MaxLength="512" />
+    <Property Name="ClientIpAddress" Type="nvarchar" MaxLength="64" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="ExtensionData" Type="nvarchar(max)" />
+    <Property Name="ImpersonatorTenantId" Type="int" />
+    <Property Name="ImpersonatorUserId" Type="bigint" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="256" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AbpEntityPropertyChanges">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EntityChangeId" Type="bigint" Nullable="false" />
+    <Property Name="NewValue" Type="nvarchar" MaxLength="512" />
+    <Property Name="OriginalValue" Type="nvarchar" MaxLength="512" />
+    <Property Name="PropertyName" Type="nvarchar" MaxLength="96" />
+    <Property Name="PropertyTypeFullName" Type="nvarchar" MaxLength="192" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpFeatures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="Discriminator" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="EditionId" Type="int" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpLanguages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="IsDisabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpLanguageTexts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="Key" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LanguageName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Source" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpNotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="Data" Type="nvarchar(max)" />
+    <Property Name="DataTypeName" Type="nvarchar" MaxLength="512" />
+    <Property Name="EntityId" Type="nvarchar" MaxLength="96" />
+    <Property Name="EntityTypeAssemblyQualifiedName" Type="nvarchar" MaxLength="512" />
+    <Property Name="EntityTypeName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ExcludedUserIds" Type="nvarchar(max)" />
+    <Property Name="NotificationName" Type="nvarchar" MaxLength="96" Nullable="false" />
+    <Property Name="Severity" Type="tinyint" Nullable="false" />
+    <Property Name="TenantIds" Type="nvarchar(max)" />
+    <Property Name="UserIds" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AbpNotificationSubscriptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="EntityId" Type="nvarchar" MaxLength="96" />
+    <Property Name="EntityTypeAssemblyQualifiedName" Type="nvarchar" MaxLength="512" />
+    <Property Name="EntityTypeName" Type="nvarchar" MaxLength="250" />
+    <Property Name="NotificationName" Type="nvarchar" MaxLength="96" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpOrganizationUnitRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="OrganizationUnitId" Type="bigint" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpOrganizationUnits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="95" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="ParentId" Type="bigint" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpPermissions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="Discriminator" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsGranted" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="AbpPersistedGrants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ClientId" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Expiration" Type="datetime2" Precision="7" />
+    <Property Name="SubjectId" Type="nvarchar" MaxLength="200" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpRoleClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar" MaxLength="256" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConcurrencyStamp" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsStatic" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="NormalizedName" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Value" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AbpTenantNotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="Data" Type="nvarchar(max)" />
+    <Property Name="DataTypeName" Type="nvarchar" MaxLength="512" />
+    <Property Name="EntityId" Type="nvarchar" MaxLength="96" />
+    <Property Name="EntityTypeAssemblyQualifiedName" Type="nvarchar" MaxLength="512" />
+    <Property Name="EntityTypeName" Type="nvarchar" MaxLength="250" />
+    <Property Name="NotificationName" Type="nvarchar" MaxLength="96" Nullable="false" />
+    <Property Name="Severity" Type="tinyint" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpTenants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConnectionString" Type="nvarchar" MaxLength="1024" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="CustomCssId" Type="uniqueidentifier" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="EditionId" Type="int" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="LogoFileType" Type="nvarchar" MaxLength="64" />
+    <Property Name="LogoId" Type="uniqueidentifier" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="TenancyName" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="IsInTrialPeriod" Type="bit" Nullable="false" />
+    <Property Name="SubscriptionEndDateUtc" Type="datetime2" Precision="7" />
+    <Property Name="SubscriptionPaymentType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUserAccounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="UserLinkId" Type="bigint" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AbpUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar" MaxLength="256" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUserLoginAttempts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BrowserInfo" Type="nvarchar" MaxLength="512" />
+    <Property Name="ClientIpAddress" Type="nvarchar" MaxLength="64" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Result" Type="tinyint" Nullable="false" />
+    <Property Name="TenancyName" Type="nvarchar" MaxLength="64" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="UserNameOrEmailAddress" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="AbpUserLogins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUserNotifications">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="TenantNotificationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUserOrganizationUnits">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="OrganizationUnitId" Type="bigint" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUserRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AbpUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="AuthenticationSource" Type="nvarchar" MaxLength="64" />
+    <Property Name="ConcurrencyStamp" Type="nvarchar" MaxLength="128" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="EmailAddress" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="EmailConfirmationCode" Type="nvarchar" MaxLength="328" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsEmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="IsLockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsPhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="IsTwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="LockoutEndDateUtc" Type="datetime2" Precision="7" />
+    <Property Name="UserType" Type="tinyint" />
+    <Property Name="ParentUserId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="NormalizedEmailAddress" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="NormalizedUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordResetCode" Type="nvarchar" MaxLength="328" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="32" />
+    <Property Name="ProfilePictureId" Type="uniqueidentifier" />
+    <Property Name="SecurityStamp" Type="nvarchar" MaxLength="128" />
+    <Property Name="ShouldChangePasswordOnNextLogin" Type="bit" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="SignInToken" Type="nvarchar(max)" />
+    <Property Name="SignInTokenExpireTimeUtc" Type="datetime2" Precision="7" />
+    <Property Name="GoogleAuthenticatorKey" Type="nvarchar(max)" />
+    <Property Name="TopupPriority" Type="int" />
+    <Property Name="DebitLimit" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CardImages" Type="varchar" MaxLength="5000" />
+    <Property Name="OtherImages" Type="varchar" MaxLength="5000" />
+  </EntityType>
+  <EntityType Name="AbpUserTokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" MaxLength="128" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="512" />
+    <Property Name="ExpireDate" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="AbpWebhookEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="WebhookName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="nvarchar(max)" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="AbpWebhookSendAttempts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="WebhookEventId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="WebhookSubscriptionId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Response" Type="nvarchar(max)" />
+    <Property Name="ResponseStatusCode" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AbpWebhookSubscriptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="WebhookUri" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Secret" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Webhooks" Type="nvarchar(max)" />
+    <Property Name="Headers" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AlarmHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransCode" Type="varchar" MaxLength="150" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Content" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="TelegramGroupId" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AppBinaryObjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Bytes" Type="varbinary(max)" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+  </EntityType>
+  <EntityType Name="AppChatMessages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReadState" Type="int" Nullable="false" />
+    <Property Name="Side" Type="int" Nullable="false" />
+    <Property Name="TargetTenantId" Type="int" />
+    <Property Name="TargetUserId" Type="bigint" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="SharedMessageId" Type="uniqueidentifier" />
+    <Property Name="ReceiverReadState" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppFriendships">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="FriendProfilePictureId" Type="uniqueidentifier" />
+    <Property Name="FriendTenancyName" Type="nvarchar(max)" />
+    <Property Name="FriendTenantId" Type="int" />
+    <Property Name="FriendUserId" Type="bigint" Nullable="false" />
+    <Property Name="FriendUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="State" Type="int" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppInvoices">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceDate" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="InvoiceNo" Type="nvarchar(max)" />
+    <Property Name="TenantAddress" Type="nvarchar(max)" />
+    <Property Name="TenantLegalName" Type="nvarchar(max)" />
+    <Property Name="TenantTaxNo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AppModemConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceName" Type="varchar" MaxLength="20" />
+    <Property Name="DeviceIp" Type="varchar" MaxLength="50" />
+    <Property Name="DeviceUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DevicePassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Port" Type="varchar" MaxLength="10" />
+    <Property Name="PortStatus" Type="varchar" MaxLength="15" />
+    <Property Name="SimNo" Type="varchar" MaxLength="15" />
+    <Property Name="LastChargedTime" Type="datetime" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+    <Property Name="AppName" Type="varchar" MaxLength="20" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="AppSubscriptionPayments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="DayCount" Type="int" Nullable="false" />
+    <Property Name="DeleterUserId" Type="bigint" />
+    <Property Name="DeletionTime" Type="datetime2" Precision="7" />
+    <Property Name="EditionId" Type="int" Nullable="false" />
+    <Property Name="Gateway" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="SuccessUrl" Type="nvarchar(max)" />
+    <Property Name="PaymentPeriodType" Type="int" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="TenantId" Type="int" Nullable="false" />
+    <Property Name="InvoiceNo" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ErrorUrl" Type="nvarchar(max)" />
+    <Property Name="ExternalPaymentId" Type="nvarchar" MaxLength="450" />
+    <Property Name="IsRecurring" Type="bit" Nullable="false" />
+    <Property Name="EditionPaymentType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppSubscriptionPaymentsExtensionData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubscriptionPaymentId" Type="bigint" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" MaxLength="450" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Bank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="BuyCardPriorityConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelcoId" Type="int" Nullable="false" />
+    <Property Name="CardAmount" Type="int" Nullable="false" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Priority" Type="tinyint" Nullable="false" />
+    <Property Name="Discount" Type="float" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuyPincodeTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InvoiceType" Type="tinyint" />
+    <Property Name="TransCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="CardAmount" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="RequestIpAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="PartnerDiscountPolicyId" Type="int" />
+    <Property Name="PartnerDiscountPolicyDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="PartnerSaleAmount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderDiscountPolicyId" Type="int" />
+    <Property Name="ProviderDiscountPolicyDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="ProviderPartnerSaleAmount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="ProviderRequestTransCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderResponseTransCode" Type="varchar" MaxLength="100" />
+    <Property Name="ProviderResponseCode" Type="nvarchar(max)" />
+    <Property Name="ProviderResponseMessage" Type="nvarchar(max)" />
+    <Property Name="TrippdesKey" Type="varchar" MaxLength="100" />
+    <Property Name="SaleInvoiceId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="BuyPincodeTransactionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BuyPincodeTransactionId" Type="bigint" Nullable="false" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="20" />
+    <Property Name="CardCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="ExpiredTime" Type="datetime" />
+    <Property Name="ExportedTime" Type="datetime" />
+    <Property Name="IsEncrypted" Type="bit" />
+    <Property Name="TrippdesKey" Type="varchar" MaxLength="20" />
+    <Property Name="PinCodeStockId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="CaptchaFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Account" Type="varchar" MaxLength="50" />
+    <Property Name="CaptchaName" Type="varchar" MaxLength="50" />
+    <Property Name="CaptchaText" Type="varchar" MaxLength="10" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ChargingPartnerProviderConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="IsEnable" Type="bit" />
+    <Property Name="IsEnablePayExpress" Type="bit" />
+    <Property Name="WaitPayExpressTime" Type="int" />
+    <Property Name="IsEnablePartnerChargingTopup" Type="bit" />
+    <Property Name="PartnerChargingTopupWaitTimeInSecond" Type="int" />
+    <Property Name="IsEnableSaleInvoiceSlowTopup" Type="bit" />
+    <Property Name="SaleInvoiceSlowTopupWaitTimeInSecond" Type="int" />
+    <Property Name="IsEnableSaleInvoiceModemCharge" Type="bit" />
+    <Property Name="SaleInvoiceModemChargeWaitTimeInSecond" Type="int" />
+    <Property Name="LoadingCapacity" Type="int" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="IsEnableSpecialPrioritySaleInvoiceSlowTopup" Type="bit" />
+    <Property Name="FromCardAmount" Type="int" />
+    <Property Name="ToCardAmount" Type="int" />
+  </EntityType>
+  <EntityType Name="ChargingTopupTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleInvoiceId" Type="bigint" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="PartnerChargingTransactionId" Type="bigint" />
+    <Property Name="PartnerChargingTranscode" Type="varchar" MaxLength="60" />
+    <Property Name="CardCode" Type="varchar" MaxLength="20" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="20" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="StartProcessTime" Type="datetime" />
+    <Property Name="EndProcessTime" Type="datetime" />
+    <Property Name="RequestCardAmount" Type="int" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Response" Type="nvarchar(max)" />
+    <Property Name="IsReCalculate" Type="bit" />
+    <Property Name="IsForceReCalculate" Type="bit" />
+    <Property Name="BeforeBalance" Type="int" />
+    <Property Name="AfterBalance" Type="int" />
+    <Property Name="BeforeDebt" Type="int" />
+    <Property Name="AfterDebt" Type="int" />
+    <Property Name="WorkerId" Type="varchar" MaxLength="100" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="SimId" Type="varchar" MaxLength="15" />
+    <Property Name="SimNo" Type="varchar" MaxLength="15" />
+    <Property Name="RetryCount" Type="tinyint" Nullable="false" />
+    <Property Name="Fee" Type="int" />
+    <Property Name="SourceInvoiceType" Type="tinyint" />
+    <Property Name="Info" Type="nvarchar(max)" />
+    <Property Name="PublicDiscount" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="DecreaseDiscount" Type="int" />
+    <Property Name="TransactionExpiredInSec" Type="int" />
+    <Property Name="RefundDiscount" Type="bit" />
+    <Property Name="RefundMoney" Type="int" />
+    <Property Name="RefundTransactionId" Type="bigint" />
+    <Property Name="WorkerChannel" Type="nvarchar" MaxLength="20" />
+    <Property Name="TopupPartnerCode" Type="varchar" MaxLength="20" />
+    <Property Name="SaleInvoiceCode" Type="varchar" MaxLength="20" />
+    <Property Name="BeforeTotalchargeAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ParentRefundMoney" Type="int" />
+    <Property Name="ParentRefundTransactionId" Type="bigint" />
+    <Property Name="SaleDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="SubAccount" Type="varchar" MaxLength="50" />
+    <Property Name="SubMobile" Type="varchar" MaxLength="50" />
+    <Property Name="ReCalcuateStatus" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="ChargingTopupTransactionHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleInvoiceId" Type="bigint" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="PartnerChargingTransactionId" Type="bigint" />
+    <Property Name="PartnerChargingTranscode" Type="varchar" MaxLength="60" />
+    <Property Name="CardCode" Type="varchar" MaxLength="20" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="20" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="StartProcessTime" Type="datetime" />
+    <Property Name="EndProcessTime" Type="datetime" />
+    <Property Name="RequestCardAmount" Type="int" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Response" Type="nvarchar(max)" />
+    <Property Name="IsReCalculate" Type="bit" />
+    <Property Name="BeforeBalance" Type="int" />
+    <Property Name="AfterBalance" Type="int" />
+    <Property Name="BeforeDebt" Type="int" />
+    <Property Name="AfterDebt" Type="int" />
+    <Property Name="WorkerId" Type="varchar" MaxLength="100" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="SimId" Type="varchar" MaxLength="15" />
+    <Property Name="SimNo" Type="varchar" MaxLength="15" />
+    <Property Name="RetryCount" Type="tinyint" />
+    <Property Name="Fee" Type="int" />
+    <Property Name="SourceInvoiceType" Type="tinyint" />
+    <Property Name="Info" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ChargingTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransCode" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="20" />
+    <Property Name="CardCode" Type="varchar" MaxLength="20" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="RequestAmount" Type="int" />
+    <Property Name="RequestIpAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="IsCallbackPartner" Type="bit" />
+    <Property Name="IsForceCallback" Type="bit" />
+    <Property Name="CallbackTime" Type="datetime" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderRequestTransCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderResponseTransCode" Type="varchar" MaxLength="100" />
+    <Property Name="ProviderResponseCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderResponseMessage" Type="nvarchar(max)" />
+    <Property Name="ProviderCallbackTime" Type="datetime" />
+    <Property Name="IsCanRetry" Type="bit" />
+    <Property Name="RealCardAmount" Type="int" Nullable="false" />
+    <Property Name="IsFixedProviderCode" Type="bit" />
+    <Property Name="InternalErrorCode" Type="smallint" />
+    <Property Name="InternalErrorMessage" Type="nvarchar" MaxLength="50" />
+    <Property Name="PartnerDiscountPolicyId" Type="int" />
+    <Property Name="PartnerDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="PartnerCostAmount" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="ServiceProviderDiscountPolicyId" Type="int" />
+    <Property Name="ServiceProviderDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="ServiceProviderSaleAmount" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="ExceptProviderCode" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ChargingTransactionCallbackPartnerHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="TransCode" Type="nvarchar" MaxLength="60" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="20" />
+    <Property Name="CardCode" Type="varchar" MaxLength="20" />
+    <Property Name="CardValue" Type="int" />
+  </EntityType>
+  <EntityType Name="CheckCardTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="15" />
+    <Property Name="CardCode" Type="varchar" MaxLength="15" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CardStatus" Type="tinyint" />
+    <Property Name="UseTime" Type="datetime" />
+    <Property Name="ExpiredTime" Type="datetime" />
+    <Property Name="Info" Type="nvarchar(max)" />
+    <Property Name="Account" Type="nvarchar" MaxLength="15" />
+    <Property Name="AppInfo" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="Isdn" Type="nvarchar" MaxLength="15" />
+    <Property Name="WorkerChannel" Type="nvarchar" MaxLength="20" />
+    <Property Name="CheckCount" Type="int" />
+    <Property Name="IsProcessed" Type="bit" />
+    <Property Name="UniqueCardSerial" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="DepositInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DepositUserId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="bigint" Nullable="false" />
+    <Property Name="MoneyAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="RefSourceMoneyInvoice" Type="varchar" MaxLength="30" />
+    <Property Name="RefSourceCustomerAccountNo" Type="varchar" MaxLength="30" />
+    <Property Name="RefSourceCustomerAccountName" Type="nvarchar" MaxLength="30" />
+    <Property Name="SourceMoneyId" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="FeeAmount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DepositPartnerInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="PartnerId" Type="int" Nullable="false" />
+    <Property Name="CreatedByUserId" Type="bigint" Nullable="false" />
+    <Property Name="MoneyAmount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="RefSourceMoneyInvoice" Type="varchar" MaxLength="30" />
+    <Property Name="RefSourceCustomerAccountNo" Type="varchar" MaxLength="30" />
+    <Property Name="RefSourceCustomerAccountName" Type="nvarchar" MaxLength="30" />
+    <Property Name="SourceMoneyId" Type="int" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DiscountPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="UserGroupId" Type="int" />
+    <Property Name="UserType" Type="int" />
+    <Property Name="ProductCategoryId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="FromAmount" Type="int" Nullable="false" />
+    <Property Name="ToAmount" Type="int" Nullable="false" />
+    <Property Name="Discount" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FromTime" Type="datetime" Nullable="false" />
+    <Property Name="ToTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="PublicDiscount" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="GenChargingInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="GroupPermission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupId" Type="int" />
+    <Property Name="PermissionId" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="InvoiceDiscountHistories">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="InvoiceId" Type="bigint" Nullable="false" />
+    <Property Name="Discount" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InvoiceTypeTelcoChargingConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceTypeCode" Type="varchar" MaxLength="50" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="FromAmount" Type="int" />
+    <Property Name="ToAmount" Type="int" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="OrderProcessing" Type="int" />
+    <Property Name="Code" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PayExpressNew.dbo.JobSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="JobSchedule">
+    <Key>
+      <PropertyRef Name="LastRun" />
+    </Key>
+    <Property Name="JobName" Type="varchar" MaxLength="100" />
+    <Property Name="LastTime" Type="datetime" />
+    <Property Name="LastId" Type="bigint" />
+    <Property Name="LastRun" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MaintainSMS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SimNumber" Type="varchar" MaxLength="15" />
+    <Property Name="ReceiverNumber" Type="varchar" MaxLength="15" />
+    <Property Name="SmsContent" Type="varchar" MaxLength="160" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="SentStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="MaintenanceSms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SimNo" Type="varchar" MaxLength="15" />
+    <Property Name="ReceiverNo" Type="varchar" MaxLength="15" />
+    <Property Name="SmsContent" Type="nvarchar" MaxLength="160" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="IsSentSuccess" Type="bit" />
+  </EntityType>
+  <EntityType Name="MerchantUserDepositTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="ProviderTransactionId" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProviderTransactionTime" Type="varchar" MaxLength="20" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="TransactionMessage" Type="nvarchar" MaxLength="100" />
+    <Property Name="MerchantId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sender" Type="varchar" MaxLength="50" />
+    <Property Name="Checksum" Type="nvarchar" MaxLength="200" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="Receiver" Type="varchar" MaxLength="50" />
+    <Property Name="Type" Type="tinyint" />
+    <Property Name="SourceMoney" Type="tinyint" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="IsCallbackPartner" Type="bit" />
+    <Property Name="CallbackTime" Type="datetime" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="ServiceCode" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MobiFoneToken">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Msisdn" Type="varchar" MaxLength="10" />
+    <Property Name="Otp" Type="varchar" MaxLength="10" />
+    <Property Name="Token" Type="nvarchar" MaxLength="300" />
+    <Property Name="RefreshKey" Type="nvarchar" MaxLength="300" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="MobiFoneUserId" Type="int" />
+    <Property Name="NextProcessTime" Type="datetime" />
+    <Property Name="TryCount" Type="int" />
+  </EntityType>
+  <EntityType Name="ModemChargingActiveSimHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="Balance" Type="int" />
+    <Property Name="LastUpdateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="NotificationText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Text" Type="nvarchar(max)" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="PageName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="AllowIps" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="IsEnableCallback" Type="bit" Nullable="false" />
+    <Property Name="Webhook" Type="varchar" MaxLength="100" />
+    <Property Name="IsEnableTelegramNoti" Type="bit" Nullable="false" />
+    <Property Name="TelegramSuportGroupId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopupPriority" Type="int" Nullable="false" />
+    <Property Name="DeltaSecCheckProcessingTransaction" Type="int" />
+    <Property Name="LastTimeChecked" Type="datetime" />
+    <Property Name="IsAlwayReturnRealCardAmount" Type="bit" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="ProviderMerchantId" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Logo" Type="varchar" MaxLength="200" />
+    <Property Name="DepositUrlCallback" Type="varchar" MaxLength="100" />
+    <Property Name="IsPartnerDecideCancelTopupTransaction" Type="bit" />
+    <Property Name="IsFixTopupTransactionExpireTime" Type="bit" />
+    <Property Name="TopupTransactionExpireTimeInSec" Type="int" />
+    <Property Name="WebhookFastChargingTopup" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PartnerBalance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerId" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="30" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+    <Property Name="BalanceType" Type="tinyint" />
+    <Property Name="InvoiceType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="PartnerBalanceHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerId" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="BalanceType" Type="tinyint" />
+    <Property Name="InvoiceType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="PartnerChargingPartnerTopupConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChargingPartnerCode" Type="varchar" MaxLength="20" />
+    <Property Name="TopupPartnerCode" Type="varchar" MaxLength="20" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="FromCardAmount" Type="int" />
+    <Property Name="ToCardAmount" Type="int" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartnerDiscountPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerId" Type="int" />
+    <Property Name="ProductCategoryId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="FromAmount" Type="int" Nullable="false" />
+    <Property Name="ToAmount" Type="int" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FromTime" Type="datetime" Nullable="false" />
+    <Property Name="ToTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="ProviderId" Type="int" />
+  </EntityType>
+  <EntityType Name="PartnerServiceConfigs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="PartnerCode" Type="nvarchar(max)" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="ServiceCode" Type="nvarchar(max)" />
+    <Property Name="PartnerId" Type="int" Nullable="false" />
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+    <Property Name="PaidType" Type="int" Nullable="false" />
+    <Property Name="TelcoId" Type="int" />
+  </EntityType>
+  <EntityType Name="PartnerServiceWorkerChannelConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="20" />
+    <Property Name="ServiceCode" Type="varchar" MaxLength="20" />
+    <Property Name="FromAmount" Type="int" />
+    <Property Name="ToAmount" Type="int" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="WorkerChannelCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="Note" Type="nvarchar" MaxLength="50" />
+    <Property Name="DelayTimeInSec" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PartnerTopupTransactionConfigMaxWaiting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="Priority" Type="tinyint" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="FromAmount" Type="int" />
+    <Property Name="ToAmount" Type="int" />
+    <Property Name="MaxWaitingTopupTransaction" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="PayExpressWaitTime" Type="int" />
+    <Property Name="CancelTimeInSecond" Type="int" />
+    <Property Name="IsEnablePrepaid" Type="bit" Nullable="false" />
+    <Property Name="IsEnablePostpaid" Type="bit" Nullable="false" />
+    <Property Name="IsAlowExtend" Type="bit" Nullable="false" />
+    <Property Name="ExtendTimeInSec" Type="int" />
+    <Property Name="MinCardValue" Type="int" />
+    <Property Name="IsEnableChangeProvider" Type="bit" Nullable="false" />
+    <Property Name="ChangeToProvider" Type="varchar" MaxLength="50" />
+    <Property Name="ChangeProviderTimeInSecond" Type="int" Nullable="false" />
+    <Property Name="IsSplitAmount" Type="bit" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="PaidType" Type="tinyint" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" />
+    <Property Name="MaxWaitingByDefault" Type="int" />
+  </EntityType>
+  <EntityType Name="PartnerTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourcePartneId" Type="bigint" Nullable="false" />
+    <Property Name="DesUserId" Type="bigint" Nullable="false" />
+    <Property Name="MoneyAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="SourcePartnerAfterBalance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="InvoiceType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="PartnerUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Account" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="tinyint" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="PartnerId" Type="int" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PartnerUserPartner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerUserId" Type="int" />
+    <Property Name="PartnerId" Type="int" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="PartnerUserProvider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PartnerUserId" Type="int" />
+    <Property Name="ProviderId" Type="int" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Permission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+    <Property Name="Controller" Type="nvarchar" MaxLength="50" />
+    <Property Name="Action" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="PinCodeStock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardType" Type="tinyint" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="20" />
+    <Property Name="CardCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardAmount" Type="int" />
+    <Property Name="ExpiredTime" Type="datetime" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="ExportedTime" Type="datetime" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="IsEncrypted" Type="bit" />
+    <Property Name="TransRef" Type="varchar" MaxLength="50" />
+    <Property Name="ImportRef" Type="varchar" MaxLength="50" />
+    <Property Name="ImportProvider" Type="varchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserUpdate" Type="nvarchar" MaxLength="500" />
+    <Property Name="InvoiceId" Type="bigint" />
+    <Property Name="ImportDiscount" Type="float" />
+    <Property Name="ExportDiscount" Type="float" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Price" Type="int" />
+    <Property Name="TelcoId" Type="int" />
+    <Property Name="CategoryId" Type="int" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="ShowOnWeb" Type="bit" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Rpt_BusinessReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" Nullable="false" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CostAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SaleAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TempProfitAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalTran" Type="int" />
+    <Property Name="CardType" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerBalanceByDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" Nullable="false" />
+    <Property Name="TotalOpeningBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalClosingBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalIncreasedBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalDecreasedBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedDeposit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefundDiscount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefund" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedTransfer" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreasedCustomerPaid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseCashout" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseTransferMoney" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerBalanceDetailByDate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="TotalOpeningBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalClosingBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalIncreasedBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalDecreasedBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedDeposit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefundDiscount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedRefund" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreasedTransfer" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreasedCustomerPaid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseCashout" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseTransferMoney" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="BalanceType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Rpt_CustomerDebit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="OpeningAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ClosingAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalSuccessAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalCancelAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPaidAmount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PayExpressNew.dbo.Rpt_CustomerDebitHistoryByDay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Rpt_CustomerDebitHistoryByDay">
+    <Key>
+      <PropertyRef Name="User " />
+      <PropertyRef Name="OpeningDebit" />
+      <PropertyRef Name="OpeningBalance" />
+      <PropertyRef Name="CreatedTime" />
+    </Key>
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="User " Type="nvarchar" MaxLength="515" Nullable="false" />
+    <Property Name="ParentUser " Type="nvarchar" MaxLength="515" />
+    <Property Name="OpeningDebit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="OpeningBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="UnprocessAmount" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="Diff" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'PayExpressNew.dbo.Rpt_CustomerDebitHistoryByDay_v2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Rpt_CustomerDebitHistoryByDay_v2">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="User " />
+      <PropertyRef Name="OpeningDebit" />
+      <PropertyRef Name="OpeningBalance" />
+      <PropertyRef Name="TotalInvoiceUnprocess" />
+      <PropertyRef Name="TotalSuccess" />
+      <PropertyRef Name="TotalRefund" />
+      <PropertyRef Name="CreatedTime" />
+    </Key>
+    <Property Name="ReportDate" Type="date" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="User " Type="nvarchar" MaxLength="515" Nullable="false" />
+    <Property Name="ParentUser " Type="nvarchar" MaxLength="515" />
+    <Property Name="OpeningDebit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="OpeningBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TotalInvoiceUnprocess" Type="decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="TotalSuccess" Type="decimal" Precision="38" Scale="2" Nullable="false" />
+    <Property Name="TotalRefund" Type="decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="UnprocessAmount" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="Diff" Type="decimal" Precision="38" Scale="0" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rpt_SystemMoneyByDay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="datetime" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" Nullable="false" />
+    <Property Name="SystemAccountId" Type="bigint" Nullable="false" />
+    <Property Name="BeforeBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AfterBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IncreaseBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DecreaseBalance" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SaleInvoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="ProductPrice" Type="int" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="SalePrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DiscountPolicyId" Type="int" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="RealTotalAmount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="ReceiveAccount" Type="varchar" MaxLength="30" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="PendingAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="TotalChargedAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+    <Property Name="MinCardAmount" Type="int" Nullable="false" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="DecreaseDiscount" Type="int" Nullable="false" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="AlowCardAmount" Type="varchar" MaxLength="100" />
+    <Property Name="ChannelCode" Type="varchar" MaxLength="50" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="StartTopupDate" Type="datetime" />
+    <Property Name="ParentDiscountPolicyId" Type="int" />
+    <Property Name="ParentUserId" Type="bigint" />
+    <Property Name="ParentDiscountPercentage" Type="float" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="SubAccount" Type="varchar" MaxLength="50" />
+    <Property Name="SubMobile" Type="varchar" MaxLength="50" />
+    <Property Name="UseFastTopup" Type="bit" />
+    <Property Name="RefundAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="ParentRefundAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="LastChargingTranId" Type="bigint" />
+    <Property Name="ContinueTime" Type="datetime" />
+    <Property Name="Transref" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SaleInvoiceBuyPincodeDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CardSerial" Type="varchar" MaxLength="50" />
+    <Property Name="CardCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="ProductPrice" Type="int" />
+    <Property Name="SaleInvoiceId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="SaleInvoiceCalculationHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleInvoiceId" Type="bigint" Nullable="false" />
+    <Property Name="ChargingTopupTransactionId" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SaleInvoiceTopupDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SaleInvoiceId" Type="bigint" Nullable="false" />
+    <Property Name="TelcoId" Type="tinyint" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PaidType" Type="smallint" Nullable="false" />
+    <Property Name="Transcode" Type="varchar" MaxLength="50" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="Transref" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="StartProcessTime" Type="datetime" />
+    <Property Name="EndProcessTime" Type="datetime" />
+    <Property Name="RequestInfo" Type="nvarchar(max)" />
+    <Property Name="ResponseInfo" Type="nvarchar(max)" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="RefundAmount" Type="int" />
+    <Property Name="RefundTransactionId" Type="bigint" />
+    <Property Name="IsRefund" Type="bit" />
+    <Property Name="ProviderDiscount" Type="float" />
+  </EntityType>
+  <EntityType Name="ServiceProvider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Code" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="smallint" />
+    <Property Name="ClientTokenApi" Type="varchar" MaxLength="100" />
+    <Property Name="ClientSignature" Type="varchar" MaxLength="100" />
+    <Property Name="ClientCodeRequest" Type="varchar" MaxLength="100" />
+    <Property Name="ApiUrl" Type="varchar" MaxLength="200" />
+    <Property Name="IsEnableChargingTopup" Type="bit" Nullable="false" />
+    <Property Name="IsEnableCharging" Type="bit" Nullable="false" />
+    <Property Name="ChargingTopupPriority" Type="int" Nullable="false" />
+    <Property Name="ChargingPriority" Type="int" Nullable="false" />
+    <Property Name="ViettelPrepaidServiceCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ViettelPostpaidServiceCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChargingTelegramSupportGroupId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TopupTelegramSupportGroupId" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ServiceProviderConfigs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="ServiceCode" Type="nvarchar(max)" />
+    <Property Name="ProviderCode" Type="nvarchar(max)" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="ServiceId" Type="int" Nullable="false" />
+    <Property Name="ServiceProviderId" Type="int" Nullable="false" />
+    <Property Name="PaidType" Type="int" Nullable="false" />
+    <Property Name="TelcoId" Type="int" />
+  </EntityType>
+  <EntityType Name="ServiceProviderDiscountPolicy">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProviderId" Type="int" />
+    <Property Name="ProductCategoryId" Type="int" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="FromAmount" Type="int" Nullable="false" />
+    <Property Name="ToAmount" Type="int" Nullable="false" />
+    <Property Name="DiscountPercentage" Type="decimal" Precision="4" Scale="2" Nullable="false" />
+    <Property Name="FromTime" Type="datetime" Nullable="false" />
+    <Property Name="ToTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="ServiceCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ServiceName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SIM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IMSI" Type="varchar" MaxLength="20" />
+    <Property Name="SimNo" Type="varchar" MaxLength="11" />
+    <Property Name="SimID" Type="varchar" MaxLength="30" />
+    <Property Name="SimRole" Type="varchar" MaxLength="10" />
+    <Property Name="AccountName" Type="varchar" MaxLength="50" />
+    <Property Name="BCCSPassword" Type="varchar" MaxLength="10" />
+    <Property Name="BankPlusPassword" Type="varchar" MaxLength="30" />
+    <Property Name="Status" Type="int" />
+    <Property Name="LastUpdate" Type="datetime" />
+    <Property Name="BCCSBalance" Type="money" />
+    <Property Name="BCCSBalanceUpdateTime" Type="datetime" />
+    <Property Name="MBBalance" Type="money" />
+    <Property Name="MBBalanceUpdateTime" Type="datetime" />
+    <Property Name="RunningWorker" Type="varchar" MaxLength="100" />
+    <Property Name="CurrentState" Type="varchar" MaxLength="50" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="IsWaitingOtp" Type="bit" />
+    <Property Name="LastTopupTime" Type="datetime" />
+    <Property Name="GSMServer" Type="varchar" MaxLength="100" />
+    <Property Name="GSMUpdate" Type="datetime" />
+    <Property Name="ChargingStatus" Type="smallint" />
+    <Property Name="IsLimitedDayVT136" Type="bit" />
+    <Property Name="IsLimitedDayVT199" Type="bit" />
+    <Property Name="TimeLimitedDayVT136" Type="datetime" />
+    <Property Name="TimeLimitedDayVT199" Type="datetime" />
+    <Property Name="AvaiableInDayVT136" Type="int" />
+    <Property Name="AvaiableInDayVT119" Type="int" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="MyViettelLastUpdate" Type="datetime" />
+    <Property Name="IsLimitedDayMyViettel" Type="bit" />
+    <Property Name="TimeLimitedDayMyViettel" Type="datetime" />
+    <Property Name="IsEnableMyViettel" Type="bit" />
+    <Property Name="CanUseUssd136" Type="bit" />
+    <Property Name="MyViettelChargedInDay" Type="int" />
+    <Property Name="MyViettelCheckCardInDay" Type="int" />
+    <Property Name="MyViettelWorkerServer" Type="nvarchar" MaxLength="100" />
+    <Property Name="Note" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="IsEnableMyViettelChargeCard" Type="bit" />
+    <Property Name="IsEnableMyViettelCheckCard" Type="bit" />
+    <Property Name="IsLimitMyViettelChargeCardInDay" Type="bit" />
+    <Property Name="TimeLimitMyViettelChargeCardInDay" Type="datetime" />
+    <Property Name="IsLimitMyViettelCheckCardInday" Type="bit" />
+    <Property Name="TimeLimitMyViettelCheckCardInday" Type="datetime" />
+    <Property Name="IsForceLoginMyViettel" Type="bit" />
+    <Property Name="MyViettelMaxCountChargeInDay" Type="int" />
+    <Property Name="MyViettelIsGetAccInfo" Type="bit" />
+    <Property Name="NextLoginTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SimAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SimId" Type="varchar" MaxLength="20" />
+    <Property Name="SimNo" Type="varchar" MaxLength="15" />
+    <Property Name="Account" Type="varchar" MaxLength="15" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="SimAccountInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SimNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="cuoc_phat_sinh" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="da_thanh_toan" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="no_con_lai" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="no_cuoc_cuoi_ky" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="Info" Type="nvarchar" MaxLength="200" />
+    <Property Name="tai_khoan_chinh" Type="decimal" Precision="12" Scale="2" />
+  </EntityType>
+  <EntityType Name="SMSList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" />
+    <Property Name="SmsIndex" Type="int" />
+    <Property Name="Sender" Type="varchar" MaxLength="50" />
+    <Property Name="SentTime" Type="varchar" MaxLength="50" />
+    <Property Name="MessageContent" Type="nvarchar(max)" />
+    <Property Name="Alphabet" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="30" />
+    <Property Name="Receiver" Type="varchar" MaxLength="50" />
+    <Property Name="ProcessStatus" Type="tinyint" />
+    <Property Name="SentDatetime" Type="datetime" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="SourceMoney">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceMoneyName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AccountNo" Type="varchar" MaxLength="50" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="SystemAccountId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubscriberChannelAuthentication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChannelCode" Type="varchar" MaxLength="50" />
+    <Property Name="Subscriber" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="WorkerServer" Type="varchar" MaxLength="50" />
+    <Property Name="WorkerId" Type="varchar" MaxLength="50" />
+    <Property Name="CurrentState" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+    <Property Name="AuthenticationData" Type="nvarchar(max)" />
+    <Property Name="RetryCount" Type="int" />
+    <Property Name="NextProcessTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SystemAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SystemAccountId" Type="int" />
+    <Property Name="SystemAccountName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SystemAccountCode" Type="varchar" MaxLength="30" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConfigKey" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfigValue" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="IsEnable" Type="bit" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Telco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="15" />
+    <Property Name="Code" Type="varchar" MaxLength="10" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CardSerialRegex" Type="nvarchar" MaxLength="50" />
+    <Property Name="CardCodeRegex" Type="nvarchar" MaxLength="50" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="PhoneRegex" Type="varchar" MaxLength="100" />
+    <Property Name="Logo" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="TelcoServicePaidType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Temp_SimZP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SimNo" Type="varchar" MaxLength="50" />
+    <Property Name="SimId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Tickets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="TransType" Type="int" />
+    <Property Name="TransCode" Type="nvarchar(max)" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="TicketTypeId" Type="int" />
+    <Property Name="Answer" Type="nvarchar(max)" />
+    <Property Name="Question" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TicketTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="Title" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TopupDepositOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="SourceMoneyId" Type="int" />
+    <Property Name="DepositAccountId" Type="int" />
+    <Property Name="RefAccountNo" Type="varchar" MaxLength="50" />
+    <Property Name="RefAccountName" Type="nvarchar" MaxLength="100" />
+    <Property Name="RefTransferCode" Type="varchar" MaxLength="100" />
+    <Property Name="OrderCode" Type="varchar" MaxLength="100" />
+    <Property Name="TransNote" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedTime" Type="datetime" Nullable="false" />
+    <Property Name="TopupOrderId" Type="bigint" />
+    <Property Name="TransactionTime" Type="datetime" />
+    <Property Name="TransactionId" Type="varchar" MaxLength="100" />
+    <Property Name="TransCode" Type="varchar" MaxLength="100" />
+    <Property Name="ServiceCode" Type="varchar" MaxLength="100" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TopupOrder">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderCode" Type="varchar" MaxLength="100" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="SessionId" Type="varchar" MaxLength="500" />
+    <Property Name="Telco" Type="int" Nullable="false" />
+    <Property Name="PaidType" Type="tinyint" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Amount" Type="int" Nullable="false" />
+    <Property Name="ChargedAmount" Type="int" Nullable="false" />
+    <Property Name="Discount" Type="float" Nullable="false" />
+    <Property Name="SaleAmount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="TopupDepositId" Type="bigint" />
+    <Property Name="MyPassword" Type="varchar" MaxLength="50" />
+    <Property Name="SaleInvoiceId" Type="bigint" />
+    <Property Name="SourceId" Type="int" />
+    <Property Name="AccountNo" Type="varchar" MaxLength="50" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="100" />
+    <Property Name="VoucherId" Type="bigint" />
+    <Property Name="VoucherAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="VoucherCode" Type="varchar" MaxLength="50" />
+    <Property Name="ClientIP" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TopupOrderDepositAccount">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceMoneyId" Type="int" Nullable="false" />
+    <Property Name="AccountNo" Type="varchar" MaxLength="30" />
+    <Property Name="AccountName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TopupPartnerProviderConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromAmount" Type="int" />
+    <Property Name="ToAmount" Type="int" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="IsEnable" Type="bit" />
+  </EntityType>
+  <EntityType Name="TopupPriorityConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TelcoId" Type="int" Nullable="false" />
+    <Property Name="FromAmount" Type="int" Nullable="false" />
+    <Property Name="ToAmount" Type="int" Nullable="false" />
+    <Property Name="PaidType" Type="tinyint" Nullable="false" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Priority" Type="tinyint" Nullable="false" />
+    <Property Name="Discount" Type="float" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TopupTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="InvoiceType" Type="tinyint" />
+    <Property Name="TransCode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="Mobile" Type="varchar" MaxLength="10" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="Amount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="ServiceType" Type="tinyint" />
+    <Property Name="IsSplitAmount" Type="bit" />
+    <Property Name="RequestIpAddress" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="PartnerCode" Type="varchar" MaxLength="50" />
+    <Property Name="PartnerDiscountPolicyId" Type="int" />
+    <Property Name="PartnerDiscountPolicyDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="PartnerSaleAmount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="IsCallbackPartner" Type="bit" />
+    <Property Name="CallbackTime" Type="datetime" />
+    <Property Name="ProviderCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderDiscountPolicyId" Type="int" />
+    <Property Name="ProviderDiscountPolicyDiscountPercentage" Type="decimal" Precision="4" Scale="2" />
+    <Property Name="ProviderPartnerSaleAmount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="ProviderRequestTransCode" Type="varchar" MaxLength="50" />
+    <Property Name="ProviderResponseTransCode" Type="varchar" MaxLength="100" />
+    <Property Name="ProviderResponseCode" Type="nvarchar(max)" />
+    <Property Name="ProviderResponseMessage" Type="nvarchar(max)" />
+    <Property Name="ProviderCallbackTime" Type="datetime" />
+    <Property Name="ProviderResponseChargedAmount" Type="decimal" Precision="12" Scale="2" />
+    <Property Name="IsReCalculate" Type="bit" />
+    <Property Name="CancelTransactionInSecond" Type="int" />
+    <Property Name="IsAlowExtend" Type="bit" />
+    <Property Name="ExtendTimeInSec" Type="int" />
+    <Property Name="MinCardValue" Type="int" />
+    <Property Name="IsExcuteExtend" Type="bit" />
+    <Property Name="IsEnableChangeProvider" Type="bit" Nullable="false" />
+    <Property Name="ChangeToProvider" Type="varchar" MaxLength="50" />
+    <Property Name="ChangeProviderTimeInSecond" Type="int" Nullable="false" />
+    <Property Name="IsExcuteChangeProvider" Type="bit" Nullable="false" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+    <Property Name="PartnerLastCheckTime" Type="datetime" />
+    <Property Name="PartnerLastCheckResponse" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="LastChargingTranId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceUserId" Type="bigint" Nullable="false" />
+    <Property Name="DesUserId" Type="bigint" Nullable="false" />
+    <Property Name="MoneyAmount" Type="decimal" Precision="12" Scale="2" Nullable="false" />
+    <Property Name="Type" Type="tinyint" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="SourceUserAfterBalance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="WalletType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TransferMoney">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="DesUserId" Type="bigint" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
+    <Property Name="TransferCode" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mobile" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="tinyint" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="Token" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UserBalance">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="30" />
+    <Property Name="LastUpdatedTime" Type="datetime" />
+    <Property Name="BalanceType" Type="tinyint" />
+    <Property Name="TenantId" Type="int" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="RowVersion" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserBalanceHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="InvoiceCode" Type="varchar" MaxLength="30" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="BalanceType" Type="tinyint" />
+    <Property Name="Side" Type="tinyint" />
+    <Property Name="TransAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Note" Type="nvarchar" MaxLength="500" />
+    <Property Name="TransactionId" Type="bigint" />
+    <Property Name="TransactionType" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+    <Property Name="Status" Type="tinyint" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="UserId1" Type="bigint" />
+  </EntityType>
+  <EntityType Name="UserPartners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CreationTime" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="CreatorUserId" Type="bigint" />
+    <Property Name="LastModificationTime" Type="datetime2" Precision="7" />
+    <Property Name="LastModifierUserId" Type="bigint" />
+    <Property Name="PartnerId" Type="int" />
+    <Property Name="UserId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="WorkerChannelTelcoPaidTypeConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkerChannelCode" Type="varchar" MaxLength="15" />
+    <Property Name="TelcoId" Type="tinyint" />
+    <Property Name="PaidType" Type="tinyint" />
+    <Property Name="Status" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="WorkerServerConfig">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkerChannelCode" Type="varchar" MaxLength="50" />
+    <Property Name="WorkerServer" Type="varchar" MaxLength="50" />
+    <Property Name="CurrentState" Type="varchar" MaxLength="50" />
+    <Property Name="LastUpdateTime" Type="datetime" />
+    <Property Name="NordVPNGroup" Type="varchar" MaxLength="50" />
+    <Property Name="Note" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsGetCaptchaFisrt" Type="bit" />
+    <Property Name="DelayTimeInSec" Type="int" />
+    <Property Name="CaptchaProvider" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId">
+    <End Role="AbpEntityChangeSets" Type="Self.AbpEntityChangeSets" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpEntityChanges" Type="Self.AbpEntityChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEntityChangeSets">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpEntityChanges">
+        <PropertyRef Name="EntityChangeSetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId">
+    <End Role="AbpEntityChanges" Type="Self.AbpEntityChanges" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpEntityPropertyChanges" Type="Self.AbpEntityPropertyChanges" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEntityChanges">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpEntityPropertyChanges">
+        <PropertyRef Name="EntityChangeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpFeatures_AbpEditions_EditionId">
+    <End Role="AbpEditions" Type="Self.AbpEditions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpFeatures" Type="Self.AbpFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpFeatures">
+        <PropertyRef Name="EditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId">
+    <End Role="AbpOrganizationUnits" Type="Self.AbpOrganizationUnits" Multiplicity="0..1" />
+    <End Role="AbpOrganizationUnits1" Type="Self.AbpOrganizationUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpOrganizationUnits">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpOrganizationUnits1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpPermissions_AbpRoles_RoleId">
+    <End Role="AbpRoles" Type="Self.AbpRoles" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpPermissions" Type="Self.AbpPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpPermissions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpPermissions_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpPermissions" Type="Self.AbpPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpPermissions">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoleClaims_AbpRoles_RoleId">
+    <End Role="AbpRoles" Type="Self.AbpRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpRoleClaims" Type="Self.AbpRoleClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoleClaims">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoles_AbpUsers_CreatorUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpRoles" Type="Self.AbpRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoles">
+        <PropertyRef Name="CreatorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoles_AbpUsers_DeleterUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpRoles" Type="Self.AbpRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoles">
+        <PropertyRef Name="DeleterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpRoles_AbpUsers_LastModifierUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpRoles" Type="Self.AbpRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpRoles">
+        <PropertyRef Name="LastModifierUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpSettings_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpSettings" Type="Self.AbpSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpSettings">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpEditions_EditionId">
+    <End Role="AbpEditions" Type="Self.AbpEditions" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="EditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpUsers_CreatorUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="CreatorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpUsers_DeleterUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="DeleterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpTenants_AbpUsers_LastModifierUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpTenants" Type="Self.AbpTenants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpTenants">
+        <PropertyRef Name="LastModifierUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserClaims_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserClaims" Type="Self.AbpUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserLogins_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserLogins" Type="Self.AbpUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserOrganizationUnits_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserOrganizationUnits" Type="Self.AbpUserOrganizationUnits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserOrganizationUnits">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserRoles_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserRoles" Type="Self.AbpUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUsers_AbpUsers_CreatorUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpUsers1" Type="Self.AbpUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUsers1">
+        <PropertyRef Name="CreatorUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUsers_AbpUsers_DeleterUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpUsers1" Type="Self.AbpUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUsers1">
+        <PropertyRef Name="DeleterUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUsers_AbpUsers_LastModifierUserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="0..1" />
+    <End Role="AbpUsers1" Type="Self.AbpUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUsers1">
+        <PropertyRef Name="LastModifierUserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpUserTokens_AbpUsers_UserId">
+    <End Role="AbpUsers" Type="Self.AbpUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpUserTokens" Type="Self.AbpUserTokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpUserTokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId">
+    <End Role="AbpWebhookEvents" Type="Self.AbpWebhookEvents" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AbpWebhookSendAttempts" Type="Self.AbpWebhookSendAttempts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpWebhookEvents">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AbpWebhookSendAttempts">
+        <PropertyRef Name="WebhookEventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppSubscriptionPayments_AbpEditions_EditionId">
+    <End Role="AbpEditions" Type="Self.AbpEditions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AppSubscriptionPayments" Type="Self.AppSubscriptionPayments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbpEditions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppSubscriptionPayments">
+        <PropertyRef Name="EditionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DevPayExpressModelStoreContainer">
+    <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpAuditLogs" EntityType="Self.AbpAuditLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpBackgroundJobs" EntityType="Self.AbpBackgroundJobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpEditions" EntityType="Self.AbpEditions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpEntityChanges" EntityType="Self.AbpEntityChanges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpEntityChangeSets" EntityType="Self.AbpEntityChangeSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpEntityPropertyChanges" EntityType="Self.AbpEntityPropertyChanges" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpFeatures" EntityType="Self.AbpFeatures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpLanguages" EntityType="Self.AbpLanguages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpLanguageTexts" EntityType="Self.AbpLanguageTexts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpNotifications" EntityType="Self.AbpNotifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpNotificationSubscriptions" EntityType="Self.AbpNotificationSubscriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpOrganizationUnitRoles" EntityType="Self.AbpOrganizationUnitRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpOrganizationUnits" EntityType="Self.AbpOrganizationUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpPermissions" EntityType="Self.AbpPermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpPersistedGrants" EntityType="Self.AbpPersistedGrants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpRoleClaims" EntityType="Self.AbpRoleClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpRoles" EntityType="Self.AbpRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpSettings" EntityType="Self.AbpSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpTenantNotifications" EntityType="Self.AbpTenantNotifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpTenants" EntityType="Self.AbpTenants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserAccounts" EntityType="Self.AbpUserAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserClaims" EntityType="Self.AbpUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserLoginAttempts" EntityType="Self.AbpUserLoginAttempts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserLogins" EntityType="Self.AbpUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserNotifications" EntityType="Self.AbpUserNotifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserOrganizationUnits" EntityType="Self.AbpUserOrganizationUnits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserRoles" EntityType="Self.AbpUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUsers" EntityType="Self.AbpUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpUserTokens" EntityType="Self.AbpUserTokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpWebhookEvents" EntityType="Self.AbpWebhookEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpWebhookSendAttempts" EntityType="Self.AbpWebhookSendAttempts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbpWebhookSubscriptions" EntityType="Self.AbpWebhookSubscriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AlarmHistory" EntityType="Self.AlarmHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppBinaryObjects" EntityType="Self.AppBinaryObjects" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppChatMessages" EntityType="Self.AppChatMessages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppFriendships" EntityType="Self.AppFriendships" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppInvoices" EntityType="Self.AppInvoices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppModemConfig" EntityType="Self.AppModemConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppSubscriptionPayments" EntityType="Self.AppSubscriptionPayments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppSubscriptionPaymentsExtensionData" EntityType="Self.AppSubscriptionPaymentsExtensionData" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bank" EntityType="Self.Bank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuyCardPriorityConfig" EntityType="Self.BuyCardPriorityConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuyPincodeTransaction" EntityType="Self.BuyPincodeTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BuyPincodeTransactionDetail" EntityType="Self.BuyPincodeTransactionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CaptchaFile" EntityType="Self.CaptchaFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChargingPartnerProviderConfig" EntityType="Self.ChargingPartnerProviderConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChargingTopupTransaction" EntityType="Self.ChargingTopupTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChargingTopupTransactionHistory" EntityType="Self.ChargingTopupTransactionHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChargingTransaction" EntityType="Self.ChargingTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChargingTransactionCallbackPartnerHistory" EntityType="Self.ChargingTransactionCallbackPartnerHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CheckCardTransaction" EntityType="Self.CheckCardTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepositInvoice" EntityType="Self.DepositInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepositPartnerInvoice" EntityType="Self.DepositPartnerInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiscountPolicy" EntityType="Self.DiscountPolicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenChargingInvoice" EntityType="Self.GenChargingInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenInvoice" EntityType="Self.GenInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupPermission" EntityType="Self.GroupPermission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceDiscountHistories" EntityType="Self.InvoiceDiscountHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="InvoiceTypeTelcoChargingConfig" EntityType="Self.InvoiceTypeTelcoChargingConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintainSMS" EntityType="Self.MaintainSMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MaintenanceSms" EntityType="Self.MaintenanceSms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MerchantUserDepositTransaction" EntityType="Self.MerchantUserDepositTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MobiFoneToken" EntityType="Self.MobiFoneToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ModemChargingActiveSimHistory" EntityType="Self.ModemChargingActiveSimHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationText" EntityType="Self.NotificationText" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerBalance" EntityType="Self.PartnerBalance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerBalanceHistory" EntityType="Self.PartnerBalanceHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerChargingPartnerTopupConfig" EntityType="Self.PartnerChargingPartnerTopupConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerDiscountPolicy" EntityType="Self.PartnerDiscountPolicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerServiceConfigs" EntityType="Self.PartnerServiceConfigs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerServiceWorkerChannelConfig" EntityType="Self.PartnerServiceWorkerChannelConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerTopupTransactionConfigMaxWaiting" EntityType="Self.PartnerTopupTransactionConfigMaxWaiting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerTransaction" EntityType="Self.PartnerTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerUser" EntityType="Self.PartnerUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerUserPartner" EntityType="Self.PartnerUserPartner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartnerUserProvider" EntityType="Self.PartnerUserProvider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PinCodeStock" EntityType="Self.PinCodeStock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rpt_BusinessReport" EntityType="Self.Rpt_BusinessReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rpt_CustomerBalanceByDate" EntityType="Self.Rpt_CustomerBalanceByDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rpt_CustomerBalanceDetailByDate" EntityType="Self.Rpt_CustomerBalanceDetailByDate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rpt_CustomerDebit" EntityType="Self.Rpt_CustomerDebit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rpt_SystemMoneyByDay" EntityType="Self.Rpt_SystemMoneyByDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleInvoice" EntityType="Self.SaleInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleInvoiceBuyPincodeDetail" EntityType="Self.SaleInvoiceBuyPincodeDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleInvoiceCalculationHistory" EntityType="Self.SaleInvoiceCalculationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SaleInvoiceTopupDetail" EntityType="Self.SaleInvoiceTopupDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceProvider" EntityType="Self.ServiceProvider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceProviderConfigs" EntityType="Self.ServiceProviderConfigs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ServiceProviderDiscountPolicy" EntityType="Self.ServiceProviderDiscountPolicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SIM" EntityType="Self.SIM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SimAccount" EntityType="Self.SimAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SimAccountInfo" EntityType="Self.SimAccountInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SMSList" EntityType="Self.SMSList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SourceMoney" EntityType="Self.SourceMoney" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriberChannelAuthentication" EntityType="Self.SubscriberChannelAuthentication" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemAccount" EntityType="Self.SystemAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SystemSetting" EntityType="Self.SystemSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telco" EntityType="Self.Telco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TelcoServicePaidType" EntityType="Self.TelcoServicePaidType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Temp_SimZP" EntityType="Self.Temp_SimZP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketTypes" EntityType="Self.TicketTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopupDepositOrder" EntityType="Self.TopupDepositOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopupOrder" EntityType="Self.TopupOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopupOrderDepositAccount" EntityType="Self.TopupOrderDepositAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopupPartnerProviderConfig" EntityType="Self.TopupPartnerProviderConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopupPriorityConfig" EntityType="Self.TopupPriorityConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TopupTransaction" EntityType="Self.TopupTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransferMoney" EntityType="Self.TransferMoney" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserBalance" EntityType="Self.UserBalance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserBalanceHistory" EntityType="Self.UserBalanceHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserPartners" EntityType="Self.UserPartners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkerChannelTelcoPaidTypeConfig" EntityType="Self.WorkerChannelTelcoPaidTypeConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkerServerConfig" EntityType="Self.WorkerServerConfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobSchedule" EntityType="Self.JobSchedule" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [JobSchedule].[JobName] AS [JobName], 
+    [JobSchedule].[LastTime] AS [LastTime], 
+    [JobSchedule].[LastId] AS [LastId], 
+    [JobSchedule].[LastRun] AS [LastRun]
+    FROM [dbo].[JobSchedule] AS [JobSchedule]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Rpt_CustomerDebitHistoryByDay" EntityType="Self.Rpt_CustomerDebitHistoryByDay" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Rpt_CustomerDebitHistoryByDay].[ReportDate] AS [ReportDate], 
+    [Rpt_CustomerDebitHistoryByDay].[User ] AS [User ], 
+    [Rpt_CustomerDebitHistoryByDay].[ParentUser ] AS [ParentUser ], 
+    [Rpt_CustomerDebitHistoryByDay].[OpeningDebit] AS [OpeningDebit], 
+    [Rpt_CustomerDebitHistoryByDay].[OpeningBalance] AS [OpeningBalance], 
+    [Rpt_CustomerDebitHistoryByDay].[UnprocessAmount] AS [UnprocessAmount], 
+    [Rpt_CustomerDebitHistoryByDay].[Diff] AS [Diff], 
+    [Rpt_CustomerDebitHistoryByDay].[CreatedTime] AS [CreatedTime]
+    FROM [dbo].[Rpt_CustomerDebitHistoryByDay] AS [Rpt_CustomerDebitHistoryByDay]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Rpt_CustomerDebitHistoryByDay_v2" EntityType="Self.Rpt_CustomerDebitHistoryByDay_v2" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Rpt_CustomerDebitHistoryByDay_v2].[ReportDate] AS [ReportDate], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[UserId] AS [UserId], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[User ] AS [User ], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[ParentUser ] AS [ParentUser ], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[OpeningDebit] AS [OpeningDebit], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[OpeningBalance] AS [OpeningBalance], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[TotalInvoiceUnprocess] AS [TotalInvoiceUnprocess], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[TotalSuccess] AS [TotalSuccess], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[TotalRefund] AS [TotalRefund], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[UnprocessAmount] AS [UnprocessAmount], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[Diff] AS [Diff], 
+    [Rpt_CustomerDebitHistoryByDay_v2].[CreatedTime] AS [CreatedTime]
+    FROM [dbo].[Rpt_CustomerDebitHistoryByDay_v2] AS [Rpt_CustomerDebitHistoryByDay_v2]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId" Association="Self.FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId">
+      <End Role="AbpEntityChangeSets" EntitySet="AbpEntityChangeSets" />
+      <End Role="AbpEntityChanges" EntitySet="AbpEntityChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId" Association="Self.FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId">
+      <End Role="AbpEntityChanges" EntitySet="AbpEntityChanges" />
+      <End Role="AbpEntityPropertyChanges" EntitySet="AbpEntityPropertyChanges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpFeatures_AbpEditions_EditionId" Association="Self.FK_AbpFeatures_AbpEditions_EditionId">
+      <End Role="AbpEditions" EntitySet="AbpEditions" />
+      <End Role="AbpFeatures" EntitySet="AbpFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId" Association="Self.FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId">
+      <End Role="AbpOrganizationUnits" EntitySet="AbpOrganizationUnits" />
+      <End Role="AbpOrganizationUnits1" EntitySet="AbpOrganizationUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpPermissions_AbpRoles_RoleId" Association="Self.FK_AbpPermissions_AbpRoles_RoleId">
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+      <End Role="AbpPermissions" EntitySet="AbpPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpPermissions_AbpUsers_UserId" Association="Self.FK_AbpPermissions_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpPermissions" EntitySet="AbpPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoleClaims_AbpRoles_RoleId" Association="Self.FK_AbpRoleClaims_AbpRoles_RoleId">
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+      <End Role="AbpRoleClaims" EntitySet="AbpRoleClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoles_AbpUsers_CreatorUserId" Association="Self.FK_AbpRoles_AbpUsers_CreatorUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoles_AbpUsers_DeleterUserId" Association="Self.FK_AbpRoles_AbpUsers_DeleterUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpRoles_AbpUsers_LastModifierUserId" Association="Self.FK_AbpRoles_AbpUsers_LastModifierUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpRoles" EntitySet="AbpRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpSettings_AbpUsers_UserId" Association="Self.FK_AbpSettings_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpSettings" EntitySet="AbpSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpEditions_EditionId" Association="Self.FK_AbpTenants_AbpEditions_EditionId">
+      <End Role="AbpEditions" EntitySet="AbpEditions" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpUsers_CreatorUserId" Association="Self.FK_AbpTenants_AbpUsers_CreatorUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpUsers_DeleterUserId" Association="Self.FK_AbpTenants_AbpUsers_DeleterUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpTenants_AbpUsers_LastModifierUserId" Association="Self.FK_AbpTenants_AbpUsers_LastModifierUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpTenants" EntitySet="AbpTenants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserClaims_AbpUsers_UserId" Association="Self.FK_AbpUserClaims_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserClaims" EntitySet="AbpUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserLogins_AbpUsers_UserId" Association="Self.FK_AbpUserLogins_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserLogins" EntitySet="AbpUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserOrganizationUnits_AbpUsers_UserId" Association="Self.FK_AbpUserOrganizationUnits_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserOrganizationUnits" EntitySet="AbpUserOrganizationUnits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserRoles_AbpUsers_UserId" Association="Self.FK_AbpUserRoles_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserRoles" EntitySet="AbpUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUsers_AbpUsers_CreatorUserId" Association="Self.FK_AbpUsers_AbpUsers_CreatorUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUsers1" EntitySet="AbpUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUsers_AbpUsers_DeleterUserId" Association="Self.FK_AbpUsers_AbpUsers_DeleterUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUsers1" EntitySet="AbpUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUsers_AbpUsers_LastModifierUserId" Association="Self.FK_AbpUsers_AbpUsers_LastModifierUserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUsers1" EntitySet="AbpUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpUserTokens_AbpUsers_UserId" Association="Self.FK_AbpUserTokens_AbpUsers_UserId">
+      <End Role="AbpUsers" EntitySet="AbpUsers" />
+      <End Role="AbpUserTokens" EntitySet="AbpUserTokens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId" Association="Self.FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId">
+      <End Role="AbpWebhookEvents" EntitySet="AbpWebhookEvents" />
+      <End Role="AbpWebhookSendAttempts" EntitySet="AbpWebhookSendAttempts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppSubscriptionPayments_AbpEditions_EditionId" Association="Self.FK_AppSubscriptionPayments_AbpEditions_EditionId">
+      <End Role="AbpEditions" EntitySet="AbpEditions" />
+      <End Role="AppSubscriptionPayments" EntitySet="AppSubscriptionPayments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

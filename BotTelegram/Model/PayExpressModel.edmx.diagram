@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e9320c2e5b1a4dbcbc82239a6db84aec" Name="Diagram1">
+        <EntityTypeShape EntityType="DevPayExpressModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpAuditLog" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpBackgroundJob" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpEdition" Width="1.5" PointX="3.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpEntityChanx" Width="1.5" PointX="5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpEntityChangeSet" Width="1.5" PointX="2.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpEntityPropertyChanx" Width="1.5" PointX="7.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpFeature" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpLanguage" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpLanguageText" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpNotification" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpNotificationSubscription" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpOrganizationUnitRole" Width="1.5" PointX="13.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpOrganizationUnit" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpPermission" Width="1.5" PointX="5.25" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpPersistedGrant" Width="1.5" PointX="7.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpRoleClaim" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpRole" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpSetting" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpTenantNotification" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpTenant" Width="1.5" PointX="6" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserAccount" Width="1.5" PointX="11.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserClaim" Width="1.5" PointX="3" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserLoginAttempt" Width="1.5" PointX="13.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserLogin" Width="1.5" PointX="3" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserNotification" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserOrganizationUnit" Width="1.5" PointX="3" PointY="33.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserRole" Width="1.5" PointX="3" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUser" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpUserToken" Width="1.5" PointX="3" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpWebhookEvent" Width="1.5" PointX="8.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpWebhookSendAttempt" Width="1.5" PointX="11" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AbpWebhookSubscription" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AlarmHistory" Width="1.5" PointX="15.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppBinaryObject" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppChatMessage" Width="1.5" PointX="15.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppFriendship" Width="1.5" PointX="15.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppInvoice" Width="1.5" PointX="16.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppModemConfig" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppSubscriptionPayment" Width="1.5" PointX="6" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.AppSubscriptionPaymentsExtensionData" Width="1.5" PointX="5.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Bank" Width="1.5" PointX="7.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.BuyCardPriorityConfig" Width="1.5" PointX="17.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.BuyPincodeTransaction" Width="1.5" PointX="17.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.BuyPincodeTransactionDetail" Width="1.5" PointX="18.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.CaptchaFile" Width="1.5" PointX="9.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ChargingPartnerProviderConfig" Width="1.5" PointX="11.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ChargingTopupTransaction" Width="1.5" PointX="19.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ChargingTopupTransactionHistory" Width="1.5" PointX="13.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ChargingTransaction" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ChargingTransactionCallbackPartnerHistory" Width="1.5" PointX="19.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.DepositInvoice" Width="1.5" PointX="2.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.DepositPartnerInvoice" Width="1.5" PointX="21.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.DiscountPolicy" Width="1.5" PointX="8.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.GenChargingInvoice" Width="1.5" PointX="21.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.GenInvoice" Width="1.5" PointX="15.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Group" Width="1.5" PointX="21.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.GroupPermission" Width="1.5" PointX="21.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.InvoiceDiscountHistory" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.InvoiceTypeTelcoChargingConfig" Width="1.5" PointX="22.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.MaintainSM" Width="1.5" PointX="21.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.MaintenanceSm" Width="1.5" PointX="23.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.MerchantUserDepositTransaction" Width="1.5" PointX="23.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.MobiFoneToken" Width="1.5" PointX="23.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ModemChargingActiveSimHistory" Width="1.5" PointX="23.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.NotificationText" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Partner" Width="1.5" PointX="15.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerBalance" Width="1.5" PointX="17.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerBalanceHistory" Width="1.5" PointX="23.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerChargingPartnerTopupConfig" Width="1.5" PointX="25.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerDiscountPolicy" Width="1.5" PointX="25.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerServiceConfig" Width="1.5" PointX="10.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerServiceWorkerChannelConfig" Width="1.5" PointX="25.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerTopupTransactionConfigMaxWaiting" Width="1.5" PointX="25.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerTransaction" Width="1.5" PointX="19.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerUser" Width="1.5" PointX="25.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerUserPartner" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PartnerUserProvider" Width="1.5" PointX="27.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Permission" Width="1.5" PointX="27.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.PinCodeStock" Width="1.5" PointX="27.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Product" Width="1.5" PointX="12.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_BusinessReport" Width="1.5" PointX="27.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_CustomerBalanceByDate" Width="1.5" PointX="27.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_CustomerBalanceDetailByDate" Width="1.5" PointX="27.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_CustomerDebit" Width="1.5" PointX="21.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_SystemMoneyByDay" Width="1.5" PointX="29.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SaleInvoice" Width="1.5" PointX="29.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SaleInvoiceBuyPincodeDetail" Width="1.5" PointX="29.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SaleInvoiceCalculationHistory" Width="1.5" PointX="29.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SaleInvoiceTopupDetail" Width="1.5" PointX="17.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ServiceProvider" Width="1.5" PointX="29.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ServiceProviderConfig" Width="1.5" PointX="23.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.ServiceProviderDiscountPolicy" Width="1.5" PointX="29.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Service" Width="1.5" PointX="8.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SIM" Width="1.5" PointX="31.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SimAccount" Width="1.5" PointX="31.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SimAccountInfo" Width="1.5" PointX="14.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SMSList" Width="1.5" PointX="31.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SourceMoney" Width="1.5" PointX="31.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SubscriberChannelAuthentication" Width="1.5" PointX="31.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SystemAccount" Width="1.5" PointX="25.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.SystemSetting" Width="1.5" PointX="27.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Telco" Width="1.5" PointX="31.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TelcoServicePaidType" Width="1.5" PointX="10.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Temp_SimZP" Width="1.5" PointX="19.75" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Ticket" Width="1.5" PointX="33.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TicketType" Width="1.5" PointX="33.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TopupDepositOrder" Width="1.5" PointX="33.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TopupOrder" Width="1.5" PointX="33.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TopupOrderDepositAccount" Width="1.5" PointX="33.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TopupPartnerProviderConfig" Width="1.5" PointX="33.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TopupPriorityConfig" Width="1.5" PointX="33.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TopupTransaction" Width="1.5" PointX="33.75" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Transaction" Width="1.5" PointX="5.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.TransferMoney" Width="1.5" PointX="7.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.User" Width="1.5" PointX="21.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.UserBalance" Width="1.5" PointX="23.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.UserBalanceHistory" Width="1.5" PointX="29.75" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.UserGroup" Width="1.5" PointX="35.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.UserPartner" Width="1.5" PointX="35.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.WorkerChannelTelcoPaidTypeConfig" Width="1.5" PointX="35.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.WorkerServerConfig" Width="1.5" PointX="9.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.CheckCardTransaction" Width="1.5" PointX="35.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.JobSchedule" Width="1.5" PointX="11.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_CustomerDebitHistoryByDay" Width="1.5" PointX="13.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DevPayExpressModel.Rpt_CustomerDebitHistoryByDay_v2" Width="1.5" PointX="15.75" PointY="35.75" IsExpanded="true" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpFeatures_AbpEditions_EditionId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpTenants_AbpEditions_EditionId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AppSubscriptionPayments_AbpEditions_EditionId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpEntityChanges_AbpEntityChangeSets_EntityChangeSetId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpEntityPropertyChanges_AbpEntityChanges_EntityChangeId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpOrganizationUnits_AbpOrganizationUnits_ParentId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpPermissions_AbpRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpPermissions_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpRoleClaims_AbpRoles_RoleId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpRoles_AbpUsers_CreatorUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpRoles_AbpUsers_DeleterUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpRoles_AbpUsers_LastModifierUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpSettings_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpTenants_AbpUsers_CreatorUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpTenants_AbpUsers_DeleterUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpTenants_AbpUsers_LastModifierUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUserClaims_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUserLogins_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUserOrganizationUnits_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUserRoles_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUsers_AbpUsers_CreatorUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUsers_AbpUsers_DeleterUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUsers_AbpUsers_LastModifierUserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpUserTokens_AbpUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DevPayExpressModel.FK_AbpWebhookSendAttempts_AbpWebhookEvents_WebhookEventId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

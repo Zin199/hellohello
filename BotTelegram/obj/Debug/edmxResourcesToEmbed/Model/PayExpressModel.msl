@@ -1,0 +1,2270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DevPayExpressModelStoreContainer" CdmEntityContainer="DevPayExpressEntities">
+    <EntitySetMapping Name="C__EFMigrationsHistory">
+      <EntityTypeMapping TypeName="DevPayExpressModel.C__EFMigrationsHistory">
+        <MappingFragment StoreEntitySet="__EFMigrationsHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpAuditLogs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpAuditLog">
+        <MappingFragment StoreEntitySet="AbpAuditLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BrowserInfo" ColumnName="BrowserInfo" />
+          <ScalarProperty Name="ClientIpAddress" ColumnName="ClientIpAddress" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="CustomData" ColumnName="CustomData" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="ExecutionDuration" ColumnName="ExecutionDuration" />
+          <ScalarProperty Name="ExecutionTime" ColumnName="ExecutionTime" />
+          <ScalarProperty Name="ImpersonatorTenantId" ColumnName="ImpersonatorTenantId" />
+          <ScalarProperty Name="ImpersonatorUserId" ColumnName="ImpersonatorUserId" />
+          <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ReturnValue" ColumnName="ReturnValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpBackgroundJobs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpBackgroundJob">
+        <MappingFragment StoreEntitySet="AbpBackgroundJobs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="IsAbandoned" ColumnName="IsAbandoned" />
+          <ScalarProperty Name="JobArgs" ColumnName="JobArgs" />
+          <ScalarProperty Name="JobType" ColumnName="JobType" />
+          <ScalarProperty Name="LastTryTime" ColumnName="LastTryTime" />
+          <ScalarProperty Name="NextTryTime" ColumnName="NextTryTime" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="TryCount" ColumnName="TryCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpEditions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpEdition">
+        <MappingFragment StoreEntitySet="AbpEditions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="AnnualPrice" ColumnName="AnnualPrice" />
+          <ScalarProperty Name="ExpiringEditionId" ColumnName="ExpiringEditionId" />
+          <ScalarProperty Name="MonthlyPrice" ColumnName="MonthlyPrice" />
+          <ScalarProperty Name="TrialDayCount" ColumnName="TrialDayCount" />
+          <ScalarProperty Name="WaitingDayAfterExpire" ColumnName="WaitingDayAfterExpire" />
+          <ScalarProperty Name="DailyPrice" ColumnName="DailyPrice" />
+          <ScalarProperty Name="WeeklyPrice" ColumnName="WeeklyPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpEntityChanges">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpEntityChanx">
+        <MappingFragment StoreEntitySet="AbpEntityChanges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChangeTime" ColumnName="ChangeTime" />
+          <ScalarProperty Name="ChangeType" ColumnName="ChangeType" />
+          <ScalarProperty Name="EntityChangeSetId" ColumnName="EntityChangeSetId" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="EntityTypeFullName" ColumnName="EntityTypeFullName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpEntityChangeSets">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpEntityChangeSet">
+        <MappingFragment StoreEntitySet="AbpEntityChangeSets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BrowserInfo" ColumnName="BrowserInfo" />
+          <ScalarProperty Name="ClientIpAddress" ColumnName="ClientIpAddress" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="ExtensionData" ColumnName="ExtensionData" />
+          <ScalarProperty Name="ImpersonatorTenantId" ColumnName="ImpersonatorTenantId" />
+          <ScalarProperty Name="ImpersonatorUserId" ColumnName="ImpersonatorUserId" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpEntityPropertyChanges">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpEntityPropertyChanx">
+        <MappingFragment StoreEntitySet="AbpEntityPropertyChanges">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EntityChangeId" ColumnName="EntityChangeId" />
+          <ScalarProperty Name="NewValue" ColumnName="NewValue" />
+          <ScalarProperty Name="OriginalValue" ColumnName="OriginalValue" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="PropertyTypeFullName" ColumnName="PropertyTypeFullName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpFeatures">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpFeature">
+        <MappingFragment StoreEntitySet="AbpFeatures">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpLanguages">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpLanguage">
+        <MappingFragment StoreEntitySet="AbpLanguages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="IsDisabled" ColumnName="IsDisabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpLanguageTexts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpLanguageText">
+        <MappingFragment StoreEntitySet="AbpLanguageTexts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpNotifications">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpNotification">
+        <MappingFragment StoreEntitySet="AbpNotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="DataTypeName" ColumnName="DataTypeName" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="EntityTypeAssemblyQualifiedName" ColumnName="EntityTypeAssemblyQualifiedName" />
+          <ScalarProperty Name="EntityTypeName" ColumnName="EntityTypeName" />
+          <ScalarProperty Name="ExcludedUserIds" ColumnName="ExcludedUserIds" />
+          <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="TenantIds" ColumnName="TenantIds" />
+          <ScalarProperty Name="UserIds" ColumnName="UserIds" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpNotificationSubscriptions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpNotificationSubscription">
+        <MappingFragment StoreEntitySet="AbpNotificationSubscriptions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="EntityTypeAssemblyQualifiedName" ColumnName="EntityTypeAssemblyQualifiedName" />
+          <ScalarProperty Name="EntityTypeName" ColumnName="EntityTypeName" />
+          <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpOrganizationUnitRoles">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpOrganizationUnitRole">
+        <MappingFragment StoreEntitySet="AbpOrganizationUnitRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="OrganizationUnitId" ColumnName="OrganizationUnitId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpOrganizationUnits">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpOrganizationUnit">
+        <MappingFragment StoreEntitySet="AbpOrganizationUnits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpPermissions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpPermission">
+        <MappingFragment StoreEntitySet="AbpPermissions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+          <ScalarProperty Name="IsGranted" ColumnName="IsGranted" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpPersistedGrants">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpPersistedGrant">
+        <MappingFragment StoreEntitySet="AbpPersistedGrants">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Expiration" ColumnName="Expiration" />
+          <ScalarProperty Name="SubjectId" ColumnName="SubjectId" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpRoleClaims">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpRoleClaim">
+        <MappingFragment StoreEntitySet="AbpRoleClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpRoles">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpRole">
+        <MappingFragment StoreEntitySet="AbpRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsStatic" ColumnName="IsStatic" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NormalizedName" ColumnName="NormalizedName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpSettings">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpSetting">
+        <MappingFragment StoreEntitySet="AbpSettings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpTenantNotifications">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpTenantNotification">
+        <MappingFragment StoreEntitySet="AbpTenantNotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="DataTypeName" ColumnName="DataTypeName" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+          <ScalarProperty Name="EntityTypeAssemblyQualifiedName" ColumnName="EntityTypeAssemblyQualifiedName" />
+          <ScalarProperty Name="EntityTypeName" ColumnName="EntityTypeName" />
+          <ScalarProperty Name="NotificationName" ColumnName="NotificationName" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpTenants">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpTenant">
+        <MappingFragment StoreEntitySet="AbpTenants">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConnectionString" ColumnName="ConnectionString" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="CustomCssId" ColumnName="CustomCssId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="LogoFileType" ColumnName="LogoFileType" />
+          <ScalarProperty Name="LogoId" ColumnName="LogoId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TenancyName" ColumnName="TenancyName" />
+          <ScalarProperty Name="IsInTrialPeriod" ColumnName="IsInTrialPeriod" />
+          <ScalarProperty Name="SubscriptionEndDateUtc" ColumnName="SubscriptionEndDateUtc" />
+          <ScalarProperty Name="SubscriptionPaymentType" ColumnName="SubscriptionPaymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserAccounts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserAccount">
+        <MappingFragment StoreEntitySet="AbpUserAccounts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserLinkId" ColumnName="UserLinkId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserClaims">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserClaim">
+        <MappingFragment StoreEntitySet="AbpUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserLoginAttempts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserLoginAttempt">
+        <MappingFragment StoreEntitySet="AbpUserLoginAttempts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BrowserInfo" ColumnName="BrowserInfo" />
+          <ScalarProperty Name="ClientIpAddress" ColumnName="ClientIpAddress" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="TenancyName" ColumnName="TenancyName" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserNameOrEmailAddress" ColumnName="UserNameOrEmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserLogins">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserLogin">
+        <MappingFragment StoreEntitySet="AbpUserLogins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserNotifications">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserNotification">
+        <MappingFragment StoreEntitySet="AbpUserNotifications">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="TenantNotificationId" ColumnName="TenantNotificationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserOrganizationUnits">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserOrganizationUnit">
+        <MappingFragment StoreEntitySet="AbpUserOrganizationUnits">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="OrganizationUnitId" ColumnName="OrganizationUnitId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserRoles">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserRole">
+        <MappingFragment StoreEntitySet="AbpUserRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUsers">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUser">
+        <MappingFragment StoreEntitySet="AbpUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="AuthenticationSource" ColumnName="AuthenticationSource" />
+          <ScalarProperty Name="ConcurrencyStamp" ColumnName="ConcurrencyStamp" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="EmailConfirmationCode" ColumnName="EmailConfirmationCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsEmailConfirmed" ColumnName="IsEmailConfirmed" />
+          <ScalarProperty Name="IsLockoutEnabled" ColumnName="IsLockoutEnabled" />
+          <ScalarProperty Name="IsPhoneNumberConfirmed" ColumnName="IsPhoneNumberConfirmed" />
+          <ScalarProperty Name="IsTwoFactorEnabled" ColumnName="IsTwoFactorEnabled" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="ParentUserId" ColumnName="ParentUserId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NormalizedEmailAddress" ColumnName="NormalizedEmailAddress" />
+          <ScalarProperty Name="NormalizedUserName" ColumnName="NormalizedUserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="PasswordResetCode" ColumnName="PasswordResetCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="ProfilePictureId" ColumnName="ProfilePictureId" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="ShouldChangePasswordOnNextLogin" ColumnName="ShouldChangePasswordOnNextLogin" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="SignInToken" ColumnName="SignInToken" />
+          <ScalarProperty Name="SignInTokenExpireTimeUtc" ColumnName="SignInTokenExpireTimeUtc" />
+          <ScalarProperty Name="GoogleAuthenticatorKey" ColumnName="GoogleAuthenticatorKey" />
+          <ScalarProperty Name="TopupPriority" ColumnName="TopupPriority" />
+          <ScalarProperty Name="DebitLimit" ColumnName="DebitLimit" />
+          <ScalarProperty Name="CardImages" ColumnName="CardImages" />
+          <ScalarProperty Name="OtherImages" ColumnName="OtherImages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpUserTokens">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpUserToken">
+        <MappingFragment StoreEntitySet="AbpUserTokens">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpWebhookEvents">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpWebhookEvent">
+        <MappingFragment StoreEntitySet="AbpWebhookEvents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WebhookName" ColumnName="WebhookName" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpWebhookSendAttempts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpWebhookSendAttempt">
+        <MappingFragment StoreEntitySet="AbpWebhookSendAttempts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WebhookEventId" ColumnName="WebhookEventId" />
+          <ScalarProperty Name="WebhookSubscriptionId" ColumnName="WebhookSubscriptionId" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="ResponseStatusCode" ColumnName="ResponseStatusCode" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AbpWebhookSubscriptions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AbpWebhookSubscription">
+        <MappingFragment StoreEntitySet="AbpWebhookSubscriptions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="WebhookUri" ColumnName="WebhookUri" />
+          <ScalarProperty Name="Secret" ColumnName="Secret" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Webhooks" ColumnName="Webhooks" />
+          <ScalarProperty Name="Headers" ColumnName="Headers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlarmHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AlarmHistory">
+        <MappingFragment StoreEntitySet="AlarmHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="TelegramGroupId" ColumnName="TelegramGroupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppBinaryObjects">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppBinaryObject">
+        <MappingFragment StoreEntitySet="AppBinaryObjects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Bytes" ColumnName="Bytes" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppChatMessages">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppChatMessage">
+        <MappingFragment StoreEntitySet="AppChatMessages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="ReadState" ColumnName="ReadState" />
+          <ScalarProperty Name="Side" ColumnName="Side" />
+          <ScalarProperty Name="TargetTenantId" ColumnName="TargetTenantId" />
+          <ScalarProperty Name="TargetUserId" ColumnName="TargetUserId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SharedMessageId" ColumnName="SharedMessageId" />
+          <ScalarProperty Name="ReceiverReadState" ColumnName="ReceiverReadState" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppFriendships">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppFriendship">
+        <MappingFragment StoreEntitySet="AppFriendships">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="FriendProfilePictureId" ColumnName="FriendProfilePictureId" />
+          <ScalarProperty Name="FriendTenancyName" ColumnName="FriendTenancyName" />
+          <ScalarProperty Name="FriendTenantId" ColumnName="FriendTenantId" />
+          <ScalarProperty Name="FriendUserId" ColumnName="FriendUserId" />
+          <ScalarProperty Name="FriendUserName" ColumnName="FriendUserName" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppInvoices">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppInvoice">
+        <MappingFragment StoreEntitySet="AppInvoices">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="TenantAddress" ColumnName="TenantAddress" />
+          <ScalarProperty Name="TenantLegalName" ColumnName="TenantLegalName" />
+          <ScalarProperty Name="TenantTaxNo" ColumnName="TenantTaxNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppModemConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppModemConfig">
+        <MappingFragment StoreEntitySet="AppModemConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+          <ScalarProperty Name="DeviceIp" ColumnName="DeviceIp" />
+          <ScalarProperty Name="DeviceUserName" ColumnName="DeviceUserName" />
+          <ScalarProperty Name="DevicePassword" ColumnName="DevicePassword" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="PortStatus" ColumnName="PortStatus" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="LastChargedTime" ColumnName="LastChargedTime" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+          <ScalarProperty Name="AppName" ColumnName="AppName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSubscriptionPayments">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppSubscriptionPayment">
+        <MappingFragment StoreEntitySet="AppSubscriptionPayments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="DayCount" ColumnName="DayCount" />
+          <ScalarProperty Name="DeleterUserId" ColumnName="DeleterUserId" />
+          <ScalarProperty Name="DeletionTime" ColumnName="DeletionTime" />
+          <ScalarProperty Name="EditionId" ColumnName="EditionId" />
+          <ScalarProperty Name="Gateway" ColumnName="Gateway" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="SuccessUrl" ColumnName="SuccessUrl" />
+          <ScalarProperty Name="PaymentPeriodType" ColumnName="PaymentPeriodType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ErrorUrl" ColumnName="ErrorUrl" />
+          <ScalarProperty Name="ExternalPaymentId" ColumnName="ExternalPaymentId" />
+          <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+          <ScalarProperty Name="EditionPaymentType" ColumnName="EditionPaymentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSubscriptionPaymentsExtensionDatas">
+      <EntityTypeMapping TypeName="DevPayExpressModel.AppSubscriptionPaymentsExtensionData">
+        <MappingFragment StoreEntitySet="AppSubscriptionPaymentsExtensionData">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubscriptionPaymentId" ColumnName="SubscriptionPaymentId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Banks">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Bank">
+        <MappingFragment StoreEntitySet="Bank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuyCardPriorityConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.BuyCardPriorityConfig">
+        <MappingFragment StoreEntitySet="BuyCardPriorityConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuyPincodeTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.BuyPincodeTransaction">
+        <MappingFragment StoreEntitySet="BuyPincodeTransaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="RequestIpAddress" ColumnName="RequestIpAddress" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="PartnerDiscountPolicyId" ColumnName="PartnerDiscountPolicyId" />
+          <ScalarProperty Name="PartnerDiscountPolicyDiscountPercentage" ColumnName="PartnerDiscountPolicyDiscountPercentage" />
+          <ScalarProperty Name="PartnerSaleAmount" ColumnName="PartnerSaleAmount" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="ProviderDiscountPolicyId" ColumnName="ProviderDiscountPolicyId" />
+          <ScalarProperty Name="ProviderDiscountPolicyDiscountPercentage" ColumnName="ProviderDiscountPolicyDiscountPercentage" />
+          <ScalarProperty Name="ProviderPartnerSaleAmount" ColumnName="ProviderPartnerSaleAmount" />
+          <ScalarProperty Name="ProviderRequestTransCode" ColumnName="ProviderRequestTransCode" />
+          <ScalarProperty Name="ProviderResponseTransCode" ColumnName="ProviderResponseTransCode" />
+          <ScalarProperty Name="ProviderResponseCode" ColumnName="ProviderResponseCode" />
+          <ScalarProperty Name="ProviderResponseMessage" ColumnName="ProviderResponseMessage" />
+          <ScalarProperty Name="TrippdesKey" ColumnName="TrippdesKey" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BuyPincodeTransactionDetails">
+      <EntityTypeMapping TypeName="DevPayExpressModel.BuyPincodeTransactionDetail">
+        <MappingFragment StoreEntitySet="BuyPincodeTransactionDetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BuyPincodeTransactionId" ColumnName="BuyPincodeTransactionId" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="ExpiredTime" ColumnName="ExpiredTime" />
+          <ScalarProperty Name="ExportedTime" ColumnName="ExportedTime" />
+          <ScalarProperty Name="IsEncrypted" ColumnName="IsEncrypted" />
+          <ScalarProperty Name="TrippdesKey" ColumnName="TrippdesKey" />
+          <ScalarProperty Name="PinCodeStockId" ColumnName="PinCodeStockId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CaptchaFiles">
+      <EntityTypeMapping TypeName="DevPayExpressModel.CaptchaFile">
+        <MappingFragment StoreEntitySet="CaptchaFile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="CaptchaName" ColumnName="CaptchaName" />
+          <ScalarProperty Name="CaptchaText" ColumnName="CaptchaText" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargingPartnerProviderConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ChargingPartnerProviderConfig">
+        <MappingFragment StoreEntitySet="ChargingPartnerProviderConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="IsEnablePayExpress" ColumnName="IsEnablePayExpress" />
+          <ScalarProperty Name="WaitPayExpressTime" ColumnName="WaitPayExpressTime" />
+          <ScalarProperty Name="IsEnablePartnerChargingTopup" ColumnName="IsEnablePartnerChargingTopup" />
+          <ScalarProperty Name="PartnerChargingTopupWaitTimeInSecond" ColumnName="PartnerChargingTopupWaitTimeInSecond" />
+          <ScalarProperty Name="IsEnableSaleInvoiceSlowTopup" ColumnName="IsEnableSaleInvoiceSlowTopup" />
+          <ScalarProperty Name="SaleInvoiceSlowTopupWaitTimeInSecond" ColumnName="SaleInvoiceSlowTopupWaitTimeInSecond" />
+          <ScalarProperty Name="IsEnableSaleInvoiceModemCharge" ColumnName="IsEnableSaleInvoiceModemCharge" />
+          <ScalarProperty Name="SaleInvoiceModemChargeWaitTimeInSecond" ColumnName="SaleInvoiceModemChargeWaitTimeInSecond" />
+          <ScalarProperty Name="LoadingCapacity" ColumnName="LoadingCapacity" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="IsEnableSpecialPrioritySaleInvoiceSlowTopup" ColumnName="IsEnableSpecialPrioritySaleInvoiceSlowTopup" />
+          <ScalarProperty Name="FromCardAmount" ColumnName="FromCardAmount" />
+          <ScalarProperty Name="ToCardAmount" ColumnName="ToCardAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargingTopupTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ChargingTopupTransaction">
+        <MappingFragment StoreEntitySet="ChargingTopupTransaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="PartnerChargingTransactionId" ColumnName="PartnerChargingTransactionId" />
+          <ScalarProperty Name="PartnerChargingTranscode" ColumnName="PartnerChargingTranscode" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="StartProcessTime" ColumnName="StartProcessTime" />
+          <ScalarProperty Name="EndProcessTime" ColumnName="EndProcessTime" />
+          <ScalarProperty Name="RequestCardAmount" ColumnName="RequestCardAmount" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="IsReCalculate" ColumnName="IsReCalculate" />
+          <ScalarProperty Name="IsForceReCalculate" ColumnName="IsForceReCalculate" />
+          <ScalarProperty Name="BeforeBalance" ColumnName="BeforeBalance" />
+          <ScalarProperty Name="AfterBalance" ColumnName="AfterBalance" />
+          <ScalarProperty Name="BeforeDebt" ColumnName="BeforeDebt" />
+          <ScalarProperty Name="AfterDebt" ColumnName="AfterDebt" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="SimId" ColumnName="SimId" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="RetryCount" ColumnName="RetryCount" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="SourceInvoiceType" ColumnName="SourceInvoiceType" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="PublicDiscount" ColumnName="PublicDiscount" />
+          <ScalarProperty Name="DecreaseDiscount" ColumnName="DecreaseDiscount" />
+          <ScalarProperty Name="TransactionExpiredInSec" ColumnName="TransactionExpiredInSec" />
+          <ScalarProperty Name="RefundDiscount" ColumnName="RefundDiscount" />
+          <ScalarProperty Name="RefundMoney" ColumnName="RefundMoney" />
+          <ScalarProperty Name="RefundTransactionId" ColumnName="RefundTransactionId" />
+          <ScalarProperty Name="WorkerChannel" ColumnName="WorkerChannel" />
+          <ScalarProperty Name="TopupPartnerCode" ColumnName="TopupPartnerCode" />
+          <ScalarProperty Name="SaleInvoiceCode" ColumnName="SaleInvoiceCode" />
+          <ScalarProperty Name="BeforeTotalchargeAmount" ColumnName="BeforeTotalchargeAmount" />
+          <ScalarProperty Name="ParentRefundMoney" ColumnName="ParentRefundMoney" />
+          <ScalarProperty Name="ParentRefundTransactionId" ColumnName="ParentRefundTransactionId" />
+          <ScalarProperty Name="SaleDiscountPercentage" ColumnName="SaleDiscountPercentage" />
+          <ScalarProperty Name="SubAccount" ColumnName="SubAccount" />
+          <ScalarProperty Name="SubMobile" ColumnName="SubMobile" />
+          <ScalarProperty Name="ReCalcuateStatus" ColumnName="ReCalcuateStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargingTopupTransactionHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ChargingTopupTransactionHistory">
+        <MappingFragment StoreEntitySet="ChargingTopupTransactionHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="PartnerChargingTransactionId" ColumnName="PartnerChargingTransactionId" />
+          <ScalarProperty Name="PartnerChargingTranscode" ColumnName="PartnerChargingTranscode" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="StartProcessTime" ColumnName="StartProcessTime" />
+          <ScalarProperty Name="EndProcessTime" ColumnName="EndProcessTime" />
+          <ScalarProperty Name="RequestCardAmount" ColumnName="RequestCardAmount" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="IsReCalculate" ColumnName="IsReCalculate" />
+          <ScalarProperty Name="BeforeBalance" ColumnName="BeforeBalance" />
+          <ScalarProperty Name="AfterBalance" ColumnName="AfterBalance" />
+          <ScalarProperty Name="BeforeDebt" ColumnName="BeforeDebt" />
+          <ScalarProperty Name="AfterDebt" ColumnName="AfterDebt" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="SimId" ColumnName="SimId" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="RetryCount" ColumnName="RetryCount" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="SourceInvoiceType" ColumnName="SourceInvoiceType" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargingTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ChargingTransaction">
+        <MappingFragment StoreEntitySet="ChargingTransaction">
+          <ScalarProperty Name="ExceptProviderCode" ColumnName="ExceptProviderCode" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="RequestAmount" ColumnName="RequestAmount" />
+          <ScalarProperty Name="RequestIpAddress" ColumnName="RequestIpAddress" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="IsCallbackPartner" ColumnName="IsCallbackPartner" />
+          <ScalarProperty Name="IsForceCallback" ColumnName="IsForceCallback" />
+          <ScalarProperty Name="CallbackTime" ColumnName="CallbackTime" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="ProviderRequestTransCode" ColumnName="ProviderRequestTransCode" />
+          <ScalarProperty Name="ProviderResponseTransCode" ColumnName="ProviderResponseTransCode" />
+          <ScalarProperty Name="ProviderResponseCode" ColumnName="ProviderResponseCode" />
+          <ScalarProperty Name="ProviderResponseMessage" ColumnName="ProviderResponseMessage" />
+          <ScalarProperty Name="ProviderCallbackTime" ColumnName="ProviderCallbackTime" />
+          <ScalarProperty Name="IsCanRetry" ColumnName="IsCanRetry" />
+          <ScalarProperty Name="RealCardAmount" ColumnName="RealCardAmount" />
+          <ScalarProperty Name="IsFixedProviderCode" ColumnName="IsFixedProviderCode" />
+          <ScalarProperty Name="InternalErrorCode" ColumnName="InternalErrorCode" />
+          <ScalarProperty Name="InternalErrorMessage" ColumnName="InternalErrorMessage" />
+          <ScalarProperty Name="PartnerDiscountPolicyId" ColumnName="PartnerDiscountPolicyId" />
+          <ScalarProperty Name="PartnerDiscountPercentage" ColumnName="PartnerDiscountPercentage" />
+          <ScalarProperty Name="PartnerCostAmount" ColumnName="PartnerCostAmount" />
+          <ScalarProperty Name="ServiceProviderDiscountPolicyId" ColumnName="ServiceProviderDiscountPolicyId" />
+          <ScalarProperty Name="ServiceProviderDiscountPercentage" ColumnName="ServiceProviderDiscountPercentage" />
+          <ScalarProperty Name="ServiceProviderSaleAmount" ColumnName="ServiceProviderSaleAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChargingTransactionCallbackPartnerHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ChargingTransactionCallbackPartnerHistory">
+        <MappingFragment StoreEntitySet="ChargingTransactionCallbackPartnerHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardValue" ColumnName="CardValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepositInvoices">
+      <EntityTypeMapping TypeName="DevPayExpressModel.DepositInvoice">
+        <MappingFragment StoreEntitySet="DepositInvoice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="DepositUserId" ColumnName="DepositUserId" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="MoneyAmount" ColumnName="MoneyAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="RefSourceMoneyInvoice" ColumnName="RefSourceMoneyInvoice" />
+          <ScalarProperty Name="RefSourceCustomerAccountNo" ColumnName="RefSourceCustomerAccountNo" />
+          <ScalarProperty Name="RefSourceCustomerAccountName" ColumnName="RefSourceCustomerAccountName" />
+          <ScalarProperty Name="SourceMoneyId" ColumnName="SourceMoneyId" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="FeeAmount" ColumnName="FeeAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepositPartnerInvoices">
+      <EntityTypeMapping TypeName="DevPayExpressModel.DepositPartnerInvoice">
+        <MappingFragment StoreEntitySet="DepositPartnerInvoice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="CreatedByUserId" ColumnName="CreatedByUserId" />
+          <ScalarProperty Name="MoneyAmount" ColumnName="MoneyAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="RefSourceMoneyInvoice" ColumnName="RefSourceMoneyInvoice" />
+          <ScalarProperty Name="RefSourceCustomerAccountNo" ColumnName="RefSourceCustomerAccountNo" />
+          <ScalarProperty Name="RefSourceCustomerAccountName" ColumnName="RefSourceCustomerAccountName" />
+          <ScalarProperty Name="SourceMoneyId" ColumnName="SourceMoneyId" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiscountPolicies">
+      <EntityTypeMapping TypeName="DevPayExpressModel.DiscountPolicy">
+        <MappingFragment StoreEntitySet="DiscountPolicy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserGroupId" ColumnName="UserGroupId" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PublicDiscount" ColumnName="PublicDiscount" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenChargingInvoices">
+      <EntityTypeMapping TypeName="DevPayExpressModel.GenChargingInvoice">
+        <MappingFragment StoreEntitySet="GenChargingInvoice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GenInvoices">
+      <EntityTypeMapping TypeName="DevPayExpressModel.GenInvoice">
+        <MappingFragment StoreEntitySet="GenInvoice">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Groups">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupPermissions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.GroupPermission">
+        <MappingFragment StoreEntitySet="GroupPermission">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceDiscountHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.InvoiceDiscountHistory">
+        <MappingFragment StoreEntitySet="InvoiceDiscountHistories">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoiceTypeTelcoChargingConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.InvoiceTypeTelcoChargingConfig">
+        <MappingFragment StoreEntitySet="InvoiceTypeTelcoChargingConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceTypeCode" ColumnName="InvoiceTypeCode" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OrderProcessing" ColumnName="OrderProcessing" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintainSMS">
+      <EntityTypeMapping TypeName="DevPayExpressModel.MaintainSM">
+        <MappingFragment StoreEntitySet="MaintainSMS">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SimNumber" ColumnName="SimNumber" />
+          <ScalarProperty Name="ReceiverNumber" ColumnName="ReceiverNumber" />
+          <ScalarProperty Name="SmsContent" ColumnName="SmsContent" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SentStatus" ColumnName="SentStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MaintenanceSms">
+      <EntityTypeMapping TypeName="DevPayExpressModel.MaintenanceSm">
+        <MappingFragment StoreEntitySet="MaintenanceSms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="ReceiverNo" ColumnName="ReceiverNo" />
+          <ScalarProperty Name="SmsContent" ColumnName="SmsContent" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="IsSentSuccess" ColumnName="IsSentSuccess" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MerchantUserDepositTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.MerchantUserDepositTransaction">
+        <MappingFragment StoreEntitySet="MerchantUserDepositTransaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ProviderTransactionId" ColumnName="ProviderTransactionId" />
+          <ScalarProperty Name="ProviderTransactionTime" ColumnName="ProviderTransactionTime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="TransactionMessage" ColumnName="TransactionMessage" />
+          <ScalarProperty Name="MerchantId" ColumnName="MerchantId" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="Checksum" ColumnName="Checksum" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="SourceMoney" ColumnName="SourceMoney" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsCallbackPartner" ColumnName="IsCallbackPartner" />
+          <ScalarProperty Name="CallbackTime" ColumnName="CallbackTime" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MobiFoneTokens">
+      <EntityTypeMapping TypeName="DevPayExpressModel.MobiFoneToken">
+        <MappingFragment StoreEntitySet="MobiFoneToken">
+          <ScalarProperty Name="TryCount" ColumnName="TryCount" />
+          <ScalarProperty Name="NextProcessTime" ColumnName="NextProcessTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Otp" ColumnName="Otp" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="RefreshKey" ColumnName="RefreshKey" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MobiFoneUserId" ColumnName="MobiFoneUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ModemChargingActiveSimHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ModemChargingActiveSimHistory">
+        <MappingFragment StoreEntitySet="ModemChargingActiveSimHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationTexts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.NotificationText">
+        <MappingFragment StoreEntitySet="NotificationText">
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Partner">
+        <MappingFragment StoreEntitySet="Partner">
+          <ScalarProperty Name="WebhookFastChargingTopup" ColumnName="WebhookFastChargingTopup" />
+          <ScalarProperty Name="TopupTransactionExpireTimeInSec" ColumnName="TopupTransactionExpireTimeInSec" />
+          <ScalarProperty Name="IsFixTopupTransactionExpireTime" ColumnName="IsFixTopupTransactionExpireTime" />
+          <ScalarProperty Name="IsPartnerDecideCancelTopupTransaction" ColumnName="IsPartnerDecideCancelTopupTransaction" />
+          <ScalarProperty Name="DepositUrlCallback" ColumnName="DepositUrlCallback" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AllowIps" ColumnName="AllowIps" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsEnableCallback" ColumnName="IsEnableCallback" />
+          <ScalarProperty Name="Webhook" ColumnName="Webhook" />
+          <ScalarProperty Name="IsEnableTelegramNoti" ColumnName="IsEnableTelegramNoti" />
+          <ScalarProperty Name="TelegramSuportGroupId" ColumnName="TelegramSuportGroupId" />
+          <ScalarProperty Name="TopupPriority" ColumnName="TopupPriority" />
+          <ScalarProperty Name="DeltaSecCheckProcessingTransaction" ColumnName="DeltaSecCheckProcessingTransaction" />
+          <ScalarProperty Name="LastTimeChecked" ColumnName="LastTimeChecked" />
+          <ScalarProperty Name="IsAlwayReturnRealCardAmount" ColumnName="IsAlwayReturnRealCardAmount" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="ProviderMerchantId" ColumnName="ProviderMerchantId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerBalances">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerBalance">
+        <MappingFragment StoreEntitySet="PartnerBalance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+          <ScalarProperty Name="BalanceType" ColumnName="BalanceType" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerBalanceHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerBalanceHistory">
+        <MappingFragment StoreEntitySet="PartnerBalanceHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="BalanceType" ColumnName="BalanceType" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerChargingPartnerTopupConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerChargingPartnerTopupConfig">
+        <MappingFragment StoreEntitySet="PartnerChargingPartnerTopupConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChargingPartnerCode" ColumnName="ChargingPartnerCode" />
+          <ScalarProperty Name="TopupPartnerCode" ColumnName="TopupPartnerCode" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="FromCardAmount" ColumnName="FromCardAmount" />
+          <ScalarProperty Name="ToCardAmount" ColumnName="ToCardAmount" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerDiscountPolicies">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerDiscountPolicy">
+        <MappingFragment StoreEntitySet="PartnerDiscountPolicy">
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerServiceConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerServiceConfig">
+        <MappingFragment StoreEntitySet="PartnerServiceConfigs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerServiceWorkerChannelConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerServiceWorkerChannelConfig">
+        <MappingFragment StoreEntitySet="PartnerServiceWorkerChannelConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="WorkerChannelCode" ColumnName="WorkerChannelCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="DelayTimeInSec" ColumnName="DelayTimeInSec" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerTopupTransactionConfigMaxWaitings">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerTopupTransactionConfigMaxWaiting">
+        <MappingFragment StoreEntitySet="PartnerTopupTransactionConfigMaxWaiting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="MaxWaitingTopupTransaction" ColumnName="MaxWaitingTopupTransaction" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PayExpressWaitTime" ColumnName="PayExpressWaitTime" />
+          <ScalarProperty Name="CancelTimeInSecond" ColumnName="CancelTimeInSecond" />
+          <ScalarProperty Name="IsEnablePrepaid" ColumnName="IsEnablePrepaid" />
+          <ScalarProperty Name="IsEnablePostpaid" ColumnName="IsEnablePostpaid" />
+          <ScalarProperty Name="IsAlowExtend" ColumnName="IsAlowExtend" />
+          <ScalarProperty Name="ExtendTimeInSec" ColumnName="ExtendTimeInSec" />
+          <ScalarProperty Name="MinCardValue" ColumnName="MinCardValue" />
+          <ScalarProperty Name="IsEnableChangeProvider" ColumnName="IsEnableChangeProvider" />
+          <ScalarProperty Name="ChangeToProvider" ColumnName="ChangeToProvider" />
+          <ScalarProperty Name="ChangeProviderTimeInSecond" ColumnName="ChangeProviderTimeInSecond" />
+          <ScalarProperty Name="IsSplitAmount" ColumnName="IsSplitAmount" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+          <ScalarProperty Name="MaxWaitingByDefault" ColumnName="MaxWaitingByDefault" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerTransaction">
+        <MappingFragment StoreEntitySet="PartnerTransaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SourcePartneId" ColumnName="SourcePartneId" />
+          <ScalarProperty Name="DesUserId" ColumnName="DesUserId" />
+          <ScalarProperty Name="MoneyAmount" ColumnName="MoneyAmount" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SourcePartnerAfterBalance" ColumnName="SourcePartnerAfterBalance" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerUsers">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerUser">
+        <MappingFragment StoreEntitySet="PartnerUser">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerUserPartners">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerUserPartner">
+        <MappingFragment StoreEntitySet="PartnerUserPartner">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartnerUserId" ColumnName="PartnerUserId" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerUserProviders">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PartnerUserProvider">
+        <MappingFragment StoreEntitySet="PartnerUserProvider">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PartnerUserId" ColumnName="PartnerUserId" />
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permissions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Permission">
+        <MappingFragment StoreEntitySet="Permission">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PinCodeStocks">
+      <EntityTypeMapping TypeName="DevPayExpressModel.PinCodeStock">
+        <MappingFragment StoreEntitySet="PinCodeStock">
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="ExpiredTime" ColumnName="ExpiredTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ExportedTime" ColumnName="ExportedTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsEncrypted" ColumnName="IsEncrypted" />
+          <ScalarProperty Name="TransRef" ColumnName="TransRef" />
+          <ScalarProperty Name="ImportRef" ColumnName="ImportRef" />
+          <ScalarProperty Name="ImportProvider" ColumnName="ImportProvider" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="UserUpdate" ColumnName="UserUpdate" />
+          <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+          <ScalarProperty Name="ImportDiscount" ColumnName="ImportDiscount" />
+          <ScalarProperty Name="ExportDiscount" ColumnName="ExportDiscount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ShowOnWeb" ColumnName="ShowOnWeb" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_BusinessReport">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_BusinessReport">
+        <MappingFragment StoreEntitySet="Rpt_BusinessReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="CostAmount" ColumnName="CostAmount" />
+          <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+          <ScalarProperty Name="TempProfitAmount" ColumnName="TempProfitAmount" />
+          <ScalarProperty Name="TotalTran" ColumnName="TotalTran" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_CustomerBalanceByDate">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_CustomerBalanceByDate">
+        <MappingFragment StoreEntitySet="Rpt_CustomerBalanceByDate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="TotalOpeningBalance" ColumnName="TotalOpeningBalance" />
+          <ScalarProperty Name="TotalClosingBalance" ColumnName="TotalClosingBalance" />
+          <ScalarProperty Name="TotalIncreasedBalance" ColumnName="TotalIncreasedBalance" />
+          <ScalarProperty Name="TotalDecreasedBalance" ColumnName="TotalDecreasedBalance" />
+          <ScalarProperty Name="IncreasedDeposit" ColumnName="IncreasedDeposit" />
+          <ScalarProperty Name="IncreasedRefundDiscount" ColumnName="IncreasedRefundDiscount" />
+          <ScalarProperty Name="IncreasedRefund" ColumnName="IncreasedRefund" />
+          <ScalarProperty Name="IncreasedTransfer" ColumnName="IncreasedTransfer" />
+          <ScalarProperty Name="DecreasedCustomerPaid" ColumnName="DecreasedCustomerPaid" />
+          <ScalarProperty Name="DecreaseCashout" ColumnName="DecreaseCashout" />
+          <ScalarProperty Name="DecreaseTransferMoney" ColumnName="DecreaseTransferMoney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_CustomerBalanceDetailByDate">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_CustomerBalanceDetailByDate">
+        <MappingFragment StoreEntitySet="Rpt_CustomerBalanceDetailByDate">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="TotalOpeningBalance" ColumnName="TotalOpeningBalance" />
+          <ScalarProperty Name="TotalClosingBalance" ColumnName="TotalClosingBalance" />
+          <ScalarProperty Name="TotalIncreasedBalance" ColumnName="TotalIncreasedBalance" />
+          <ScalarProperty Name="TotalDecreasedBalance" ColumnName="TotalDecreasedBalance" />
+          <ScalarProperty Name="IncreasedDeposit" ColumnName="IncreasedDeposit" />
+          <ScalarProperty Name="IncreasedRefundDiscount" ColumnName="IncreasedRefundDiscount" />
+          <ScalarProperty Name="IncreasedRefund" ColumnName="IncreasedRefund" />
+          <ScalarProperty Name="IncreasedTransfer" ColumnName="IncreasedTransfer" />
+          <ScalarProperty Name="DecreasedCustomerPaid" ColumnName="DecreasedCustomerPaid" />
+          <ScalarProperty Name="DecreaseCashout" ColumnName="DecreaseCashout" />
+          <ScalarProperty Name="DecreaseTransferMoney" ColumnName="DecreaseTransferMoney" />
+          <ScalarProperty Name="BalanceType" ColumnName="BalanceType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_CustomerDebit">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_CustomerDebit">
+        <MappingFragment StoreEntitySet="Rpt_CustomerDebit">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OpeningAmount" ColumnName="OpeningAmount" />
+          <ScalarProperty Name="ClosingAmount" ColumnName="ClosingAmount" />
+          <ScalarProperty Name="TotalSuccessAmount" ColumnName="TotalSuccessAmount" />
+          <ScalarProperty Name="TotalCancelAmount" ColumnName="TotalCancelAmount" />
+          <ScalarProperty Name="TotalPaidAmount" ColumnName="TotalPaidAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_SystemMoneyByDay">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_SystemMoneyByDay">
+        <MappingFragment StoreEntitySet="Rpt_SystemMoneyByDay">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="SystemAccountId" ColumnName="SystemAccountId" />
+          <ScalarProperty Name="BeforeBalance" ColumnName="BeforeBalance" />
+          <ScalarProperty Name="AfterBalance" ColumnName="AfterBalance" />
+          <ScalarProperty Name="IncreaseBalance" ColumnName="IncreaseBalance" />
+          <ScalarProperty Name="DecreaseBalance" ColumnName="DecreaseBalance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleInvoices">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SaleInvoice">
+        <MappingFragment StoreEntitySet="SaleInvoice">
+          <ScalarProperty Name="ContinueTime" ColumnName="ContinueTime" />
+          <ScalarProperty Name="LastChargingTranId" ColumnName="LastChargingTranId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+          <ScalarProperty Name="DiscountPolicyId" ColumnName="DiscountPolicyId" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="RealTotalAmount" ColumnName="RealTotalAmount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReceiveAccount" ColumnName="ReceiveAccount" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="PendingAmount" ColumnName="PendingAmount" />
+          <ScalarProperty Name="TotalChargedAmount" ColumnName="TotalChargedAmount" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+          <ScalarProperty Name="MinCardAmount" ColumnName="MinCardAmount" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="DecreaseDiscount" ColumnName="DecreaseDiscount" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="AlowCardAmount" ColumnName="AlowCardAmount" />
+          <ScalarProperty Name="ChannelCode" ColumnName="ChannelCode" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="StartTopupDate" ColumnName="StartTopupDate" />
+          <ScalarProperty Name="ParentDiscountPolicyId" ColumnName="ParentDiscountPolicyId" />
+          <ScalarProperty Name="ParentUserId" ColumnName="ParentUserId" />
+          <ScalarProperty Name="ParentDiscountPercentage" ColumnName="ParentDiscountPercentage" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="SubAccount" ColumnName="SubAccount" />
+          <ScalarProperty Name="SubMobile" ColumnName="SubMobile" />
+          <ScalarProperty Name="UseFastTopup" ColumnName="UseFastTopup" />
+          <ScalarProperty Name="RefundAmount" ColumnName="RefundAmount" />
+          <ScalarProperty Name="ParentRefundAmount" ColumnName="ParentRefundAmount" />
+          <ScalarProperty Name="Transref" ColumnName="Transref" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleInvoiceBuyPincodeDetails">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SaleInvoiceBuyPincodeDetail">
+        <MappingFragment StoreEntitySet="SaleInvoiceBuyPincodeDetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleInvoiceCalculationHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SaleInvoiceCalculationHistory">
+        <MappingFragment StoreEntitySet="SaleInvoiceCalculationHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+          <ScalarProperty Name="ChargingTopupTransactionId" ColumnName="ChargingTopupTransactionId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleInvoiceTopupDetails">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SaleInvoiceTopupDetail">
+        <MappingFragment StoreEntitySet="SaleInvoiceTopupDetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="Transcode" ColumnName="Transcode" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="Transref" ColumnName="Transref" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="StartProcessTime" ColumnName="StartProcessTime" />
+          <ScalarProperty Name="EndProcessTime" ColumnName="EndProcessTime" />
+          <ScalarProperty Name="RequestInfo" ColumnName="RequestInfo" />
+          <ScalarProperty Name="ResponseInfo" ColumnName="ResponseInfo" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="RefundAmount" ColumnName="RefundAmount" />
+          <ScalarProperty Name="RefundTransactionId" ColumnName="RefundTransactionId" />
+          <ScalarProperty Name="IsRefund" ColumnName="IsRefund" />
+          <ScalarProperty Name="ProviderDiscount" ColumnName="ProviderDiscount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceProviders">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ServiceProvider">
+        <MappingFragment StoreEntitySet="ServiceProvider">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ClientTokenApi" ColumnName="ClientTokenApi" />
+          <ScalarProperty Name="ClientSignature" ColumnName="ClientSignature" />
+          <ScalarProperty Name="ClientCodeRequest" ColumnName="ClientCodeRequest" />
+          <ScalarProperty Name="ApiUrl" ColumnName="ApiUrl" />
+          <ScalarProperty Name="IsEnableChargingTopup" ColumnName="IsEnableChargingTopup" />
+          <ScalarProperty Name="IsEnableCharging" ColumnName="IsEnableCharging" />
+          <ScalarProperty Name="ChargingTopupPriority" ColumnName="ChargingTopupPriority" />
+          <ScalarProperty Name="ChargingPriority" ColumnName="ChargingPriority" />
+          <ScalarProperty Name="ViettelPrepaidServiceCode" ColumnName="ViettelPrepaidServiceCode" />
+          <ScalarProperty Name="ViettelPostpaidServiceCode" ColumnName="ViettelPostpaidServiceCode" />
+          <ScalarProperty Name="ChargingTelegramSupportGroupId" ColumnName="ChargingTelegramSupportGroupId" />
+          <ScalarProperty Name="TopupTelegramSupportGroupId" ColumnName="TopupTelegramSupportGroupId" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceProviderConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ServiceProviderConfig">
+        <MappingFragment StoreEntitySet="ServiceProviderConfigs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+          <ScalarProperty Name="ServiceProviderId" ColumnName="ServiceProviderId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServiceProviderDiscountPolicies">
+      <EntityTypeMapping TypeName="DevPayExpressModel.ServiceProviderDiscountPolicy">
+        <MappingFragment StoreEntitySet="ServiceProviderDiscountPolicy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProviderId" ColumnName="ProviderId" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="FromTime" ColumnName="FromTime" />
+          <ScalarProperty Name="ToTime" ColumnName="ToTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Service">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SIMs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SIM">
+        <MappingFragment StoreEntitySet="SIM">
+          <ScalarProperty Name="NextLoginTime" ColumnName="NextLoginTime" />
+          <ScalarProperty Name="MyViettelIsGetAccInfo" ColumnName="MyViettelIsGetAccInfo" />
+          <ScalarProperty Name="MyViettelMaxCountChargeInDay" ColumnName="MyViettelMaxCountChargeInDay" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IMSI" ColumnName="IMSI" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="SimID" ColumnName="SimID" />
+          <ScalarProperty Name="SimRole" ColumnName="SimRole" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="BCCSPassword" ColumnName="BCCSPassword" />
+          <ScalarProperty Name="BankPlusPassword" ColumnName="BankPlusPassword" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+          <ScalarProperty Name="BCCSBalance" ColumnName="BCCSBalance" />
+          <ScalarProperty Name="BCCSBalanceUpdateTime" ColumnName="BCCSBalanceUpdateTime" />
+          <ScalarProperty Name="MBBalance" ColumnName="MBBalance" />
+          <ScalarProperty Name="MBBalanceUpdateTime" ColumnName="MBBalanceUpdateTime" />
+          <ScalarProperty Name="RunningWorker" ColumnName="RunningWorker" />
+          <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsWaitingOtp" ColumnName="IsWaitingOtp" />
+          <ScalarProperty Name="LastTopupTime" ColumnName="LastTopupTime" />
+          <ScalarProperty Name="GSMServer" ColumnName="GSMServer" />
+          <ScalarProperty Name="GSMUpdate" ColumnName="GSMUpdate" />
+          <ScalarProperty Name="ChargingStatus" ColumnName="ChargingStatus" />
+          <ScalarProperty Name="IsLimitedDayVT136" ColumnName="IsLimitedDayVT136" />
+          <ScalarProperty Name="IsLimitedDayVT199" ColumnName="IsLimitedDayVT199" />
+          <ScalarProperty Name="TimeLimitedDayVT136" ColumnName="TimeLimitedDayVT136" />
+          <ScalarProperty Name="TimeLimitedDayVT199" ColumnName="TimeLimitedDayVT199" />
+          <ScalarProperty Name="AvaiableInDayVT136" ColumnName="AvaiableInDayVT136" />
+          <ScalarProperty Name="AvaiableInDayVT119" ColumnName="AvaiableInDayVT119" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="MyViettelLastUpdate" ColumnName="MyViettelLastUpdate" />
+          <ScalarProperty Name="IsLimitedDayMyViettel" ColumnName="IsLimitedDayMyViettel" />
+          <ScalarProperty Name="TimeLimitedDayMyViettel" ColumnName="TimeLimitedDayMyViettel" />
+          <ScalarProperty Name="IsEnableMyViettel" ColumnName="IsEnableMyViettel" />
+          <ScalarProperty Name="CanUseUssd136" ColumnName="CanUseUssd136" />
+          <ScalarProperty Name="MyViettelChargedInDay" ColumnName="MyViettelChargedInDay" />
+          <ScalarProperty Name="MyViettelCheckCardInDay" ColumnName="MyViettelCheckCardInDay" />
+          <ScalarProperty Name="MyViettelWorkerServer" ColumnName="MyViettelWorkerServer" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="IsEnableMyViettelChargeCard" ColumnName="IsEnableMyViettelChargeCard" />
+          <ScalarProperty Name="IsEnableMyViettelCheckCard" ColumnName="IsEnableMyViettelCheckCard" />
+          <ScalarProperty Name="IsLimitMyViettelChargeCardInDay" ColumnName="IsLimitMyViettelChargeCardInDay" />
+          <ScalarProperty Name="TimeLimitMyViettelChargeCardInDay" ColumnName="TimeLimitMyViettelChargeCardInDay" />
+          <ScalarProperty Name="IsLimitMyViettelCheckCardInday" ColumnName="IsLimitMyViettelCheckCardInday" />
+          <ScalarProperty Name="TimeLimitMyViettelCheckCardInday" ColumnName="TimeLimitMyViettelCheckCardInday" />
+          <ScalarProperty Name="IsForceLoginMyViettel" ColumnName="IsForceLoginMyViettel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SimAccounts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SimAccount">
+        <MappingFragment StoreEntitySet="SimAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SimId" ColumnName="SimId" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SimAccountInfoes">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SimAccountInfo">
+        <MappingFragment StoreEntitySet="SimAccountInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="cuoc_phat_sinh" ColumnName="cuoc_phat_sinh" />
+          <ScalarProperty Name="da_thanh_toan" ColumnName="da_thanh_toan" />
+          <ScalarProperty Name="no_con_lai" ColumnName="no_con_lai" />
+          <ScalarProperty Name="no_cuoc_cuoi_ky" ColumnName="no_cuoc_cuoi_ky" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="tai_khoan_chinh" ColumnName="tai_khoan_chinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSLists">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SMSList">
+        <MappingFragment StoreEntitySet="SMSList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CreateTime" ColumnName="CreateTime" />
+          <ScalarProperty Name="SmsIndex" ColumnName="SmsIndex" />
+          <ScalarProperty Name="Sender" ColumnName="Sender" />
+          <ScalarProperty Name="SentTime" ColumnName="SentTime" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="Alphabet" ColumnName="Alphabet" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Receiver" ColumnName="Receiver" />
+          <ScalarProperty Name="ProcessStatus" ColumnName="ProcessStatus" />
+          <ScalarProperty Name="SentDatetime" ColumnName="SentDatetime" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SourceMoneys">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SourceMoney">
+        <MappingFragment StoreEntitySet="SourceMoney">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SourceMoneyName" ColumnName="SourceMoneyName" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SystemAccountId" ColumnName="SystemAccountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriberChannelAuthentications">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SubscriberChannelAuthentication">
+        <MappingFragment StoreEntitySet="SubscriberChannelAuthentication">
+          <ScalarProperty Name="NextProcessTime" ColumnName="NextProcessTime" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ChannelCode" ColumnName="ChannelCode" />
+          <ScalarProperty Name="Subscriber" ColumnName="Subscriber" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="WorkerServer" ColumnName="WorkerServer" />
+          <ScalarProperty Name="WorkerId" ColumnName="WorkerId" />
+          <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+          <ScalarProperty Name="AuthenticationData" ColumnName="AuthenticationData" />
+          <ScalarProperty Name="RetryCount" ColumnName="RetryCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemAccounts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SystemAccount">
+        <MappingFragment StoreEntitySet="SystemAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SystemAccountId" ColumnName="SystemAccountId" />
+          <ScalarProperty Name="SystemAccountName" ColumnName="SystemAccountName" />
+          <ScalarProperty Name="SystemAccountCode" ColumnName="SystemAccountCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemSettings">
+      <EntityTypeMapping TypeName="DevPayExpressModel.SystemSetting">
+        <MappingFragment StoreEntitySet="SystemSetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
+          <ScalarProperty Name="ConfigValue" ColumnName="ConfigValue" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telcoes">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Telco">
+        <MappingFragment StoreEntitySet="Telco">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CardSerialRegex" ColumnName="CardSerialRegex" />
+          <ScalarProperty Name="CardCodeRegex" ColumnName="CardCodeRegex" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="PhoneRegex" ColumnName="PhoneRegex" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelcoServicePaidTypes">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TelcoServicePaidType">
+        <MappingFragment StoreEntitySet="TelcoServicePaidType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Temp_SimZP">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Temp_SimZP">
+        <MappingFragment StoreEntitySet="Temp_SimZP">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SimNo" ColumnName="SimNo" />
+          <ScalarProperty Name="SimId" ColumnName="SimId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Ticket">
+        <MappingFragment StoreEntitySet="Tickets">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="TransType" ColumnName="TransType" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TicketTypeId" ColumnName="TicketTypeId" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketTypes">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TicketType">
+        <MappingFragment StoreEntitySet="TicketTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopupDepositOrders">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TopupDepositOrder">
+        <MappingFragment StoreEntitySet="TopupDepositOrder">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="SourceMoneyId" ColumnName="SourceMoneyId" />
+          <ScalarProperty Name="DepositAccountId" ColumnName="DepositAccountId" />
+          <ScalarProperty Name="RefAccountNo" ColumnName="RefAccountNo" />
+          <ScalarProperty Name="RefAccountName" ColumnName="RefAccountName" />
+          <ScalarProperty Name="RefTransferCode" ColumnName="RefTransferCode" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="TransNote" ColumnName="TransNote" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="LastModifiedTime" ColumnName="LastModifiedTime" />
+          <ScalarProperty Name="TopupOrderId" ColumnName="TopupOrderId" />
+          <ScalarProperty Name="TransactionTime" ColumnName="TransactionTime" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="ServiceCode" ColumnName="ServiceCode" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopupOrders">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TopupOrder">
+        <MappingFragment StoreEntitySet="TopupOrder">
+          <ScalarProperty Name="ClientIP" ColumnName="ClientIP" />
+          <ScalarProperty Name="VoucherCode" ColumnName="VoucherCode" />
+          <ScalarProperty Name="VoucherAmount" ColumnName="VoucherAmount" />
+          <ScalarProperty Name="VoucherId" ColumnName="VoucherId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Telco" ColumnName="Telco" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="ChargedAmount" ColumnName="ChargedAmount" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="SaleAmount" ColumnName="SaleAmount" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+          <ScalarProperty Name="TopupDepositId" ColumnName="TopupDepositId" />
+          <ScalarProperty Name="MyPassword" ColumnName="MyPassword" />
+          <ScalarProperty Name="SaleInvoiceId" ColumnName="SaleInvoiceId" />
+          <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopupOrderDepositAccounts">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TopupOrderDepositAccount">
+        <MappingFragment StoreEntitySet="TopupOrderDepositAccount">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SourceMoneyId" ColumnName="SourceMoneyId" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopupPartnerProviderConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TopupPartnerProviderConfig">
+        <MappingFragment StoreEntitySet="TopupPartnerProviderConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopupPriorityConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TopupPriorityConfig">
+        <MappingFragment StoreEntitySet="TopupPriorityConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="FromAmount" ColumnName="FromAmount" />
+          <ScalarProperty Name="ToAmount" ColumnName="ToAmount" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TopupTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TopupTransaction">
+        <MappingFragment StoreEntitySet="TopupTransaction">
+          <ScalarProperty Name="LastChargingTranId" ColumnName="LastChargingTranId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="InvoiceType" ColumnName="InvoiceType" />
+          <ScalarProperty Name="TransCode" ColumnName="TransCode" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="ServiceType" ColumnName="ServiceType" />
+          <ScalarProperty Name="IsSplitAmount" ColumnName="IsSplitAmount" />
+          <ScalarProperty Name="RequestIpAddress" ColumnName="RequestIpAddress" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PartnerCode" ColumnName="PartnerCode" />
+          <ScalarProperty Name="PartnerDiscountPolicyId" ColumnName="PartnerDiscountPolicyId" />
+          <ScalarProperty Name="PartnerDiscountPolicyDiscountPercentage" ColumnName="PartnerDiscountPolicyDiscountPercentage" />
+          <ScalarProperty Name="PartnerSaleAmount" ColumnName="PartnerSaleAmount" />
+          <ScalarProperty Name="IsCallbackPartner" ColumnName="IsCallbackPartner" />
+          <ScalarProperty Name="CallbackTime" ColumnName="CallbackTime" />
+          <ScalarProperty Name="ProviderCode" ColumnName="ProviderCode" />
+          <ScalarProperty Name="ProviderDiscountPolicyId" ColumnName="ProviderDiscountPolicyId" />
+          <ScalarProperty Name="ProviderDiscountPolicyDiscountPercentage" ColumnName="ProviderDiscountPolicyDiscountPercentage" />
+          <ScalarProperty Name="ProviderPartnerSaleAmount" ColumnName="ProviderPartnerSaleAmount" />
+          <ScalarProperty Name="ProviderRequestTransCode" ColumnName="ProviderRequestTransCode" />
+          <ScalarProperty Name="ProviderResponseTransCode" ColumnName="ProviderResponseTransCode" />
+          <ScalarProperty Name="ProviderResponseCode" ColumnName="ProviderResponseCode" />
+          <ScalarProperty Name="ProviderResponseMessage" ColumnName="ProviderResponseMessage" />
+          <ScalarProperty Name="ProviderCallbackTime" ColumnName="ProviderCallbackTime" />
+          <ScalarProperty Name="ProviderResponseChargedAmount" ColumnName="ProviderResponseChargedAmount" />
+          <ScalarProperty Name="IsReCalculate" ColumnName="IsReCalculate" />
+          <ScalarProperty Name="CancelTransactionInSecond" ColumnName="CancelTransactionInSecond" />
+          <ScalarProperty Name="IsAlowExtend" ColumnName="IsAlowExtend" />
+          <ScalarProperty Name="ExtendTimeInSec" ColumnName="ExtendTimeInSec" />
+          <ScalarProperty Name="MinCardValue" ColumnName="MinCardValue" />
+          <ScalarProperty Name="IsExcuteExtend" ColumnName="IsExcuteExtend" />
+          <ScalarProperty Name="IsEnableChangeProvider" ColumnName="IsEnableChangeProvider" />
+          <ScalarProperty Name="ChangeToProvider" ColumnName="ChangeToProvider" />
+          <ScalarProperty Name="ChangeProviderTimeInSecond" ColumnName="ChangeProviderTimeInSecond" />
+          <ScalarProperty Name="IsExcuteChangeProvider" ColumnName="IsExcuteChangeProvider" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="PartnerLastCheckTime" ColumnName="PartnerLastCheckTime" />
+          <ScalarProperty Name="PartnerLastCheckResponse" ColumnName="PartnerLastCheckResponse" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SourceUserId" ColumnName="SourceUserId" />
+          <ScalarProperty Name="DesUserId" ColumnName="DesUserId" />
+          <ScalarProperty Name="MoneyAmount" ColumnName="MoneyAmount" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="SourceUserAfterBalance" ColumnName="SourceUserAfterBalance" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="WalletType" ColumnName="WalletType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferMoneys">
+      <EntityTypeMapping TypeName="DevPayExpressModel.TransferMoney">
+        <MappingFragment StoreEntitySet="TransferMoney">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="DesUserId" ColumnName="DesUserId" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="TransferCode" ColumnName="TransferCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DevPayExpressModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserBalances">
+      <EntityTypeMapping TypeName="DevPayExpressModel.UserBalance">
+        <MappingFragment StoreEntitySet="UserBalance">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="LastUpdatedTime" ColumnName="LastUpdatedTime" />
+          <ScalarProperty Name="BalanceType" ColumnName="BalanceType" />
+          <ScalarProperty Name="TenantId" ColumnName="TenantId" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="RowVersion" ColumnName="RowVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserBalanceHistories">
+      <EntityTypeMapping TypeName="DevPayExpressModel.UserBalanceHistory">
+        <MappingFragment StoreEntitySet="UserBalanceHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="InvoiceCode" ColumnName="InvoiceCode" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="BalanceType" ColumnName="BalanceType" />
+          <ScalarProperty Name="Side" ColumnName="Side" />
+          <ScalarProperty Name="TransAmount" ColumnName="TransAmount" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+          <ScalarProperty Name="TransactionType" ColumnName="TransactionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="DevPayExpressModel.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UserId1" ColumnName="UserId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPartners">
+      <EntityTypeMapping TypeName="DevPayExpressModel.UserPartner">
+        <MappingFragment StoreEntitySet="UserPartners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="CreatorUserId" ColumnName="CreatorUserId" />
+          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
+          <ScalarProperty Name="LastModifierUserId" ColumnName="LastModifierUserId" />
+          <ScalarProperty Name="PartnerId" ColumnName="PartnerId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkerChannelTelcoPaidTypeConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.WorkerChannelTelcoPaidTypeConfig">
+        <MappingFragment StoreEntitySet="WorkerChannelTelcoPaidTypeConfig">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WorkerChannelCode" ColumnName="WorkerChannelCode" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="PaidType" ColumnName="PaidType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkerServerConfigs">
+      <EntityTypeMapping TypeName="DevPayExpressModel.WorkerServerConfig">
+        <MappingFragment StoreEntitySet="WorkerServerConfig">
+          <ScalarProperty Name="CaptchaProvider" ColumnName="CaptchaProvider" />
+          <ScalarProperty Name="DelayTimeInSec" ColumnName="DelayTimeInSec" />
+          <ScalarProperty Name="IsGetCaptchaFisrt" ColumnName="IsGetCaptchaFisrt" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WorkerChannelCode" ColumnName="WorkerChannelCode" />
+          <ScalarProperty Name="WorkerServer" ColumnName="WorkerServer" />
+          <ScalarProperty Name="CurrentState" ColumnName="CurrentState" />
+          <ScalarProperty Name="LastUpdateTime" ColumnName="LastUpdateTime" />
+          <ScalarProperty Name="NordVPNGroup" ColumnName="NordVPNGroup" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckCardTransactions">
+      <EntityTypeMapping TypeName="DevPayExpressModel.CheckCardTransaction">
+        <MappingFragment StoreEntitySet="CheckCardTransaction">
+          <ScalarProperty Name="UniqueCardSerial" ColumnName="UniqueCardSerial" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="CardSerial" ColumnName="CardSerial" />
+          <ScalarProperty Name="CardCode" ColumnName="CardCode" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CardStatus" ColumnName="CardStatus" />
+          <ScalarProperty Name="UseTime" ColumnName="UseTime" />
+          <ScalarProperty Name="ExpiredTime" ColumnName="ExpiredTime" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="AppInfo" ColumnName="AppInfo" />
+          <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+          <ScalarProperty Name="Isdn" ColumnName="Isdn" />
+          <ScalarProperty Name="WorkerChannel" ColumnName="WorkerChannel" />
+          <ScalarProperty Name="CheckCount" ColumnName="CheckCount" />
+          <ScalarProperty Name="IsProcessed" ColumnName="IsProcessed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobSchedules">
+      <EntityTypeMapping TypeName="DevPayExpressModel.JobSchedule">
+        <MappingFragment StoreEntitySet="JobSchedule">
+          <ScalarProperty Name="JobName" ColumnName="JobName" />
+          <ScalarProperty Name="LastTime" ColumnName="LastTime" />
+          <ScalarProperty Name="LastId" ColumnName="LastId" />
+          <ScalarProperty Name="LastRun" ColumnName="LastRun" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_CustomerDebitHistoryByDay">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_CustomerDebitHistoryByDay">
+        <MappingFragment StoreEntitySet="Rpt_CustomerDebitHistoryByDay">
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="User_" ColumnName="User " />
+          <ScalarProperty Name="ParentUser_" ColumnName="ParentUser " />
+          <ScalarProperty Name="OpeningDebit" ColumnName="OpeningDebit" />
+          <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+          <ScalarProperty Name="UnprocessAmount" ColumnName="UnprocessAmount" />
+          <ScalarProperty Name="Diff" ColumnName="Diff" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rpt_CustomerDebitHistoryByDay_v2">
+      <EntityTypeMapping TypeName="DevPayExpressModel.Rpt_CustomerDebitHistoryByDay_v2">
+        <MappingFragment StoreEntitySet="Rpt_CustomerDebitHistoryByDay_v2">
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="User_" ColumnName="User " />
+          <ScalarProperty Name="ParentUser_" ColumnName="ParentUser " />
+          <ScalarProperty Name="OpeningDebit" ColumnName="OpeningDebit" />
+          <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+          <ScalarProperty Name="TotalInvoiceUnprocess" ColumnName="TotalInvoiceUnprocess" />
+          <ScalarProperty Name="TotalSuccess" ColumnName="TotalSuccess" />
+          <ScalarProperty Name="TotalRefund" ColumnName="TotalRefund" />
+          <ScalarProperty Name="UnprocessAmount" ColumnName="UnprocessAmount" />
+          <ScalarProperty Name="Diff" ColumnName="Diff" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

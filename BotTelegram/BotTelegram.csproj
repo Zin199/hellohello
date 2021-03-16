@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D592735-9CBB-49C8-B7CD-B217CC03A28D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BotTelegram</RootNamespace>
+    <AssemblyName>BotTelegram</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telegram.Bot, Version=15.7.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.15.7.1\lib\net45\Telegram.Bot.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\AbpAuditLog.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpBackgroundJob.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpEdition.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpEntityChangeSet.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpEntityChanx.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpEntityPropertyChanx.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpFeature.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpLanguage.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpLanguageText.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpNotification.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpNotificationSubscription.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpOrganizationUnit.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpOrganizationUnitRole.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpPermission.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpPersistedGrant.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpRole.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpRoleClaim.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpSetting.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpTenant.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpTenantNotification.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUser.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserAccount.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserClaim.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserLogin.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserLoginAttempt.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserNotification.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserOrganizationUnit.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserRole.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpUserToken.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpWebhookEvent.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpWebhookSendAttempt.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbpWebhookSubscription.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AlarmHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppBinaryObject.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppChatMessage.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppFriendship.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppInvoice.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppModemConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppSubscriptionPayment.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AppSubscriptionPaymentsExtensionData.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Bank.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BuyCardPriorityConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BuyPincodeTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BuyPincodeTransactionDetail.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CaptchaFile.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChargingPartnerProviderConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChargingTopupTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChargingTopupTransactionHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChargingTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ChargingTransactionCallbackPartnerHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CheckCardTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\C__EFMigrationsHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DepositInvoice.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DepositPartnerInvoice.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DiscountPolicy.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GenChargingInvoice.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GenInvoice.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Group.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GroupPermission.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\InvoiceDiscountHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\InvoiceTypeTelcoChargingConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\JobSchedule.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MaintainSM.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MaintenanceSm.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MerchantUserDepositTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\MobiFoneToken.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModemChargingActiveSimHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\NotificationText.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Partner.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerBalance.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerBalanceHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerChargingPartnerTopupConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerDiscountPolicy.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerServiceConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerServiceWorkerChannelConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerTopupTransactionConfigMaxWaiting.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerUser.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerUserPartner.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PartnerUserProvider.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayExpressModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayExpressModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayExpressModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PayExpressModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PayExpressModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Permission.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PinCodeStock.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Product.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_BusinessReport.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_CustomerBalanceByDate.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_CustomerBalanceDetailByDate.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_CustomerDebit.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_CustomerDebitHistoryByDay.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_CustomerDebitHistoryByDay_v2.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Rpt_SystemMoneyByDay.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SaleInvoice.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SaleInvoiceBuyPincodeDetail.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SaleInvoiceCalculationHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SaleInvoiceTopupDetail.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Service.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceProvider.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceProviderConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ServiceProviderDiscountPolicy.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SIM.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SimAccount.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SimAccountInfo.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SMSList.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SourceMoney.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SubscriberChannelAuthentication.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SystemAccount.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SystemSetting.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Telco.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TelcoServicePaidType.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Temp_SimZP.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Ticket.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TicketType.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TopupDepositOrder.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TopupOrder.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TopupOrderDepositAccount.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TopupPartnerProviderConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TopupPriorityConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TopupTransaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Transaction.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransferMoney.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserBalance.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserBalanceHistory.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserGroup.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\UserPartner.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkerChannelTelcoPaidTypeConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkerServerConfig.cs">
+      <DependentUpon>PayExpressModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ChargingTopupTransactionRepository.cs" />
+    <Compile Include="Repository\ChargingTransactionRepository.cs" />
+    <Compile Include="Repository\CheckCardTransactionRepository.cs" />
+    <Compile Include="Repository\PartnerRepository.cs" />
+    <Compile Include="Repository\TopupTransactionRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\PayExpressModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PayExpressModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\PayExpressModel.edmx.diagram">
+      <DependentUpon>PayExpressModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\PayExpressModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PayExpressModel.edmx</DependentUpon>
+      <LastGenOutput>PayExpressModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PayExpressModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PayExpressModel.edmx</DependentUpon>
+      <LastGenOutput>PayExpressModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
