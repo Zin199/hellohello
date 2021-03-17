@@ -51,22 +51,33 @@ namespace BotTelegram.Repository
             }
             return null;
         }
-        public ChargingTransaction UpdateSerialFalse(string serial, byte cardType)
+        public ChargingTransaction UpdateSerialFalse(ChargingTransaction chargingTran, int status, int cardamount)
         {
-            using (var db = new DevPayExpressEntities())
+            try
             {
-                var item = db.ChargingTransactions.FirstOrDefault(c => c.CardSerial == serial && c.CardType == cardType);
-                if (item != null)
+                using (var db = new DevPayExpressEntities())
                 {
-                    item.Status = 1;
-                    item.CardType = cardType;
-                    item.IsCallbackPartner = false;  
-                    db.SaveChanges();
-                    return item;
+                    var item = db.ChargingTransactions.FirstOrDefault(c => c.Id ==  chargingTran.Id);
+                    if (item != null)
+                    {
+                        
+                        item.Status = (short)status;
+                        item.CardAmount = cardamount;
+                        item.IsCallbackPartner = false;
+
+                        db.SaveChanges();
+                        return item;
+                    }
                 }
+            }
+
+            catch (Exception ex)
+            {
+
             }
             return null;
         }
+
 
     }
 }

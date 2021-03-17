@@ -9,8 +9,8 @@ C:\Code\C#\BotTelegram\BotTelegram\bin\Release\EntityFramework.xml
 C:\Code\C#\BotTelegram\BotTelegram\bin\Release\EntityFramework.SqlServer.xml
 C:\Code\C#\BotTelegram\BotTelegram\bin\Release\Newtonsoft.Json.xml
 C:\Code\C#\BotTelegram\BotTelegram\bin\Release\Telegram.Bot.xml
-C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.csprojAssemblyReference.cache
 C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.csproj.CoreCompileInputs.cache
 C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.csproj.CopyComplete
 C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.exe
 C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.pdb
+C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.csprojAssemblyReference.cache

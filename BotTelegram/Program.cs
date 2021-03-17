@@ -44,22 +44,6 @@ namespace BotTelegram
             Console.ReadLine();
 
         }
-
-        //private static void OnTimedEvent(object sender, ElapsedEventArgs e)
-        //{
-        //    var partnerCode = "ZOTA";
-        //    int Status = 13;
-
-
-        //    var topupTran = _topupTransactionRepository.GetTopupTransactinon(partnerCode, Status);
-        //    if (topupTran.Status == 13)
-        //    {
-        //        bot.SendTextMessageAsync("-1001180320054", $" Mã GD {topupTran.TransCode} Thành Công Sai Serial SĐT {topupTran.Mobile}. Yêu cầu cập nhật lại.");
-
-        //    }
-
-        //}
-
         private static void ChargingTrans(object sender, Telegram.Bot.Args.MessageEventArgs e)
         {
             try
@@ -70,15 +54,19 @@ namespace BotTelegram
                     var partner = _partnerRepository.GetPartnerByTelegramGroupId(e.Message.Chat.Id.ToString());
 
 
-                    if (partner != null && e.Message.Text.StartsWith("/seri "))
+                    if (partner != null && e.Message.Text.StartsWith("/sr "))
                     {
-                        var serial = e.Message.Text.Replace("/seri", "").Trim();
+                        var serial = e.Message.Text.Replace("/sr", "").Trim();
 
                         var chargingTran = _chargingTransactionRepository.GetTransactionBySerialPartnerCode(serial, partner.Code);
-
+                       
                         if (chargingTran != null)
                         {
-                            if (chargingTran.Status == 1)
+                            if(chargingTran.ProviderCode != "PAYEXPRESS")
+                            {
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Serial {chargingTran.CardSerial} mệnh giá {chargingTran.RequestAmount} bên {chargingTran.ProviderCode} xử lí, gửi sang nhóm {chargingTran.ProviderCode}");
+                            }    
+                            else if (chargingTran.Status == 1)
                             {
                                 bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Thành công mệnh giá {chargingTran.CardAmount} đã callback lại");
                             }
@@ -98,25 +86,21 @@ namespace BotTelegram
                                 var a = 0;
 
                                 var addCard = _checkCardTransactionRepository.InsertCheckCard(serial, (byte)chargingTran.CardType);
+                                do
+                                {
 
-                               
-                                    do
+                                    checkCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
+                                    if (checkCard != null || a > 3)
                                     {
-
-                                        checkCard = _checkCardTransactionRepository.GetCheckCard(serial);
-                                        if (checkCard != null || a > 3)
-                                        {
-                                            break;
-                                        }
-                                        else
-                                        {
-                                            Thread.Sleep(5000);
-                                        }
-                                        a++;
+                                        break;
                                     }
-                                    while (a <= 3);
-                                
-                               
+                                    else
+                                    {
+                                        Thread.Sleep(5000);
+                                    }
+                                    a++;
+                                }
+                                while (a <= 3);
                                 if (checkCard != null)
                                 {
                                     if (checkCard.Status == 1 && checkCard.CardStatus == 0)
@@ -131,12 +115,12 @@ namespace BotTelegram
                                     {
                                         bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount}, sđt {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| sđt nạp k phải bên em.");
                                     }
-
+                                    if(checkCard.Status == 13 && checkCard.CardStatus == 13)
+                                    {
+                                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Bên em đã tiếp nhận thông tin thẻ cào, a/c đợi chút để bên em kiểm tra ạ @mrtelesupport ");
+                                    }
                                 }
-                                else
-                                {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Bên em đã tiếp nhận thông tin thẻ cào, a/c đợi chút để bên em kiểm tra ạ @mrtelesupport ");
-                                }
+                               
                             }
                         }
                         else
@@ -195,7 +179,7 @@ namespace BotTelegram
 
                             if (addCard.Status == 1 && addCard.Isdn.Substring(0, 5) == checkMobile.Mobile.Substring(1, 5))
                             {
-                                //var update = _chargingTransactionRepository.UpdateSerialFalse(serialSai, 1);
+                                var update = _chargingTransactionRepository.UpdateSerialFalse(chargingTran, 1, (int)addCard.CardAmount);
                                 bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial sai {serialSai}, serial đúng {serialDung} thành công {addCard.CardAmount} đã callback lại.");
                             }
                             else if

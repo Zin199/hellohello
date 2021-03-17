@@ -13,4 +13,3 @@ C:\Code\C#\BotTelegram\BotTelegram\obj\Debug\BotTelegram.csproj.CoreCompileInput
 C:\Code\C#\BotTelegram\BotTelegram\obj\Debug\BotTelegram.csproj.CopyComplete
 C:\Code\C#\BotTelegram\BotTelegram\obj\Debug\BotTelegram.exe
 C:\Code\C#\BotTelegram\BotTelegram\obj\Debug\BotTelegram.pdb
-C:\Code\C#\BotTelegram\BotTelegram\obj\Debug\BotTelegram.csprojAssemblyReference.cache
