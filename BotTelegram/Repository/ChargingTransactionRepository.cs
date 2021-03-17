@@ -60,7 +60,7 @@ namespace BotTelegram.Repository
                 {
                     item.Status = 1;
                     item.CardType = cardType;
-                    item.IsCallbackPartner = false;
+                    item.IsCallbackPartner = false;  
                     db.SaveChanges();
                     return item;
                 }

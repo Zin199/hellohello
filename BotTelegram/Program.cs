@@ -13,7 +13,7 @@ namespace BotTelegram
     {
 
 
-        private static TelegramBotClient bot = new TelegramBotClient("1636960131:AAHlvUDkoJ0XtPd2jmd1dQQcYxGhn4tgKMA");
+        private static TelegramBotClient bot = new TelegramBotClient("1623962486:AAEnaEoZjtJ7cG8YSFTF4bHh6le2Oa4mXA4");
 
         private static ChargingTransactionRepository _chargingTransactionRepository = new ChargingTransactionRepository();
 
@@ -62,145 +62,161 @@ namespace BotTelegram
 
         private static void ChargingTrans(object sender, Telegram.Bot.Args.MessageEventArgs e)
         {
-            
-            if (e.Message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
+            try
             {
-                //Get partner by chatId
-                var partner = _partnerRepository.GetPartnerByTelegramGroupId(e.Message.Chat.Id.ToString());
-
-
-                if (partner != null && e.Message.Text.StartsWith("/VT "))
+                if (e.Message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
                 {
-                    var serial = e.Message.Text.Replace("/VT", "").Trim();
+                    //Get partner by chatId
+                    var partner = _partnerRepository.GetPartnerByTelegramGroupId(e.Message.Chat.Id.ToString());
 
-                    var chargingTran = _chargingTransactionRepository.GetTransactionBySerialPartnerCode(serial, partner.Code);
 
-                    if (chargingTran != null)
+                    if (partner != null && e.Message.Text.StartsWith("/seri "))
                     {
-                        if (chargingTran.Status == 1)
+                        var serial = e.Message.Text.Replace("/seri", "").Trim();
+
+                        var chargingTran = _chargingTransactionRepository.GetTransactionBySerialPartnerCode(serial, partner.Code);
+
+                        if (chargingTran != null)
                         {
-                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Thành công mệnh giá {chargingTran.CardAmount} đã callback lại");
-                        }
-                        else if (chargingTran.Status == 2 && chargingTran.InternalErrorCode == 6)
-                        {
-                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Serial thẻ bị sai, cho e xin serial đúng để bên em check");
-                        }
-                        else if (chargingTran.Status == 100)
-                        {
-                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Không sử dụng bên em.");
+                            if (chargingTran.Status == 1)
+                            {
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Thành công mệnh giá {chargingTran.CardAmount} đã callback lại");
+                            }
+                            else if (chargingTran.Status == 2 && chargingTran.InternalErrorCode == 6)
+                            {
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Serial thẻ bị sai, cho e xin serial đúng để bên em check");
+                            }
+                            else if (chargingTran.Status == 100)
+                            {
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"{chargingTran.CardSerial} Không sử dụng bên em.");
+                            }
+                            else
+                            {
+
+                                var checkCard = new CheckCardTransaction();
+                                var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
+                                var a = 0;
+
+                                var addCard = _checkCardTransactionRepository.InsertCheckCard(serial, (byte)chargingTran.CardType);
+
+                               
+                                    do
+                                    {
+
+                                        checkCard = _checkCardTransactionRepository.GetCheckCard(serial);
+                                        if (checkCard != null || a > 3)
+                                        {
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            Thread.Sleep(5000);
+                                        }
+                                        a++;
+                                    }
+                                    while (a <= 3);
+                                
+                               
+                                if (checkCard != null)
+                                {
+                                    if (checkCard.Status == 1 && checkCard.CardStatus == 0)
+                                    {
+                                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} chưa sử dụng, mã thẻ sai. ");
+                                    }
+                                    if (checkCard.Status == 1 && checkCard.UseTime < chargingTran.CreatedTime)
+                                    {
+                                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount} SĐT {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| thẻ đã sử dụng trước.  ");
+                                    }
+                                    else if (checkCard.Status == 1 && chargingTran.Status == 2 && checkCard.Isdn.Substring(0, 5) != checkMobile.Mobile.Substring(1, 5))
+                                    {
+                                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount}, sđt {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| sđt nạp k phải bên em.");
+                                    }
+
+                                }
+                                else
+                                {
+                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Bên em đã tiếp nhận thông tin thẻ cào, a/c đợi chút để bên em kiểm tra ạ @mrtelesupport ");
+                                }
+                            }
                         }
                         else
                         {
-
-                            var checkCard = new CheckCardTransaction();
-                            var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
-                            var a = 0;
-                          
-                                var addCard = _checkCardTransactionRepository.InsertCheckCard(serial, (byte)chargingTran.CardType);
-                                do
-                                {
-
-                                    checkCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
-                                    if (checkCard != null || a > 3)
-                                    {
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        Thread.Sleep(5000);
-                                    }
-                                    a++;
-                                }
-                                while (a <= 3);
-                            if (checkCard != null)
-                            {
-                                if (checkCard.Status == 1 && checkCard.CardStatus == 0)
-                                {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} chưa sử dụng, mã thẻ sai. ");
-                                }
-                                if (checkCard.Status == 1 && checkCard.UseTime < chargingTran.CreatedTime)
-                                {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount} SĐT {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| thẻ đã sử dụng trước.  ");
-                                }
-                                else if (checkCard.Status == 1 && chargingTran.Status == 2 && checkCard.Isdn.Substring(0, 5) != checkMobile.Mobile.Substring(1, 5))
-                                {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial {checkCard.CardSerial} mệnh giá {checkCard.CardAmount}, sđt {checkCard.Isdn}\nthời gian sử dụng {checkCard.UseTime}| sđt nạp k phải bên em.");
-                                }
-
-                            }
-                            else
-                            {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Bên em đã tiếp nhận thông tin thẻ cào, a/c đợi chút để bên em kiểm tra ạ @mrtelesupport ");   
-                            }                           
+                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial Không tìm thấy");
                         }
-                    }
-                    else
-                    {
-                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial Không tìm thấy");
-                    }
 
-                }
-                if (e.Message.Text.StartsWith("/VTsai"));
-                {
-                    List<string> list = e.Message.Text.Split(' ').ToList();
-                    foreach (var a in list)
-                    {
-                        Console.WriteLine(a);
                     }
-                    if (list[0] == "/VTsai" && list[2] == "/VTdung")
+                    if (e.Message.Text.StartsWith("/sai"))
                     {
 
-                        var chargingTran = _chargingTransactionRepository.GetTransactionBySerialFalsePartnerCode(list[1], partner.Code);
+                        var userInput = e.Message.Text;
 
-                        var addCard = _checkCardTransactionRepository.InsertCheckCard(list[3], (byte)chargingTran.CardType);
+                        userInput = userInput.Replace("/sai", " ").Replace("/dung", " ").Replace("dung", " ");
+                        List<string> list = userInput.Split(' ').ToList();
                        
-                        var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
-                        /*
-                          * 1. Khach gui serial sai.
-                          * 2. Kiem tra serial sai và trả lời kèm cú pháp hướng dẫn sai đúng.
-                          * 3. Lấy serial đúng check serial, đợi khoảng 1-30s, có kết quả thì sửa luôn trạng thái thẻ và bot trả lời luôn
-                          Logic đợi.
-                         1. Insert vào bảng checkcard.
-                         2.Cho vào vòng lặp check xem cái serial vừa insert có kết quả chưa, nếu chưa thì sleep 5000.
-                          */
-                        var a = 0;
-                        var checkCardTran = new CheckCardTransaction();
-                        do
+                            list = list.Where(a => a.Length > 0).ToList();
+                        //Console.WriteLine(a);
+                        var serialSai = list[0];
+                        var serialDung = list[1];
+
+
+                        if (list.Count == 2) // co the check them dinh dang serial dung
                         {
 
-                            addCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
-                            if (addCard != null || a > 3)
+                            var chargingTran = _chargingTransactionRepository.GetTransactionBySerialFalsePartnerCode(serialSai, partner.Code);
+
+                            var addCard = _checkCardTransactionRepository.InsertCheckCard(serialDung, (byte)chargingTran.CardType);
+
+                            var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
+                            /*
+                              * 1. Khach gui serial sai.
+                              * 2. Kiem tra serial sai và trả lời kèm cú pháp hướng dẫn sai đúng.
+                              * 3. Lấy serial đúng check serial, đợi khoảng 1-30s, có kết quả thì sửa luôn trạng thái thẻ và bot trả lời luôn
+                              Logic đợi.
+                             1. Insert vào bảng checkcard.
+                             2.Cho vào vòng lặp check xem cái serial vừa insert có kết quả chưa, nếu chưa thì sleep 5000.
+                              */
+                            var a = 0;
+                            var checkCardTran = new CheckCardTransaction();
+                            do
                             {
-                                break;
+
+                                addCard = _checkCardTransactionRepository.GetCheckCard(serialDung);
+                                if (addCard != null || a > 3)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    Thread.Sleep(5000);
+                                }
+                                a++;
                             }
-                            else
+                            while (a <= 3);
+
+                            if (addCard.Status == 1 && addCard.Isdn.Substring(0, 5) == checkMobile.Mobile.Substring(1, 5))
                             {
-                                Thread.Sleep(5000);
+                                //var update = _chargingTransactionRepository.UpdateSerialFalse(serialSai, 1);
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial sai {serialSai}, serial đúng {serialDung} thành công {addCard.CardAmount} đã callback lại.");
                             }
-                            a++;
-                        }
-                        while (a <= 3);
+                            else if
+                                (checkCardTran.Status == 13)
+                            {
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã tiếp nhận thông tin serial sai và serial đúng. A/c chờ chút bên em kiểm tra ạ @mrtelesupport");
+                            }
 
-                        if (checkCardTran.Status == 1 && checkCardTran.Isdn.Substring(0, 5) == checkMobile.Mobile.Substring(1, 5))
-                        {
-                            //var update = _chargingTransactionRepository.UpdateSerialFalse(list[2], 1);
-                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $" Serial sai {list[1]}, serial đúng {list[3]} thành công {checkCardTran.CardAmount} đã callback lại.");
                         }
-                        else if
-                            (checkCardTran.Status == 13)
+                        else
                         {
-                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã tiếp nhận thông tin serial sai và serial đúng. A/c chờ chút bên em kiểm tra ạ @mrtelesupport");
+                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Cú pháp sai, a/c sử dụng đúng theo cú pháp /sai kèm theo serial sai và dung kèm theo serial đúng.");
                         }
-
-                    }
-                    else
-                    {
-                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Sai cú pháp kiểm tra.");
                     }
                 }
+
             }
+            catch (Exception ex)
+            {
 
-
+            }
 
         }
     private static void TopupTrans()
