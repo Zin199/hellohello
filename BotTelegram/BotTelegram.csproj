@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant.cs" />
     <Compile Include="Model\AbpAuditLog.cs">
       <DependentUpon>PayExpressModel.tt</DependentUpon>
     </Compile>
@@ -461,6 +462,7 @@
     <Compile Include="Repository\CheckCardTransactionRepository.cs" />
     <Compile Include="Repository\PartnerRepository.cs" />
     <Compile Include="Repository\TopupTransactionRepository.cs" />
+    <Compile Include="Service\CheckCardService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

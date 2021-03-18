@@ -18,8 +18,8 @@ namespace BotTelegram.Repository
                     //Lay du lieu
                     var chargingTran = db.ChargingTransactions.Where(c => c.CardSerial == cardSerial && c.PartnerCode == partnerCode).FirstOrDefault();
                     //chargingTran.IsCallbackPartner = false;
+              
                     db.SaveChanges();
-
                     return chargingTran;
                 }                   
             }
@@ -63,7 +63,7 @@ namespace BotTelegram.Repository
                         
                         item.Status = (short)status;
                         item.CardAmount = cardamount;
-                        item.IsCallbackPartner = false;
+                        //item.IsCallbackPartner = false;
 
                         db.SaveChanges();
                         return item;
