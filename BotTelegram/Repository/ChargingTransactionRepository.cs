@@ -9,15 +9,15 @@ namespace BotTelegram.Repository
 {
     public class ChargingTransactionRepository
     {
-        public ChargingTransaction GetTransactionBySerialPartnerCode( string cardSerial, string partnerCode)
+        public ChargingTransaction GetTransactionBySerialPartnerCode(string cardSerial, List<string> listPartnerCode)
         {
             try
             {
                 using (var db = new DevPayExpressEntities())
                 {
                     //Lay du lieu
-                    var chargingTran = db.ChargingTransactions.Where(c => c.CardSerial == cardSerial && c.PartnerCode == partnerCode).FirstOrDefault();
-                    //chargingTran.IsCallbackPartner = false;
+                    var chargingTran = db.ChargingTransactions.Where(c => c.CardSerial == cardSerial && listPartnerCode.Contains(c.PartnerCode)).FirstOrDefault();
+                    chargingTran.IsCallbackPartner = false;
               
                     db.SaveChanges();
                     return chargingTran;
@@ -29,18 +29,16 @@ namespace BotTelegram.Repository
             }
             return null;
         }
-        public ChargingTransaction GetTransactionBySerialFalsePartnerCode(string cardSerial, string partnerCode)
+        public ChargingTransaction GetTransactionBySerialFalsePartnerCode(string cardSerial, List<string> listPartnerCode)
         {
             try
             {
                 using (var db = new DevPayExpressEntities())
-                {
-                    //Lay du lieu
-                    var chargingTran = db.ChargingTransactions.Where(c => c.CardSerial == cardSerial
-                                                                   && c.PartnerCode == partnerCode
-                                                                   && c.InternalErrorCode == 6).FirstOrDefault();
+                {                 
+                    var chargingTran = db.ChargingTransactions.Where(c =>  c.CardSerial == cardSerial
+                                                                        && listPartnerCode.Contains(c.PartnerCode)
+                                                                        && c.InternalErrorCode == 6).FirstOrDefault();                   
                     
-                    db.SaveChanges();
 
                     return chargingTran;
                 }
@@ -63,7 +61,7 @@ namespace BotTelegram.Repository
                         
                         item.Status = (short)status;
                         item.CardAmount = cardamount;
-                        //item.IsCallbackPartner = false;
+                        item.IsCallbackPartner = false;
 
                         db.SaveChanges();
                         return item;

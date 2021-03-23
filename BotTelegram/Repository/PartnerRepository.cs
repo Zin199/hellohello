@@ -28,5 +28,26 @@ namespace BotTelegram.Repository
             return null;
         }
 
+        public List<string> GetListPartnerByTelegramGroupId(string telgramGroupId)
+        {
+
+
+            var parnter = new List<string>();
+            try
+            {
+                using (var db = new DevPayExpressEntities())
+                {
+                     parnter = db.Partners.Where(s => s.TelegramSuportGroupId == telgramGroupId).Select(s => s.Code).ToList();
+
+                    return parnter;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return parnter;
+        }
+
     }
 }
