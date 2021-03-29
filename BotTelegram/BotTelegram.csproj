@@ -504,9 +504,11 @@
     <Compile Include="Repository\ChargingTransactionRepository.cs" />
     <Compile Include="Repository\CheckCardTransactionRepository.cs" />
     <Compile Include="Repository\PartnerRepository.cs" />
+    <Compile Include="Repository\PinCodeStockRepository.cs" />
     <Compile Include="Repository\ServiceProviderRepository.cs" />
     <Compile Include="Repository\TopupTransactionRepository.cs" />
     <Compile Include="Service\CheckCardService.cs" />
+    <Compile Include="Service\PincodeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

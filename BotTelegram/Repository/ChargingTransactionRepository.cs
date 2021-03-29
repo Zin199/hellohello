@@ -37,7 +37,7 @@ namespace BotTelegram.Repository
                 {                 
                     var chargingTran = db.ChargingTransactions.Where(c =>  c.CardSerial == cardSerial
                                                                         && listPartnerCode.Contains(c.PartnerCode)
-                                                                        && c.InternalErrorCode == 6).FirstOrDefault();                   
+                                                                        ).FirstOrDefault();                   
                     
 
                     return chargingTran;
@@ -70,6 +70,31 @@ namespace BotTelegram.Repository
             }
 
             catch (Exception ex)
+            {
+
+            }
+            return null;
+        }
+        public ChargingTransaction UpdateSerialWrong( ChargingTransaction chargingTran, int status, int cardamount)
+        {
+            try
+            {
+                using (var db = new DevPayExpressEntities())
+                {
+                    var item = db.ChargingTransactions.FirstOrDefault(c => c.Id == chargingTran.Id);
+
+                    if (item != null)
+                    {
+                        item.Status = (short)status;
+                        item.CardAmount = cardamount;
+                        item.IsCallbackPartner = false;
+
+                        db.SaveChanges();
+                        return item;
+                    }
+                }
+            }
+            catch (Exception)
             {
 
             }

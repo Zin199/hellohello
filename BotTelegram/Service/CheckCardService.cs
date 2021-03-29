@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BotTelegram.Repository;
+using BotTelegram.Model;
+using Telegram.Bot;
 namespace BotTelegram.Service
 {
+  
     public class CheckCardService
     {
-        public void CheckSerial(string serial)
+       
+        
+        public void CheckSerial(string serial, string TelegramSuportGroupId)
         {
-            
-            //B1: Goi repository de get partner.
 
+            //B1: Goi repository de get partner.    
             //B2: Lay the trong charging transaction voi partner code.
-
             //B3: Gui tin nhan thong bao lai cho doi tac.
         }
 
@@ -36,5 +39,6 @@ namespace BotTelegram.Service
 
         }
 
+       
     }
 }
