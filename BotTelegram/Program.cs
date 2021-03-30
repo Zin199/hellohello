@@ -78,7 +78,30 @@ namespace BotTelegram
 
                         if (chargingTran != null)
                         {
-                            if (chargingTran.ProviderCode != "PAYEXPRESS" && chargingTran.ProviderCode != "THANHTOANVIP")
+                            
+                            if (chargingTran.Status == Constant.CARD_STATUS_SUCCESS)
+                            {
+                                //TH tc chua nhan dc callback
+
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận được thẻ serial: {serial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, trạng thái: {Constant.CARDSTATUS[(byte)chargingTran.Status]}, mệnh giá gửi: {chargingTran.RequestAmount}, đã thực hiện callback lại lần nữa. A/c kiểm tra lại giúp.");
+
+                            }
+                            else if (chargingTran.Status == 2 && chargingTran.InternalErrorCode == 6)
+                            {   //TH sai serial
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận được serial: {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, trạng thái: \"Sai seri\", mệnh giá gửi: {chargingTran.RequestAmount}. Gửi giúp em thông tin serial đúng theo cú pháp \"/sai serialsai /dung serialdung\", ví dụ: \"/sai 1000123123 /dung 10001231234\"");                               
+                            }
+                            else if(chargingTran.Status == 2 && chargingTran.RealCardAmount > 0)
+                            {
+                                var update = _chargingTransactionRepository.UpdateSerialWrong(chargingTran, 1, chargingTran.RealCardAmount);
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận được serial: {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, mệnh giá gửi: {chargingTran.RequestAmount}, mệnh giá thực: {chargingTran.RealCardAmount}. Đã thực hiện callback, a/c kiểm tra lại giúp.");
+                            }
+                            else if (chargingTran.Status == 100)
+                            {
+                                //TH the k su dung
+                                Console.WriteLine("the k sd");
+                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận đc serial: {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]},trạng thái: thẻ không sử dụng, mệnh giá gửi: {chargingTran.RequestAmount}, đã thực hiện callback lại lần nữa. A/c kiểm tra lại giúp.");
+                            }
+                            else if (chargingTran.ProviderCode != "PAYEXPRESS" && chargingTran.ProviderCode != "THANHTOANVIP")
                             {
 
 
@@ -96,42 +119,10 @@ namespace BotTelegram
                                     bot.SendTextMessageAsync("-212144332", $"Kiểm tra giúp mình serial {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]} ");
                                 }
                             }
-                            else if (chargingTran.Status == Constant.CARD_STATUS_SUCCESS)
-                            {
-                                //TH tc chua nhan dc callback
-
-                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận được thẻ serial: {serial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, trạng thái: {Constant.CARDSTATUS[(byte)chargingTran.Status]}, mệnh giá gửi: {chargingTran.RequestAmount}, đã thực hiện callback lại lần nữa. A/c kiểm tra lại giúp.");
-
-                            }
-                            else if (chargingTran.Status == 2)
-                            {   //TH sai serial
-                                //
-                                if (chargingTran.InternalErrorCode == 6)
-                                {
-                                    bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận được serial: {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, trạng thái: \"Sai seri\", mệnh giá gửi: {chargingTran.RequestAmount}. Gửi giúp em thông tin serial đúng theo cú pháp \"/sai serialsai /dung serialdung\", ví dụ: \"/sai 1000123123 /dung 10001231234\"");
-                                }
-                                else
-                                {
-                                    if (chargingTran.RealCardAmount > 0)
-                                    {
-                                        // Thong bao sai menh gia, callback đúng mệnh giá thực và trạng thái thành công
-                                        var update = _chargingTransactionRepository.UpdateSerialWrong(chargingTran, 1, chargingTran.RealCardAmount);
-                                        bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận được serial: {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, mệnh giá gửi: {chargingTran.RequestAmount}, mệnh giá thực: {chargingTran.CardAmount}. Đã thực hiện callback, a/c kiểm tra lại giúp.");
-                                    }
-                                }
-
-                            }
-                            else if (chargingTran.Status == 100)
-                            {
-                                Console.WriteLine("the k sd");
-                                bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em đã nhận đc serial: {chargingTran.CardSerial}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]},trạng thái: thẻ không sử dụng, mệnh giá gửi: {chargingTran.RequestAmount}, đã thực hiện callback lại lần nữa. A/c kiểm tra lại giúp.");
-
-
-                                //TH the k su dung
-                            }
-                            
                             else
                             {
+
+
                                 var checkCard = new CheckCardTransaction();
                                 var checkMobile = _chargingTopupTransactionRepository.GetChargingTopupTran(chargingTran);
                                 var a = 0;
@@ -141,7 +132,7 @@ namespace BotTelegram
                                 {
 
                                     checkCard = _checkCardTransactionRepository.GetCheckCardSuccess((int)addCard.Id);
-                                    
+
                                     if (checkCard != null || a >= 6)
                                     {
                                         break;
@@ -182,6 +173,8 @@ namespace BotTelegram
                         }
 
                     }
+
+                    // Check serial dung, sai
                     if (e.Message.Text.StartsWith("/sai"))
                     {
                        
@@ -246,21 +239,24 @@ namespace BotTelegram
                                             //TH dung so nap
                                             Console.WriteLine("zzz");
                                             var update = _chargingTransactionRepository.UpdateSerialFalse(chargingTran, 1, (int)addCard.CardAmount);
-                                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em nhận được thẻ serial sai: {serialSai}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, serial đúng: {serialDung}, trạng thái: thành công, mệnh giá nạp: {addCard.CardAmount}, đã thực hiện lại callback lần nữa. A/c kiểm tra lại giúp. ");
+                                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Serial sai: {serialSai}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, serial đúng: {serialDung}, trạng thái: thành công, mệnh giá nạp: {addCard.CardAmount}, đã thực hiện lại callback lần nữa. A/c kiểm tra lại giúp. ");
                                         }
-                                        if (addCard.Status == 1 && addCard.CardStatus == 1 && addCard.Isdn.Substring(0, 5) != checkMobile.Mobile.Substring(1, 5))
+                                        else if (addCard.Status == 1 && addCard.CardStatus == 1 && addCard.Isdn.Substring(0, 5) != checkMobile.Mobile.Substring(1, 5))
                                         {   //TH khac so nap
                                             Console.WriteLine("xxx");
-                                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Bên em nhận được thẻ sai serial: {serialSai}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, serial đúng: {serialDung} bên mình cung cấp không nạp vào thuê bao bên em. A/c kiểm tra lại giúp em.");
+                                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Serial sai: {serialSai}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, serial đúng: {serialDung} bên mình cung cấp không nạp vào thuê bao bên em. A/c kiểm tra lại giúp em.");
                                         }
+                                        else if (addCard.Status == 1 && addCard.CardStatus == 0)
+                                        {
+                                            bot.SendTextMessageAsync(e.Message.Chat.Id.ToString(), $"Serial sai: {serialSai}, nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, serial đúng: {serialDung} bên mình cung cấp chưa sử dụng. A/c kiểm tra lại giúp em.");
+                                        }
+
                                         if (addCard.Status == 13 && addCard.Status == 13)
                                         {
                                             //TH seri đúng check quá số lần
                                             Console.WriteLine("xx");
                                             bot.SendTextMessageAsync("-572467985", $"Serial sai: {serialSai}, serial đúng: {serialDung} nhà mạng: {Constant.CARDTYPESERIAL[(byte)chargingTran.CardType]}, mệnh giá gửi: {chargingTran.RequestAmount}, Đối tác: {chargingTran.PartnerCode}. Kiểm tra serial đúng sai vì quá số lần tra cứu.  ");
-
                                             // Gui thong bao cho nhom van hanh no bot
-
                                         }
                                     }
                                     

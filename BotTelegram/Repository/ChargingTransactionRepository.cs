@@ -75,7 +75,7 @@ namespace BotTelegram.Repository
             }
             return null;
         }
-        public ChargingTransaction UpdateSerialWrong( ChargingTransaction chargingTran, int Status, int RealCardAmount)
+        public ChargingTransaction UpdateSerialWrong( ChargingTransaction chargingTran, int Status, int CardAmount)
         {
             try
             {
@@ -86,7 +86,7 @@ namespace BotTelegram.Repository
                     if (item != null)
                     {
                         item.Status = (short)Status;
-                        item.RealCardAmount = RealCardAmount;
+                        item.CardAmount = CardAmount;
                         item.IsCallbackPartner = false;
 
                         db.SaveChanges();

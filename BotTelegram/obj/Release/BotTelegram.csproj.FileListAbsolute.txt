@@ -36,3 +36,4 @@ C:\Code\C#\BotTelegram\BotTelegram\bin\Release\System.Memory.xml
 C:\Code\C#\BotTelegram\BotTelegram\bin\Release\System.Numerics.Vectors.xml
 C:\Code\C#\BotTelegram\BotTelegram\bin\Release\System.Runtime.CompilerServices.Unsafe.xml
 C:\Code\C#\BotTelegram\BotTelegram\bin\Release\System.Threading.Tasks.Extensions.xml
+C:\Code\C#\BotTelegram\BotTelegram\obj\Release\BotTelegram.csprojAssemblyReference.cache
