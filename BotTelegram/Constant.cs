@@ -24,8 +24,8 @@ namespace BotTelegram
         public static string[] CARDSTATUS = new string[]
     {
         "",
-        "thành công",
-        "thất bại",
+        "THÀNH CÔNG",
+        "THẤT BẠI",
     };
 
     }
