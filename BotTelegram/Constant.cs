@@ -12,6 +12,7 @@ namespace BotTelegram
         public static byte CARD_STATUS_FAILED = 2;
         public static byte CARD_STATUS_NOT_USE = 100;
         public static byte CARD_STATUS_PROCESSING = 11;
+        public static byte CARD_STATUS_WRONG_SERIAL = 6;
         //public static string VIDU = """
         public static string[] CARDTYPESERIAL = new string[]
     {
@@ -27,6 +28,11 @@ namespace BotTelegram
         "THÀNH CÔNG",
         "THẤT BẠI",
     };
-
+        public static string[] PINCODESTATUS = new string[]
+    {
+        "NHẬP KHO",
+        "ĐÃ BÁN",
+        "THẺ LỖI",
+    };
     }
 }

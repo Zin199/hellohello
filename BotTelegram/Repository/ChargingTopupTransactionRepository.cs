@@ -14,7 +14,8 @@ namespace BotTelegram.Repository
             {
                 using (var db = new DevPayExpressEntities()) 
                 {
-                    var chargingTopup = db.ChargingTopupTransactions.Where(c => c.PartnerChargingTransactionId == chargingTransaction.Id).FirstOrDefault();
+                    var chargingTopup = db.ChargingTopupTransactions.Where(c => c.PartnerChargingTransactionId == chargingTransaction.Id
+                                                                            && (c.Status == Constant.CARD_STATUS_SUCCESS || c.Status == Constant.CARD_STATUS_WRONG_SERIAL) ).FirstOrDefault();
 
 
                     return chargingTopup;

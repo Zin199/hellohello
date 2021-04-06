@@ -36,7 +36,7 @@ namespace BotTelegram.Repository
                 using (var db = new DevPayExpressEntities())
                 {                 
                     var chargingTran = db.ChargingTransactions.Where(c =>  c.CardSerial == cardSerial
-                                                                        && listPartnerCode.Contains(c.PartnerCode)
+                                                                        && listPartnerCode.Contains(c.PartnerCode)                                                                      
                                                                         ).FirstOrDefault();                   
                     
 

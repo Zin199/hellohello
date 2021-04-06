@@ -13,26 +13,32 @@ namespace BotTelegram.Service
     {
         private static PinCodeStockRepository _pinCodeStockRepository = new PinCodeStockRepository();
 
-        public void GetCodeStock(object sender, Telegram.Bot.Args.MessageEventArgs e, TelegramBotClient bot)
+        public void GetPinCodeStock(object sender, Telegram.Bot.Args.MessageEventArgs e, TelegramBotClient bot)
         {
 
-            var getSerial = new PinCodeStock();
+            
             try
             {
-                getSerial = _pinCodeStockRepository.GetPincode("675657");
 
-                if (getSerial != null)
+                if (e.Message.Type == Telegram.Bot.Types.Enums.MessageType.Text)
                 {
+                    if (e.Message.Text.StartsWith("/pc"))
+                    {
+                        var serial = e.Message.Text.Replace("/pc","").Trim();
+                        var pinCode = _pinCodeStockRepository.GetPincode(serial);
+                        if(pinCode != null) 
+                        {                          
+                                bot.SendTextMessageAsync("-501613913", $"Serial: {pinCode.CardSerial}\nMệnh giá: {pinCode.CardAmount}\nNhà mạng: {Constant.CARDTYPESERIAL[(byte)pinCode.CardType]}\nThời gian tạo: {pinCode.CreatedTime}\nThời gian xuất kho: {pinCode.ExportedTime}\nTrạng thái: {Constant.PINCODESTATUS[(byte)pinCode.Status]} \nNhà cung cấp: {pinCode.ImportProvider}  ");
+       
+                        }
+                        else
+                        {
+                            bot.SendTextMessageAsync("-501613913", $"Serial không tìm thấy trong kho");
+                        }
 
-                   
+                    }
+                    
                 }
-                else
-                {
-
-                    Console.WriteLine("ko lay dc");
-                }
-
-
             }
             catch (Exception ex)
             {

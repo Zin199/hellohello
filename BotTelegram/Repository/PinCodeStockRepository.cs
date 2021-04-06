@@ -8,16 +8,13 @@ namespace BotTelegram.Repository
 {
     class PinCodeStockRepository
     {      
-      public PinCodeStock GetPincode(string cardserial)
+      public PinCodeStock GetPincode(string cardSerial)
         {
             try
             {
                 using (var db = new DevPayExpressEntities()) 
                 {
-
-                    var pincode = db.PinCodeStocks.Where(c => c.CardSerial == cardserial).FirstOrDefault();
-
-
+                    var pincode = db.PinCodeStocks.Where(c => c.CardSerial == cardSerial).FirstOrDefault();
                     return pincode;
                 }              
             }
@@ -27,8 +24,6 @@ namespace BotTelegram.Repository
             }
             return null;
         }
-      
-        
-        
+    
     }
 }
